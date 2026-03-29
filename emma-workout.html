@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Strength Plan">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Emma · Workout Plan · 2026</title>
+
+<style>
+  :root {
+    --font-display: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+    --black: #ffffff;
+    --off-black: #f7f7f5;
+    --dark: #f0eeeb;
+    --mid: #e5e2dd;
+    --border: #d0ccc6;
+    --muted: #5a5652;
+    --text: #3a3632;
+    --white: #1a1714;
+    --morning: #b86a00;
+    --evening: #6b3fd4;
+    --accent: var(--evening);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  .site-nav-top {
+    display: flex;
+    align-items: stretch;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-home {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 0;
+    margin-right: 20px;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .nav-home:hover { color: var(--text); }
+  .nav-person {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s;
+  }
+  .nav-person:hover { color: var(--text); }
+  .nav-jason.active { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-emma.active { color: var(--evening); border-bottom-color: var(--evening); }
+  .site-nav-sub {
+    display: flex;
+    background: var(--off-black);
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-sub-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px 10px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s;
+  }
+  .nav-sub-link:hover { color: var(--text); }
+  .nav-sub-link.active-emma { color: var(--evening); border-bottom-color: var(--evening); }
+  @media (max-width: 600px) {
+    .site-nav-top { padding: 0 16px; }
+    .nav-person { padding: 10px 14px; font-size: 17px; }
+    .site-nav-sub { padding: 0 16px; }
+    .nav-sub-link { padding: 10px 14px 8px; font-size: 12px; }
+    .nav-home { padding: 0 12px 0 0; margin-right: 12px; }
+  }
+
+  /* HEADER */
+  header {
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(107,63,212,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-label {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+    margin-bottom: 24px;
+  }
+  h1 span { color: var(--evening); }
+  .header-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+  .meta-pill { display: flex; align-items: center; gap: 8px; font-size: 16px; color: var(--muted); }
+  .meta-pill .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 0;
+    padding: 0 40px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 24px 16px 0;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-right: 24px;
+  }
+  .legend-bar { width: 3px; height: 20px; border-radius: 2px; }
+
+  /* MAIN */
+  .plan-container { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+
+  /* PRINCIPLES */
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .principle { background: var(--off-black); padding: 20px; }
+  .principle-label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .principle-value { font-size: 17px; color: var(--white); font-weight: 500; }
+
+  /* DAY BLOCKS */
+  .day-block { margin-bottom: 48px; border: 1px solid var(--border); overflow: hidden; }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+  }
+  .day-number {
+    font-family: var(--font-display);
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    padding: 16px 20px;
+    border-right: 1px solid var(--border);
+    min-width: 80px;
+  }
+  .day-title {
+    font-family: var(--font-display);
+    font-size: 27px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    padding: 14px 20px;
+    flex: 1;
+  }
+  .day-tags { display: flex; gap: 8px; padding: 0 20px; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .tag-strength { background: rgba(107,63,212,0.12); color: var(--evening); }
+  .tag-optional { background: rgba(90,86,82,0.1); color: var(--muted); }
+  .tag-evening { background: rgba(107,63,212,0.08); color: var(--evening); }
+
+  /* SESSION */
+  .session { border-bottom: 1px solid var(--border); }
+  .session:last-child { border-bottom: none; }
+  .session-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--dark);
+  }
+  .session-bar { width: 3px; height: 16px; border-radius: 2px; flex-shrink: 0; }
+  .session-title {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .session-duration {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* EXERCISE TABLE */
+  .exercises { width: 100%; border-collapse: collapse; }
+  .exercises thead tr { background: var(--off-black); }
+  .exercises th {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-weight: 400;
+  }
+  .exercises td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 16px;
+    color: var(--text);
+  }
+  .exercises tr:last-child td { border-bottom: none; }
+  .exercises tr:hover td { background: rgba(0,0,0,0.02); }
+  .ex-name { font-weight: 500; color: var(--white); font-size: 16px; margin-bottom: 4px; }
+  .ex-cue { font-size: 14px; color: var(--muted); }
+  .ex-sets { font-family: var(--font-mono); font-size: 15px; color: var(--text); white-space: nowrap; }
+  .ex-tempo { font-size: 14px; color: var(--muted); }
+  .ex-notes { font-size: 14px; color: var(--muted); }
+  .ex-video {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--evening);
+    text-decoration: none;
+    border: 1px solid rgba(107,63,212,0.3);
+    background: rgba(107,63,212,0.07);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-right: 4px;
+  }
+  .ex-video:hover {
+    background: rgba(107,63,212,0.18);
+    border-color: var(--evening);
+  }
+  .superset-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    background: rgba(107,63,212,0.1);
+    color: var(--evening);
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .finisher-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    background: rgba(90,86,82,0.1);
+    color: var(--muted);
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .session-note {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    background: var(--off-black);
+    border-top: 1px solid var(--border);
+  }
+
+  /* INFO BOX */
+  .info-box {
+    display: flex;
+    gap: 14px;
+    padding: 18px 20px;
+    background: rgba(107,63,212,0.04);
+    border: 1px solid rgba(107,63,212,0.2);
+    margin-bottom: 32px;
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .info-box-icon {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--evening);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .info-box strong { color: var(--white); font-weight: 500; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    header { padding: 40px 20px 28px; }
+    .plan-container { padding: 24px 20px 60px; }
+    .legend { padding: 0 20px; }
+    .exercises thead { display: none; }
+    .exercises tr { display: block; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+    .exercises tr:last-child { border-bottom: none; }
+    .exercises td { display: block; padding: 2px 0; border: none; }
+    .exercises td:nth-child(1) { margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px dashed var(--border); }
+    .ex-sets { font-size: 14px; }
+    .day-tags { padding: 8px 20px; }
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: 34px; }
+    .principles { grid-template-columns: 1fr; }
+    .day-title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav-top">
+  <a href="index.html" class="nav-home">Home</a>
+  <a href="jason-workout.html" class="nav-person nav-jason">Jason</a>
+  <a href="emma-workout.html" class="nav-person nav-emma active">Emma</a>
+</nav>
+<nav class="site-nav-sub">
+  <a href="emma-workout.html" class="nav-sub-link active-emma">Workout Plan</a>
+  <a href="emma-nutrition.html" class="nav-sub-link">Nutrition</a>
+</nav>
+
+<header>
+  <div class="header-label">Emma · Toning Plan · 2026</div>
+  <h1>LEAN<br>&amp; <span>STRONG</span></h1>
+  <div class="header-meta">
+    <div class="meta-pill"><span class="dot" style="background:var(--evening)"></span> 3–4 days / week</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--muted)"></span> Compound resistance training</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--morning)"></span> Progressive overload</div>
+  </div>
+</header>
+
+<div class="legend" style="padding:0 40px;">
+  <div class="legend-item"><div class="legend-bar" style="background:var(--evening)"></div><span style="color:var(--evening)">Strength</span> — the primary driver of tone</div>
+  <div class="legend-item"><div class="legend-bar" style="background:var(--muted)"></div><span style="color:var(--muted)">Optional</span> — Day 4 adds metabolic conditioning</div>
+</div>
+
+<div class="plan-container">
+
+  <div class="principles">
+    <div class="principle"><div class="principle-label">Training days</div><div class="principle-value">3 required + 1 optional</div></div>
+    <div class="principle"><div class="principle-label">Session length</div><div class="principle-value">35–45 min</div></div>
+    <div class="principle"><div class="principle-label">Rest between sets</div><div class="principle-value">60–90 seconds</div></div>
+    <div class="principle"><div class="principle-label">Progression trigger</div><div class="principle-value">Top of rep range feels easy for 2 sessions → add weight or reps</div></div>
+    <div class="principle"><div class="principle-label">Rest days</div><div class="principle-value">Never two hard sessions back to back</div></div>
+  </div>
+
+  <div class="info-box">
+    <div class="info-box-icon">Key</div>
+    <div><strong>Progressive overload is the whole game.</strong> Each week aim to do slightly more than last week — one more rep, a slightly heavier KB, or a harder variation. Without this the body adapts and stops changing. Log your weights and reps so you can track progress.</div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">DAY 1</div>
+      <div class="day-title">Lower Body &amp; Glutes</div>
+      <div class="day-tags">
+        <span class="tag tag-strength">Strength</span>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-label">
+        <div class="session-bar" style="background:var(--evening)"></div>
+        <div class="session-title">Main Session</div>
+        <div class="session-duration">35–40 min</div>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">KB Goblet Squat <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+goblet+squat+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Primary quad + glute builder. Foundation of the lower body work.</div></td>
+            <td class="ex-sets">3 × 12</td>
+            <td class="ex-tempo">3s down · 1s pause · 2s up</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Hold KB at chest. Chest tall throughout. Knees track over toes. Heels flat. Go heavier as this gets easy.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">KB Romanian Deadlift <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+romanian+deadlift+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Hamstring and glute mass. The best posterior chain exercise for this goal.</div></td>
+            <td class="ex-sets">3 × 10–12</td>
+            <td class="ex-tempo">3s lower · 1s return</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Hinge at hips — don't squat down. Slight bend in knees. Feel the hamstring stretch at the bottom. Keep spine neutral.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Hip Thrust <a class="ex-video" href="https://www.youtube.com/results?search_query=hip+thrust+glute+tutorial+form+kettlebell" target="_blank">▶ Video</a></div><div class="ex-cue">Direct glute loading. The most effective exercise for glute development.</div></td>
+            <td class="ex-sets">3 × 15</td>
+            <td class="ex-tempo">2s up · 2s hold at top · 2s down</td>
+            <td class="ex-rest">60s</td>
+            <td class="ex-notes">Back on bench or sofa. KB across hips. Squeeze glutes at top — don't just extend the back. Drive through heels.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name"><span class="superset-badge">SS</span>Reverse Lunge <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+tutorial+form+beginners" target="_blank">▶ Video</a></div><div class="ex-cue">Single-leg strength. Reveals and fixes imbalances between legs.</div></td>
+            <td class="ex-sets">3 × 10 each</td>
+            <td class="ex-tempo">Controlled descent · 2s return</td>
+            <td class="ex-rest">—</td>
+            <td class="ex-notes">Step back, not forward — easier on the knee. Back knee just above floor. Front heel stays flat. Add KB when bodyweight is easy.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name"><span class="superset-badge">SS</span>Single-Leg Calf Raise <a class="ex-video" href="https://www.youtube.com/results?search_query=single+leg+calf+raise+eccentric+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Calf strength and shape. Often neglected but very visible.</div></td>
+            <td class="ex-sets">3 × 12–15 each</td>
+            <td class="ex-tempo">1s up · 3s lower</td>
+            <td class="ex-rest">60s after pair</td>
+            <td class="ex-notes">Off a step edge for full range. Slow eccentric (lowering) phase is where the work is. Hold wall for balance only.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">Superset SS: do Reverse Lunge immediately into Single-Leg Calf Raise with no rest between, then rest 60s before the next round.</div>
+    </div>
+
+    <div class="session">
+      <div class="session-label">
+        <div class="session-bar" style="background:var(--evening)"></div>
+        <div class="session-title">Evening — Flexibility</div>
+        <div class="session-duration">10–15 min</div>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr><th style="width:30%">Stretch</th><th>Hold</th><th colspan="3">Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Hip Flexor Stretch <a class="ex-video" href="https://www.youtube.com/results?search_query=hip+flexor+stretch+kneeling+lunge+tutorial" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">2 × 45s each</td>
+            <td colspan="3" class="ex-notes">Kneeling lunge. Tuck the pelvis under slightly to feel it in the front of the hip, not the thigh.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Hamstring Floor Stretch <a class="ex-video" href="https://www.youtube.com/results?search_query=hamstring+floor+stretch+lying+tutorial" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">2 × 45s each</td>
+            <td colspan="3" class="ex-notes">Lying on back, pull one leg toward you with a strap or towel. Knee slightly soft. Feel the stretch in the back of the thigh.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Pigeon Pose or Figure-4 <a class="ex-video" href="https://www.youtube.com/results?search_query=pigeon+pose+figure+4+hip+stretch+tutorial" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">2 × 60s each</td>
+            <td colspan="3" class="ex-notes">Glute and hip external rotator stretch. Figure-4 on back is easier on the knee if pigeon is uncomfortable.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">DAY 2</div>
+      <div class="day-title">Upper Body &amp; Core</div>
+      <div class="day-tags">
+        <span class="tag tag-strength">Strength</span>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-label">
+        <div class="session-bar" style="background:var(--evening)"></div>
+        <div class="session-title">Main Session</div>
+        <div class="session-duration">35–40 min</div>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name"><span class="superset-badge">SS A</span>Ring Row (or Table Row) <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+tutorial+form+beginners" target="_blank">▶ Video</a></div><div class="ex-cue">Back, rear delts, biceps. The pulling movement women most often skip.</div></td>
+            <td class="ex-sets">3 × 10–12</td>
+            <td class="ex-tempo">2s pull · 1s hold · 3s lower</td>
+            <td class="ex-rest">—</td>
+            <td class="ex-notes">Body at 45° to floor. Pull rings to lower chest. Squeeze shoulder blades at top. Harder = more horizontal body. Easier = more upright.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name"><span class="superset-badge">SS A</span>Push-Up <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+tutorial+form+progressions+beginners" target="_blank">▶ Video</a></div><div class="ex-cue">Chest, shoulders, triceps. Progress from knees → feet → feet elevated.</div></td>
+            <td class="ex-sets">3 × 8–12</td>
+            <td class="ex-tempo">3s down · 1s up</td>
+            <td class="ex-rest">90s after pair</td>
+            <td class="ex-notes">Start on knees if needed. Hands slightly wider than shoulders. Elbows at ~45°. When 12 knee reps feels easy, move to feet.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">KB Single-Arm Shoulder Press <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+single+arm+shoulder+press+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Shoulder strength and shape. Single-arm forces core stability too.</div></td>
+            <td class="ex-sets">3 × 10 each</td>
+            <td class="ex-tempo">2s up · 2s down</td>
+            <td class="ex-rest">60s between arms</td>
+            <td class="ex-notes">Stand or sit. Brace core before pressing. Don't lean to the side. Press directly overhead, not in front.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name"><span class="superset-badge">SS B</span>Dead Bug <a class="ex-video" href="https://www.youtube.com/results?search_query=dead+bug+exercise+tutorial+core+form" target="_blank">▶ Video</a></div><div class="ex-cue">Deep core stability. Trains the abs to resist movement — more functional than crunches.</div></td>
+            <td class="ex-sets">3 × 6 each side</td>
+            <td class="ex-tempo">Slow and controlled</td>
+            <td class="ex-rest">—</td>
+            <td class="ex-notes">Lower back MUST stay flat on floor — if it arches, the range is too big. Breathe out as you extend. Opposite arm and leg together.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name"><span class="superset-badge">SS B</span>Side Plank <a class="ex-video" href="https://www.youtube.com/results?search_query=side+plank+tutorial+form+progressions" target="_blank">▶ Video</a></div><div class="ex-cue">Lateral core and glute medius strength. Oblique definition and hip stability.</div></td>
+            <td class="ex-sets">3 × 25–30s each</td>
+            <td class="ex-tempo">Hold</td>
+            <td class="ex-rest">60s after pair</td>
+            <td class="ex-notes">From knees (easier) or feet (harder). Hips forward, body in a straight line. Don't let hips sag or pike up.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Band Pull-Apart <a class="ex-video" href="https://www.youtube.com/results?search_query=band+pull+apart+rear+delt+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Rear delt and upper back. Directly counteracts the forward posture from sitting.</div></td>
+            <td class="ex-sets">3 × 15–20</td>
+            <td class="ex-tempo">Slow controlled pull · 2s return</td>
+            <td class="ex-rest">45s</td>
+            <td class="ex-notes">Arms straight out in front, light band. Pull apart to a T position. Squeeze shoulder blades. Don't shrug. If no band: substitute with a towel row.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">DAY 3</div>
+      <div class="day-title">Full Body + Metabolic</div>
+      <div class="day-tags">
+        <span class="tag tag-strength">Strength</span>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-label">
+        <div class="session-bar" style="background:var(--evening)"></div>
+        <div class="session-title">Main Session</div>
+        <div class="session-duration">40–45 min</div>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">KB Deadlift <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+deadlift+tutorial+form+beginners" target="_blank">▶ Video</a></div><div class="ex-cue">Total body compound. Hip hinge pattern. Builds everything — glutes, hamstrings, back, grip.</div></td>
+            <td class="ex-sets">3 × 10</td>
+            <td class="ex-tempo">3s lower · 1s return</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">KB between feet. Push the floor away rather than pulling the weight up. Hips and shoulders rise together. Don't round the lower back.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">KB Swing <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+tutorial+form+hip+hinge" target="_blank">▶ Video</a></div><div class="ex-cue">Hip power and cardiovascular conditioning. Burns calories and builds glutes simultaneously.</div></td>
+            <td class="ex-sets">3 × 15</td>
+            <td class="ex-tempo">Explosive hip drive</td>
+            <td class="ex-rest">60s</td>
+            <td class="ex-notes">This is a hip hinge, not a squat. Power comes from the hips snapping forward, not the arms pulling. KB should float, not be muscled up.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name"><span class="superset-badge">SS</span>Goblet Squat <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+goblet+squat+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Compound leg work to maintain lower body stimulus alongside the upper body focus.</div></td>
+            <td class="ex-sets">3 × 12</td>
+            <td class="ex-tempo">3s down · 2s up</td>
+            <td class="ex-rest">—</td>
+            <td class="ex-notes">Same as Day 1. Try to use a heavier KB than Day 1 if possible — you're more warmed up.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name"><span class="superset-badge">SS</span>Ring or Floor Push-Up <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+push+up+tutorial+form+progressions" target="_blank">▶ Video</a></div><div class="ex-cue">Horizontal push — maintains upper body work without needing a second upper body day.</div></td>
+            <td class="ex-sets">3 × 10</td>
+            <td class="ex-tempo">3s down · 1s up</td>
+            <td class="ex-rest">90s after pair</td>
+            <td class="ex-notes">Progress to ring push-ups when floor push-ups feel easy — the instability dramatically increases the stimulus.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Hollow Body Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+hold+tutorial+gymnastics+core" target="_blank">▶ Video</a></div><div class="ex-cue">Gymnastic core — trains the abs as stabilisers under load, not just as crunchers.</div></td>
+            <td class="ex-sets">3 × 20–30s</td>
+            <td class="ex-tempo">Hold. Don't let the lower back arch.</td>
+            <td class="ex-rest">45s</td>
+            <td class="ex-notes">Arms overhead, legs straight and low. Lower back pressed into floor. If too hard, bend knees or raise legs higher. Build duration over weeks.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">This session ties everything together — lower body, upper body, core, and conditioning in one. It's the most time-efficient session of the week.</div>
+    </div>
+
+    <div class="session">
+      <div class="session-label">
+        <div class="session-bar" style="background:var(--evening)"></div>
+        <div class="session-title">Finisher — KB Circuit</div>
+        <div class="session-duration">10 min</div>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr><th>Format</th><th>Rounds</th><th colspan="3">Exercises</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ex-tempo">40s on · 20s rest</td>
+            <td class="ex-sets">3 rounds</td>
+            <td colspan="3" class="ex-notes">KB Swings → Goblet Squat → Push-Up → Mountain Climbers → Rest 90s between rounds. Keep intensity high — this is the conditioning stimulus.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">DAY 4</div>
+      <div class="day-title">Active Conditioning</div>
+      <div class="day-tags">
+        <span class="tag tag-optional">Optional</span>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-label">
+        <div class="session-bar" style="background:var(--muted)"></div>
+        <div class="session-title">Choose One</div>
+        <div class="session-duration">20–40 min</div>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr><th style="width:30%">Option</th><th>Duration / Format</th><th colspan="3">Why</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Brisk Walk or Hike</div></td>
+            <td class="ex-sets">30–45 min</td>
+            <td colspan="3" class="ex-notes">Best low-impact calorie burn that doesn't interfere with muscle recovery. Particularly effective for fat loss without adding fatigue to the training days.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Cycling (easy pace)</div></td>
+            <td class="ex-sets">20–30 min</td>
+            <td colspan="3" class="ex-notes">Low impact, keeps legs moving without heavy loading. Easy enough to recover from before Day 1 of the next week.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Yoga / Mobility Flow</div></td>
+            <td class="ex-sets">20–30 min</td>
+            <td colspan="3" class="ex-notes">Active recovery. Improves flexibility and reduces soreness. Any general yoga class or YouTube video works.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Light Full-Body Circuit</div></td>
+            <td class="ex-sets">3 rounds</td>
+            <td colspan="3" class="ex-notes">Bodyweight squats × 15, push-ups × 10, mountain climbers × 20, plank × 30s. Low weight, high rep. Not a hard session — just movement.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">Day 4 is genuinely optional. If energy is low or life is busy, skip it — the three main sessions do all the meaningful work. Never sacrifice sleep or recovery for this session.</div>
+    </div>
+  </div>
+
+  <!-- WEEKLY SCHEDULE -->
+  <div style="margin-top: 8px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 48px;">
+    <div style="background: var(--off-black); padding: 14px 20px; border-bottom: 1px solid var(--border);">
+      <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);">Suggested weekly schedule</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--border);">
+      <div style="background: var(--black); padding: 16px 12px; text-align: center;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Mon</div>
+        <div style="font-size: 14px; color: var(--evening); font-weight: 500;">Day 1</div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">Lower</div>
+      </div>
+      <div style="background: var(--black); padding: 16px 12px; text-align: center;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Tue</div>
+        <div style="font-size: 14px; color: var(--muted);">Rest</div>
+      </div>
+      <div style="background: var(--black); padding: 16px 12px; text-align: center;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Wed</div>
+        <div style="font-size: 14px; color: var(--evening); font-weight: 500;">Day 2</div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">Upper</div>
+      </div>
+      <div style="background: var(--black); padding: 16px 12px; text-align: center;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Thu</div>
+        <div style="font-size: 14px; color: var(--muted);">Rest</div>
+      </div>
+      <div style="background: var(--black); padding: 16px 12px; text-align: center;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Fri</div>
+        <div style="font-size: 14px; color: var(--evening); font-weight: 500;">Day 3</div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">Full Body</div>
+      </div>
+      <div style="background: var(--black); padding: 16px 12px; text-align: center;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Sat</div>
+        <div style="font-size: 14px; color: var(--muted); font-style: italic;">Day 4 opt.</div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">Conditioning</div>
+      </div>
+      <div style="background: var(--black); padding: 16px 12px; text-align: center;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Sun</div>
+        <div style="font-size: 14px; color: var(--muted);">Rest</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding: 24px; border: 1px solid var(--border); background: var(--off-black);">
+    <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px;">What to expect and when</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px;">
+      <div style="font-size: 15px; color: var(--text);">→ Weeks 1–2: Learning the movements. Some soreness. Energy may dip.</div>
+      <div style="font-size: 15px; color: var(--text);">→ Weeks 3–4: Movements feel natural. Strength increases noticeably.</div>
+      <div style="font-size: 15px; color: var(--text);">→ Weeks 5–8: Visible body composition changes begin. Keep adding load.</div>
+      <div style="font-size: 15px; color: var(--text);">→ Months 3–6: Significant strength and physique transformation if nutrition is dialled in.</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

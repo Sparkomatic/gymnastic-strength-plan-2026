@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Strength Plan">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Jason · Nutrition · 2026</title>
+
+<style>
+  :root {
+    --font-display: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+  }
+  :root {
+    --black: #ffffff;
+    --off-black: #f7f7f5;
+    --dark: #f0eeeb;
+    --mid: #e5e2dd;
+    --border: #d0ccc6;
+    --muted: #5a5652;
+    --text: #3a3632;
+    --white: #1a1714;
+    --morning: #b86a00;
+    --lunch: #1a6fd4;
+    --evening: #6b3fd4;
+    --accent: #cc2020;
+    --green: #1a8a4a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* SITE NAV */
+  .site-nav-top {
+    display: flex;
+    align-items: stretch;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-home {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 0;
+    margin-right: 20px;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .nav-home:hover { color: var(--text); }
+  .nav-person {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s;
+  }
+  .nav-person:hover { color: var(--text); }
+  .nav-jason.active { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-emma.active { color: var(--evening); border-bottom-color: var(--evening); }
+  .site-nav-sub {
+    display: flex;
+    background: var(--off-black);
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-sub-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px 10px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s;
+  }
+  .nav-sub-link:hover { color: var(--text); }
+  .nav-sub-link.active-jason { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-sub-link.active-emma { color: var(--evening); border-bottom-color: var(--evening); }
+
+  /* HEADER */
+  header {
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(26,111,212,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-label {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+    margin-bottom: 24px;
+  }
+  h1 span { color: var(--lunch); }
+  .header-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: var(--muted);
+  }
+  .meta-pill .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  /* MAIN LAYOUT */
+  .plan-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* PRINCIPLE BOXES */
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .principle {
+    background: var(--off-black);
+    padding: 20px;
+  }
+  .principle-label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .principle-value {
+    font-size: 17px;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* SECTION BLOCKS */
+  .section-block {
+    margin-bottom: 40px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+  }
+  .section-accent {
+    width: 3px;
+    height: 24px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+  }
+  .section-subtitle {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .section-body {
+    padding: 28px 28px 24px;
+  }
+
+  /* NUTRIENT ROW */
+  .nutrient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .nutrient-card {
+    background: var(--black);
+    padding: 20px 22px;
+  }
+  .nutrient-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .nutrient-value {
+    font-size: 28px;
+    font-family: var(--font-display);
+    color: var(--lunch);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .nutrient-unit {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* MEAL CARD */
+  .meal-card {
+    border: 1px solid var(--border);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .meal-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+  }
+  .meal-time {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .meal-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    color: var(--white);
+  }
+  .meal-protein {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--lunch);
+  }
+  .meal-body {
+    padding: 18px 20px;
+  }
+  .meal-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .meal-body li {
+    font-size: 16px;
+    color: var(--text);
+    padding-left: 16px;
+    position: relative;
+  }
+  .meal-body li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+    font-size: 13px;
+    top: 2px;
+  }
+  .meal-note {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* SUPPLEMENT TABLE */
+  .supp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+  .supp-table thead tr {
+    background: var(--off-black);
+  }
+  .supp-table th {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-weight: 400;
+  }
+  .supp-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+  }
+  .supp-table tr:last-child td { border-bottom: none; }
+  .supp-table tr:hover td { background: rgba(0,0,0,0.02); }
+  .supp-name {
+    font-weight: 500;
+    color: var(--white);
+    font-size: 16px;
+  }
+  .supp-dose {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--lunch);
+  }
+  .supp-tier {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .tier-1 { background: rgba(26,138,74,0.12); color: var(--green); }
+  .tier-2 { background: rgba(184,106,0,0.12); color: var(--morning); }
+  .tier-3 { background: rgba(90,86,82,0.12); color: var(--muted); }
+
+  /* AGE NOTE */
+  .age-note {
+    display: flex;
+    gap: 16px;
+    padding: 20px 24px;
+    border: 1px solid rgba(184,106,0,0.3);
+    background: rgba(184,106,0,0.04);
+    margin-bottom: 20px;
+  }
+  .age-note-icon {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--morning);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .age-note-body {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .age-note-body strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* TIMING STRIP */
+  .timing-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .timing-item {
+    background: var(--black);
+    padding: 16px 20px;
+  }
+  .timing-when {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .timing-what {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .timing-what strong { color: var(--white); font-weight: 500; }
+
+  /* FOOTER */
+  .page-footer {
+    margin-top: 48px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    background: var(--off-black);
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .page-footer strong { color: var(--text); font-weight: 500; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+  .section-label:first-child { margin-top: 0; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    header { padding: 40px 20px 28px; }
+    .plan-container { padding: 24px 20px 60px; }
+    .section-body { padding: 20px 16px; }
+    .site-nav-top { padding: 0 16px; }
+    .nav-person { padding: 10px 14px; font-size: 17px; }
+    .site-nav-sub { padding: 0 16px; }
+    .nav-sub-link { padding: 10px 14px 8px; font-size: 12px; }
+    .nav-home { padding: 0 12px 0 0; margin-right: 12px; }
+    .supp-table thead { display: none; }
+    .supp-table tr { display: block; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+    .supp-table td { display: block; padding: 2px 0; border: none; font-size: 15px; }
+    .meal-header { flex-wrap: wrap; gap: 6px; }
+    .meal-protein { margin-left: 0; }
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: 34px; }
+    .principles { grid-template-columns: 1fr; }
+    .nutrient-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav-top">
+  <a href="index.html" class="nav-home">Home</a>
+  <a href="jason-workout.html" class="nav-person nav-jason active">Jason</a>
+  <a href="emma-workout.html" class="nav-person nav-emma">Emma</a>
+</nav>
+<nav class="site-nav-sub">
+  <a href="jason-workout.html" class="nav-sub-link">Workout Plan</a>
+  <a href="jason-nutrition.html" class="nav-sub-link active-jason">Nutrition</a>
+</nav>
+
+<header>
+  <div class="header-label">Nutrition Protocol · Age 51 · 2026</div>
+  <h1>FUEL FOR<br><span>STRENGTH</span></h1>
+  <div class="header-meta">
+    <div class="meta-pill"><span class="dot" style="background:var(--lunch)"></span> 160–180g protein / day</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--morning)"></span> First meal ~12:00</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--green)"></span> Pescatarian · masters athlete</div>
+  </div>
+</header>
+
+<div class="plan-container">
+
+  <!-- KEY NUMBERS -->
+  <div class="principles">
+    <div class="principle"><div class="principle-label">Daily protein target</div><div class="principle-value">160–180g</div></div>
+    <div class="principle"><div class="principle-label">Per meal — 2 meal days</div><div class="principle-value">~80g protein</div></div>
+    <div class="principle"><div class="principle-label">MPS threshold (min per meal)</div><div class="principle-value">≥ 50g protein</div></div>
+    <div class="principle"><div class="principle-label">Meals per day</div><div class="principle-value">2 (or 3 if needed)</div></div>
+    <div class="principle"><div class="principle-label">Eating window</div><div class="principle-value">12:00 – 20:00</div></div>
+    <div class="principle"><div class="principle-label">Hydration</div><div class="principle-value">2.5–3L water / day</div></div>
+  </div>
+
+  <!-- WHY DIFFERENT AT 51 -->
+  <div class="section-label">Why nutrition changes at 51</div>
+
+  <div class="age-note">
+    <div class="age-note-icon">Key</div>
+    <div class="age-note-body">
+      <strong>Anabolic resistance</strong> — after roughly 40, muscle protein synthesis becomes less sensitive to protein. The same 25–30g dose that maximally stimulates MPS in a 25-year-old is no longer enough. You need <strong>≥ 50g per meal</strong> (with ≥ 3.5g leucine) to hit the same anabolic ceiling. This is the single most important nutritional fact for your age.
+    </div>
+  </div>
+
+  <div class="age-note">
+    <div class="age-note-icon">Key</div>
+    <div class="age-note-body">
+      <strong>Slower recovery</strong> — testosterone and growth hormone output decline from the 30s onward. Sleep quality, zinc, vitamin D3, and omega-3s all become more load-bearing pillars than they were at 25. These aren't optional extras — they're the primary recovery levers available to you.
+    </div>
+  </div>
+
+  <!-- MACRO TARGETS -->
+  <div class="section-label">Daily macro targets</div>
+
+  <div class="nutrient-grid">
+    <div class="nutrient-card">
+      <div class="nutrient-label">Protein</div>
+      <div class="nutrient-value">160–180g</div>
+      <div class="nutrient-unit">~2.0–2.2g per kg bodyweight</div>
+    </div>
+    <div class="nutrient-card">
+      <div class="nutrient-label">Carbohydrates</div>
+      <div class="nutrient-value">180–240g</div>
+      <div class="nutrient-unit">cluster around training sessions</div>
+    </div>
+    <div class="nutrient-card">
+      <div class="nutrient-label">Fat</div>
+      <div class="nutrient-value">70–90g</div>
+      <div class="nutrient-unit">prioritise omega-3 sources</div>
+    </div>
+    <div class="nutrient-card">
+      <div class="nutrient-label">Total calories</div>
+      <div class="nutrient-value">2,400–2,700</div>
+      <div class="nutrient-unit">slight surplus on training days</div>
+    </div>
+  </div>
+
+  <div class="age-note">
+    <div class="age-note-icon">Note</div>
+    <div class="age-note-body">
+      Calorie targets above assume ~80kg bodyweight. Adjust proportionally. If body composition is a priority alongside strength, aim for maintenance calories (2,200–2,400) and accept slightly slower strength gains — lean recomp is absolutely achievable at 51 with consistent training and sufficient protein.
+    </div>
+  </div>
+
+  <!-- DAILY MEAL STRUCTURE -->
+  <div class="section-label">Daily meal structure</div>
+
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-time">~12:00</div>
+      <div class="meal-name">First Meal — Post-Morning Training</div>
+      <div class="meal-protein">~80–90g protein</div>
+    </div>
+    <div class="meal-body">
+      <ul>
+        <li>500g Greek yoghurt (0% fat) — 50g protein, or</li>
+        <li>4–5 whole eggs + 200g smoked salmon or mackerel (fish 2–3× this week max)</li>
+        <li>Or on non-fish days: 4–5 whole eggs + 200g firm tofu scrambled, or 300g cottage cheese</li>
+        <li>Large portion of rice, oats, or sourdough (80–120g dry weight)</li>
+        <li>Spinach, tomatoes, or any greens — no limit</li>
+        <li>Olive oil, avocado, or nuts for fat (20–30g fat total)</li>
+      </ul>
+      <div class="meal-note">This is the most important meal of the day — it breaks the fast and closes the post-training anabolic window. Get the protein in first.</div>
+    </div>
+  </div>
+
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-time">~16:00–17:00</div>
+      <div class="meal-name">Optional Bridge Meal</div>
+      <div class="meal-protein">~30–40g protein</div>
+    </div>
+    <div class="meal-body">
+      <ul>
+        <li>200g cottage cheese or 250g skyr — 25–30g protein</li>
+        <li>Handful of nuts + piece of fruit</li>
+        <li>Or: protein shake (30g whey) with milk and banana</li>
+      </ul>
+      <div class="meal-note">Only needed if dinner is late (after 20:00) or if you've had a particularly hard training day. Not required on lighter days.</div>
+    </div>
+  </div>
+
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-time">~19:00–20:00</div>
+      <div class="meal-name">Evening Meal</div>
+      <div class="meal-protein">~70–80g protein</div>
+    </div>
+    <div class="meal-body">
+      <ul>
+        <li>200–250g salmon, mackerel, or white fish — but cap fish at 2–3 meals per week total</li>
+        <li>On non-fish evenings: 5–6 eggs (omelette or frittata) + 150g cottage cheese, or 300g firm tofu + 200g Greek yoghurt</li>
+        <li>Or: large lentil/chickpea dish + 4 eggs + parmesan — hits ~70g protein combined</li>
+        <li>Large portion of vegetables (roasted, steamed, or raw)</li>
+        <li>Moderate carbs: 80–100g rice, sweet potato, or lentils</li>
+        <li>Keep fat moderate here — large fat meals before sleep can disrupt GH release</li>
+      </ul>
+      <div class="meal-note">Last meal of the day. Prioritise casein-rich foods (cottage cheese, Greek yoghurt) as a dessert if you want a slow-release protein feed overnight — this is especially useful for muscle recovery at 51.</div>
+    </div>
+  </div>
+
+  <!-- NUTRIENT TIMING -->
+  <div class="section-label">Nutrient timing around training</div>
+
+  <div class="timing-strip">
+    <div class="timing-item">
+      <div class="timing-when">Before morning session</div>
+      <div class="timing-what"><strong>Fasted or black coffee only.</strong> Morning strength fasted is fine — growth hormone is highest here.</div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-when">Within 60 min post-training</div>
+      <div class="timing-what"><strong>First meal immediately.</strong> Post-exercise window matters more at 51 than at 25.</div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-when">Before lunch skill session</div>
+      <div class="timing-what">First meal should already be digesting. <strong>No additional pre-workout needed.</strong></div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-when">Pre-sleep</div>
+      <div class="timing-what"><strong>200g cottage cheese or Greek yoghurt</strong> 30 min before bed. Casein feeds muscles overnight.</div>
+    </div>
+  </div>
+
+  <!-- SUPPLEMENTS -->
+  <div class="section-label">Supplements — evidence-based only</div>
+
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--green)"></div>
+      <div class="section-title">Tier 1 — Non-Negotiable</div>
+      <div class="section-subtitle">Strong evidence, meaningful impact at 51</div>
+    </div>
+    <div class="section-body" style="padding:0;">
+      <table class="supp-table">
+        <thead>
+          <tr>
+            <th style="width:22%">Supplement</th>
+            <th style="width:18%">Dose &amp; Timing</th>
+            <th>Why it matters at 51</th>
+            <th style="width:10%">Tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="supp-name">Creatine Monohydrate</div></td>
+            <td><div class="supp-dose">5g daily<br>with food</div></td>
+            <td>The most evidence-backed supplement that exists. Increases strength, power output, and lean mass — and the effect size is <em>larger</em> in older adults due to typically lower dietary creatine intake. Also has cognitive and neuroprotective benefits. Take it every day, not just training days.</td>
+            <td><span class="supp-tier tier-1">Tier 1</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Vitamin D3 + K2</div></td>
+            <td><div class="supp-dose">3,000–5,000 IU D3<br>+ 100µg K2<br>with fat, morning</div></td>
+            <td>Vitamin D deficiency is extremely common and directly suppresses testosterone, muscle function, and immune response. At 51, D3 is essential. K2 directs calcium to bones rather than arteries. Take together with a meal containing fat for absorption.</td>
+            <td><span class="supp-tier tier-1">Tier 1</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Omega-3 Fish Oil</div></td>
+            <td><div class="supp-dose">2–3g EPA+DHA<br>with food</div></td>
+            <td>Reduces systemic inflammation, which is a primary barrier to recovery at 51. Also directly stimulates muscle protein synthesis and improves insulin sensitivity. Get EPA+DHA combined on the label — not just total fish oil weight.</td>
+            <td><span class="supp-tier tier-1">Tier 1</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Magnesium Glycinate</div></td>
+            <td><div class="supp-dose">300–400mg<br>before bed</div></td>
+            <td>Most adults are deficient. Magnesium supports deep sleep quality (where GH is released), reduces cortisol, supports testosterone production, and aids muscle relaxation and recovery. Glycinate form is best absorbed and least likely to cause GI upset. Take at night.</td>
+            <td><span class="supp-tier tier-1">Tier 1</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--morning)"></div>
+      <div class="section-title">Tier 2 — Highly Recommended</div>
+      <div class="section-subtitle">Good evidence, meaningful for training goals</div>
+    </div>
+    <div class="section-body" style="padding:0;">
+      <table class="supp-table">
+        <thead>
+          <tr>
+            <th style="width:22%">Supplement</th>
+            <th style="width:18%">Dose &amp; Timing</th>
+            <th>Why it matters at 51</th>
+            <th style="width:10%">Tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="supp-name">Collagen Peptides + Vitamin C</div></td>
+            <td><div class="supp-dose">15g collagen<br>+ 50mg vit C<br>30–60 min pre-session</div></td>
+            <td>Tendons, ligaments, and joint cartilage — the connective tissue most stressed by gymnastic training — have poor blood supply and slow turnover. Collagen taken with vitamin C before training increases collagen synthesis in tendons specifically. Particularly relevant for ring work, wrist loading, and pistol squat ankle stress.</td>
+            <td><span class="supp-tier tier-2">Tier 2</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Zinc</div></td>
+            <td><div class="supp-dose">15–25mg<br>with food, not with iron</div></td>
+            <td>Zinc is required for testosterone production and is depleted by sweat. Training regularly at high intensity increases zinc requirements. Don't megadose — above 40mg/day suppresses copper. Food sources first (oysters, pumpkin seeds, legumes, hard cheese, eggs), supplement at the lower end (15mg) — pescatarians without red meat are at moderate risk of falling short.</td>
+            <td><span class="supp-tier tier-2">Tier 2</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Whey Protein (if needed)</div></td>
+            <td><div class="supp-dose">30–40g per serving<br>post-training if meal is delayed</div></td>
+            <td>Not necessary if food protein targets are being hit. Use as a tool when a proper meal isn't available within 60 min post-training. Whey is fast-absorbing and leucine-rich — ideal for this purpose. Avoid if first meal is coming within 30 minutes.</td>
+            <td><span class="supp-tier tier-2">Tier 2</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--muted)"></div>
+      <div class="section-title">Tier 3 — Optional / Situational</div>
+      <div class="section-subtitle">Modest evidence or very individual benefit</div>
+    </div>
+    <div class="section-body" style="padding:0;">
+      <table class="supp-table">
+        <thead>
+          <tr>
+            <th style="width:22%">Supplement</th>
+            <th style="width:18%">Dose &amp; Timing</th>
+            <th>Context</th>
+            <th style="width:10%">Tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="supp-name">Caffeine</div></td>
+            <td><div class="supp-dose">100–200mg<br>30–45 min pre-session</div></td>
+            <td>Well-evidenced acute performance enhancer. Black coffee works perfectly. Avoid within 8–9 hours of sleep — even if you feel unaffected, caffeine disrupts deep sleep architecture and blunts GH release. Not recommended before evening sessions.</td>
+            <td><span class="supp-tier tier-3">Tier 3</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Beta-Alanine</div></td>
+            <td><div class="supp-dose">3.2g daily<br>with food</div></td>
+            <td>Buffers lactic acid — useful for the metabolic finishers (KB swings, circuits). Minimal benefit for pure strength/skill work. Causes harmless tingling (paresthesia). Worth considering only if the conditioning finishers feel like the weak link.</td>
+            <td><span class="supp-tier tier-3">Tier 3</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Ashwagandha (KSM-66)</div></td>
+            <td><div class="supp-dose">300–600mg<br>with evening meal</div></td>
+            <td>Adaptogen with modest but real evidence for reducing cortisol, improving sleep quality, and supporting testosterone in men with elevated stress. Not a substitute for sleep hygiene but can help if recovery is consistently poor. Use for 8–12 week cycles.</td>
+            <td><span class="supp-tier tier-3">Tier 3</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SLEEP & RECOVERY -->
+  <div class="section-label">Sleep — the most underrated training variable</div>
+
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--evening)"></div>
+      <div class="section-title">Sleep Protocol</div>
+      <div class="section-subtitle">Non-negotiable at 51</div>
+    </div>
+    <div class="section-body">
+      <div class="age-note" style="margin-bottom:20px;">
+        <div class="age-note-icon">Key</div>
+        <div class="age-note-body">
+          Growth hormone secretion drops sharply with age and is now almost entirely dependent on deep sleep. Poor sleep at 51 is not just tiredness — it actively suppresses recovery, muscle protein synthesis, and testosterone. <strong>7–9 hours is a training variable, not a luxury.</strong>
+        </div>
+      </div>
+      <div class="timing-strip" style="margin-bottom:0;">
+        <div class="timing-item">
+          <div class="timing-when">Target</div>
+          <div class="timing-what"><strong>7.5–9 hours</strong> per night. Consistent bedtime matters as much as duration.</div>
+        </div>
+        <div class="timing-item">
+          <div class="timing-when">Room temperature</div>
+          <div class="timing-what"><strong>17–19°C</strong> optimal. Cooler room = deeper sleep = more GH.</div>
+        </div>
+        <div class="timing-item">
+          <div class="timing-when">No caffeine after</div>
+          <div class="timing-what"><strong>~14:00</strong> if bedtime is 22:00–23:00. Half-life is 5–7 hours.</div>
+        </div>
+        <div class="timing-item">
+          <div class="timing-when">Pre-sleep nutrition</div>
+          <div class="timing-what"><strong>Casein protein</strong> (cottage cheese / Greek yoghurt) + magnesium glycinate.</div>
+        </div>
+        <div class="timing-item">
+          <div class="timing-when">Screen/light cutoff</div>
+          <div class="timing-what"><strong>60 min before bed.</strong> Blue light suppresses melatonin by 50%+ in older adults.</div>
+        </div>
+        <div class="timing-item">
+          <div class="timing-when">Alcohol</div>
+          <div class="timing-what"><strong>Avoid on training nights.</strong> Even 1–2 drinks cut REM sleep and halve overnight testosterone production.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOD SOURCES -->
+  <div class="section-label">Best protein sources — ranked by leucine content</div>
+
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--lunch)"></div>
+      <div class="section-title">High-Leucine Protein Sources</div>
+      <div class="section-subtitle">Leucine triggers MPS — you need ≥ 3.5g per meal</div>
+    </div>
+    <div class="section-body" style="padding:0;">
+      <table class="supp-table">
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Serving</th>
+            <th>Protein</th>
+            <th>Leucine</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="supp-name">Whey protein powder</div></td>
+            <td>40g scoop</td>
+            <td>30–34g</td>
+            <td>~3.5g — hits threshold per scoop</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Salmon (cooked)</div></td>
+            <td>200g</td>
+            <td>~44g</td>
+            <td>~3.5g + omega-3s — use 2–3× per week max, not every day</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Mackerel / sardines</div></td>
+            <td>200g</td>
+            <td>~40g</td>
+            <td>~3.3g + high omega-3s — good variety to rotate with salmon</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Greek yoghurt (0%)</div></td>
+            <td>500g</td>
+            <td>~50g</td>
+            <td>~4.5g — excellent daily staple. Use on non-fish days to hit targets.</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Eggs (whole)</div></td>
+            <td>4 large</td>
+            <td>~28g</td>
+            <td>~2.4g — always combine with dairy or fish to hit the 50g meal target</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Cottage cheese</div></td>
+            <td>300g</td>
+            <td>~36g</td>
+            <td>~3.2g — ideal pre-sleep (casein-based). Pair with eggs for a full meal.</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Firm tofu</div></td>
+            <td>300g</td>
+            <td>~24g</td>
+            <td>~1.8g — lower leucine than animal sources, pair with eggs or dairy to boost</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Lentils / chickpeas + parmesan</div></td>
+            <td>200g cooked + 40g cheese</td>
+            <td>~32g</td>
+            <td>~2.6g combined — good non-fish evening option with eggs added</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <strong>On the nutrition principle box in the training plan:</strong> "First meal ~12:00. Protein 140–160g/day across 2 meals" — this plan upgrades that target to 160–180g with ≥ 50g per meal, which better accounts for anabolic resistance at 51. If hitting 160–180g feels like too much food initially, start at 150g and build up. Consistent protein at this level, combined with training, is the primary driver of strength and muscle retention after 50.
+  </div>
+
+</div>
+</body>
+</html>

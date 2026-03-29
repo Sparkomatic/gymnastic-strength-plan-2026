@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Strength Plan">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Emma · Nutrition · 2026</title>
+
+<style>
+  :root {
+    --font-display: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+    --black: #ffffff;
+    --off-black: #f7f7f5;
+    --border: #d0ccc6;
+    --muted: #5a5652;
+    --text: #3a3632;
+    --white: #1a1714;
+    --morning: #b86a00;
+    --evening: #6b3fd4;
+    --green: #1a8a4a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  .site-nav-top {
+    display: flex;
+    align-items: stretch;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-home {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 0;
+    margin-right: 20px;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .nav-home:hover { color: var(--text); }
+  .nav-person {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s;
+  }
+  .nav-person:hover { color: var(--text); }
+  .nav-jason.active { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-emma.active { color: var(--evening); border-bottom-color: var(--evening); }
+  .site-nav-sub {
+    display: flex;
+    background: var(--off-black);
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-sub-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px 10px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s;
+  }
+  .nav-sub-link:hover { color: var(--text); }
+  .nav-sub-link.active-emma { color: var(--evening); border-bottom-color: var(--evening); }
+  @media (max-width: 600px) {
+    .site-nav-top { padding: 0 16px; }
+    .nav-person { padding: 10px 14px; font-size: 17px; }
+    .site-nav-sub { padding: 0 16px; }
+    .nav-sub-link { padding: 10px 14px 8px; font-size: 12px; }
+    .nav-home { padding: 0 12px 0 0; margin-right: 12px; }
+  }
+
+  /* HEADER */
+  header {
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(107,63,212,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-label {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+    margin-bottom: 24px;
+  }
+  h1 span { color: var(--evening); }
+  .header-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+  .meta-pill { display: flex; align-items: center; gap: 8px; font-size: 16px; color: var(--muted); }
+  .meta-pill .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* LAYOUT */
+  .plan-container { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .principle { background: var(--off-black); padding: 20px; }
+  .principle-label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .principle-value { font-size: 17px; color: var(--white); font-weight: 500; }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+  .section-label:first-child { margin-top: 0; }
+
+  .section-block { margin-bottom: 40px; border: 1px solid var(--border); overflow: hidden; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+  }
+  .section-accent { width: 3px; height: 24px; border-radius: 2px; flex-shrink: 0; }
+  .section-title { font-family: var(--font-display); font-size: 26px; letter-spacing: 0.05em; color: var(--white); }
+  .section-subtitle { margin-left: auto; font-family: var(--font-mono); font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .section-body { padding: 28px 28px 24px; }
+
+  /* NUTRIENT GRID */
+  .nutrient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .nutrient-card { background: var(--black); padding: 20px 22px; }
+  .nutrient-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .nutrient-value { font-size: 28px; font-family: var(--font-display); color: var(--evening); letter-spacing: 0.02em; line-height: 1.1; }
+  .nutrient-unit { font-size: 14px; color: var(--muted); margin-top: 2px; }
+
+  /* MEAL CARDS */
+  .meal-card { border: 1px solid var(--border); margin-bottom: 16px; overflow: hidden; }
+  .meal-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .meal-time { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .meal-name { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.04em; color: var(--white); }
+  .meal-protein { margin-left: auto; font-family: var(--font-mono); font-size: 13px; color: var(--evening); }
+  .meal-body { padding: 18px 20px; }
+  .meal-body ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .meal-body li { font-size: 16px; color: var(--text); padding-left: 16px; position: relative; }
+  .meal-body li::before { content: '→'; position: absolute; left: 0; color: var(--muted); font-size: 13px; top: 2px; }
+  .meal-note { margin-top: 12px; font-size: 14px; color: var(--muted); font-style: italic; padding-top: 12px; border-top: 1px solid var(--border); }
+
+  /* INFO BOX */
+  .info-note {
+    display: flex;
+    gap: 16px;
+    padding: 20px 24px;
+    border: 1px solid rgba(107,63,212,0.25);
+    background: rgba(107,63,212,0.04);
+    margin-bottom: 20px;
+  }
+  .info-note-icon { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--evening); flex-shrink: 0; padding-top: 2px; }
+  .info-note-body { font-size: 16px; color: var(--text); line-height: 1.6; }
+  .info-note-body strong { color: var(--white); font-weight: 500; }
+
+  /* TIMING STRIP */
+  .timing-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .timing-item { background: var(--black); padding: 16px 20px; }
+  .timing-when { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .timing-what { font-size: 15px; color: var(--text); line-height: 1.4; }
+  .timing-what strong { color: var(--white); font-weight: 500; }
+
+  /* SUPPLEMENT TABLE */
+  .supp-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  .supp-table thead tr { background: var(--off-black); }
+  .supp-table th { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 400; }
+  .supp-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .supp-table tr:last-child td { border-bottom: none; }
+  .supp-name { font-weight: 500; color: var(--white); font-size: 16px; }
+  .supp-dose { font-family: var(--font-mono); font-size: 14px; color: var(--evening); }
+  .supp-tier { display: inline-block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+  .tier-1 { background: rgba(26,138,74,0.12); color: var(--green); }
+  .tier-2 { background: rgba(107,63,212,0.1); color: var(--evening); }
+
+  /* FOOTER */
+  .page-footer { margin-top: 48px; padding: 24px; border: 1px solid var(--border); background: var(--off-black); font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .page-footer strong { color: var(--text); font-weight: 500; }
+
+  @media (max-width: 768px) {
+    header { padding: 40px 20px 28px; }
+    .plan-container { padding: 24px 20px 60px; }
+    .section-body { padding: 20px 16px; }
+    .supp-table thead { display: none; }
+    .supp-table tr { display: block; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+    .supp-table td { display: block; padding: 2px 0; border: none; font-size: 15px; }
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: 34px; }
+    .principles { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav-top">
+  <a href="index.html" class="nav-home">Home</a>
+  <a href="jason-workout.html" class="nav-person nav-jason">Jason</a>
+  <a href="emma-workout.html" class="nav-person nav-emma active">Emma</a>
+</nav>
+<nav class="site-nav-sub">
+  <a href="emma-workout.html" class="nav-sub-link">Workout Plan</a>
+  <a href="emma-nutrition.html" class="nav-sub-link active-emma">Nutrition</a>
+</nav>
+
+<header>
+  <div class="header-label">Emma · Nutrition for Toning · 2026</div>
+  <h1>EAT FOR<br><span>RESULTS</span></h1>
+  <div class="header-meta">
+    <div class="meta-pill"><span class="dot" style="background:var(--evening)"></span> 110–130g protein / day</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--morning)"></span> Slight calorie deficit</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--green)"></span> Vegetarian · muscle-preserving</div>
+  </div>
+</header>
+
+<div class="plan-container">
+
+  <div class="principles">
+    <div class="principle"><div class="principle-label">Daily protein target</div><div class="principle-value">110–130g</div></div>
+    <div class="principle"><div class="principle-label">Per meal — 3 meals</div><div class="principle-value">~35–45g protein</div></div>
+    <div class="principle"><div class="principle-label">Calorie target</div><div class="principle-value">1,600–1,800 kcal</div></div>
+    <div class="principle"><div class="principle-label">Meals per day</div><div class="principle-value">3</div></div>
+    <div class="principle"><div class="principle-label">Deficit vs maintenance</div><div class="principle-value">~250–350 kcal below</div></div>
+  </div>
+
+  <!-- THE CORE PRINCIPLE -->
+  <div class="info-note">
+    <div class="info-note-icon">Key</div>
+    <div class="info-note-body">
+      <strong>The toning equation is simple: eat enough protein to keep the muscle, eat slightly less calories overall to lose the fat.</strong> The biggest mistake women make is eating too little protein (the muscle shrinks along with the fat) or cutting calories too aggressively (metabolism adapts, energy crashes, training suffers). The goal is a 250–350 kcal deficit — enough to lose roughly 0.25–0.5kg of fat per week, without compromising strength or energy in sessions.
+    </div>
+  </div>
+
+  <!-- MACRO TARGETS -->
+  <div class="section-label">Daily macro targets</div>
+
+  <div class="nutrient-grid">
+    <div class="nutrient-card">
+      <div class="nutrient-label">Protein</div>
+      <div class="nutrient-value">110–130g</div>
+      <div class="nutrient-unit">~1.8–2.0g per kg bodyweight</div>
+    </div>
+    <div class="nutrient-card">
+      <div class="nutrient-label">Carbohydrates</div>
+      <div class="nutrient-value">140–180g</div>
+      <div class="nutrient-unit">more on training days</div>
+    </div>
+    <div class="nutrient-card">
+      <div class="nutrient-label">Fat</div>
+      <div class="nutrient-value">50–65g</div>
+      <div class="nutrient-unit">don't go below 45g — hormones need fat</div>
+    </div>
+    <div class="nutrient-card">
+      <div class="nutrient-label">Total calories</div>
+      <div class="nutrient-value">1,600–1,800</div>
+      <div class="nutrient-unit">adjust based on results over 3–4 weeks</div>
+    </div>
+  </div>
+
+  <div class="info-note">
+    <div class="info-note-icon">Note</div>
+    <div class="info-note-body">
+      These numbers assume ~65kg bodyweight. If significantly lighter or heavier, scale protein proportionally (~1.8–2.0g per kg). <strong>Do not drop below 1,500 kcal</strong> — below this threshold training quality suffers, muscle is lost alongside fat, and the body adapts by reducing metabolic rate. Slow and steady beats aggressive restriction every time for long-term results.
+    </div>
+  </div>
+
+  <!-- MEAL STRUCTURE -->
+  <div class="section-label">Daily meal structure</div>
+
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-time">~7:30–8:00</div>
+      <div class="meal-name">Breakfast</div>
+      <div class="meal-protein">~35–40g protein</div>
+    </div>
+    <div class="meal-body">
+      <ul>
+        <li>4 whole eggs scrambled + 200g Greek yoghurt on the side — ~38g protein</li>
+        <li>Or: 3-egg omelette with cheese + 150g cottage cheese — ~36g protein</li>
+        <li>Or: 200g Greek yoghurt (0%) + 30g protein powder blended — ~40g protein</li>
+        <li>Or: 3-egg omelette + 150g cottage cheese on the side — ~36g protein</li>
+        <li>Add: oats or sourdough toast (50g) for carbs, plus fruit</li>
+        <li>Coffee or tea fine — no limit on non-caloric drinks</li>
+      </ul>
+      <div class="meal-note">On training days (Days 1, 2, 3) include a full carb portion here — you need the energy. On rest days, a lighter carb portion is fine.</div>
+    </div>
+  </div>
+
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-time">~12:30–13:00</div>
+      <div class="meal-name">Lunch</div>
+      <div class="meal-protein">~35–40g protein</div>
+    </div>
+    <div class="meal-body">
+      <ul>
+        <li>150g firm tofu (pan-fried) + 150g cottage cheese, or 4 eggs + 100g halloumi</li>
+        <li>Or: large lentil or chickpea salad (~200g cooked) + 2 boiled eggs + feta</li>
+        <li>Large salad or roasted vegetables — no limit on these</li>
+        <li>Small portion of carbs: 60–80g rice, sweet potato, or lentils (cooked weight)</li>
+        <li>Olive oil dressing — keep fat moderate, not zero</li>
+      </ul>
+      <div class="meal-note">This is the easiest meal to prep in advance. Batch cook protein and grains on Sunday. Having it ready removes the decision-making that leads to poor choices.</div>
+    </div>
+  </div>
+
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-time">~18:30–19:30</div>
+      <div class="meal-name">Dinner</div>
+      <div class="meal-protein">~35–45g protein</div>
+    </div>
+    <div class="meal-body">
+      <ul>
+        <li>200g firm tofu or tempeh (stir-fry, bake, or pan-fry — tempeh has more protein and a meatier texture)</li>
+        <li>Or: 5-egg frittata with spinach + 100g feta or parmesan</li>
+        <li>Or: lentil/black bean dish (~250g cooked) + 150g Greek yoghurt on the side</li>
+        <li>Large portion of vegetables: broccoli, spinach, asparagus, courgette, peppers</li>
+        <li>Moderate carbs: 60–80g rice or sweet potato on training days. Lighter on rest days.</li>
+        <li>Optional dessert: 150g Greek yoghurt or 150g cottage cheese — adds ~15–18g more protein</li>
+      </ul>
+      <div class="meal-note">Eating a proper dinner is important — don't skip it to save calories. People who skip dinner tend to overeat late at night. A structured dinner closes the day and removes the temptation.</div>
+    </div>
+  </div>
+
+  <!-- NUTRIENT TIMING -->
+  <div class="section-label">Timing around training</div>
+
+  <div class="timing-strip">
+    <div class="timing-item">
+      <div class="timing-when">Before session</div>
+      <div class="timing-what"><strong>Eat normally.</strong> Don't train fasted for toning. A proper meal 1–2 hrs before means better performance = better results.</div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-when">Within 60 min after</div>
+      <div class="timing-what"><strong>Protein + carbs.</strong> Next meal or a shake with banana. Closes the anabolic window and starts recovery.</div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-when">On rest days</div>
+      <div class="timing-what">Keep protein the same. <strong>Reduce carbs slightly</strong> (−30–50g). Fat and protein stay constant.</div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-when">Pre-sleep</div>
+      <div class="timing-what"><strong>150g cottage cheese</strong> or Greek yoghurt — casein protein feeds muscle repair overnight. Low calorie, high impact.</div>
+    </div>
+  </div>
+
+  <!-- SUPPLEMENTS -->
+  <div class="section-label">Supplements — keep it simple</div>
+
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--green)"></div>
+      <div class="section-title">Tier 1 — Worth Doing</div>
+      <div class="section-subtitle">Strong evidence for toning goals</div>
+    </div>
+    <div class="section-body" style="padding:0;">
+      <table class="supp-table">
+        <thead>
+          <tr>
+            <th style="width:22%">Supplement</th>
+            <th style="width:20%">Dose &amp; Timing</th>
+            <th>Why it matters for toning</th>
+            <th style="width:10%">Tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="supp-name">Creatine Monohydrate</div></td>
+            <td><div class="supp-dose">3–5g daily<br>with food</div></td>
+            <td>Many women avoid creatine thinking it causes bloating or bulk — it does neither. It improves strength output in sessions (meaning better stimulus = better tone) and improves body composition. One of the few supplements with unambiguous evidence. Take it daily.</td>
+            <td><span class="supp-tier tier-1">Tier 1</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Vitamin D3</div></td>
+            <td><div class="supp-dose">2,000–3,000 IU<br>with food, morning</div></td>
+            <td>Deficiency is extremely common and suppresses energy, mood, immune function, and muscle performance. Especially important if you're indoors most of the day. Take with a meal containing fat for proper absorption.</td>
+            <td><span class="supp-tier tier-1">Tier 1</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Algae Omega-3</div></td>
+            <td><div class="supp-dose">1–2g EPA+DHA<br>with food</div></td>
+            <td>The vegetarian source of omega-3s — algae is actually where fish get their EPA and DHA from, so this is the direct source. Just as effective as fish oil, and no fish required. Look for "algae-derived EPA+DHA" on the label. Available in most health food shops and online.</td>
+            <td><span class="supp-tier tier-1">Tier 1</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Magnesium Glycinate</div></td>
+            <td><div class="supp-dose">200–300mg<br>before bed</div></td>
+            <td>Supports sleep quality (critical for recovery), reduces muscle tension and cramping, and helps with stress management. Glycinate form is gentlest on digestion. Most people are low in magnesium without realising it.</td>
+            <td><span class="supp-tier tier-1">Tier 1</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Vitamin B12</div></td>
+            <td><div class="supp-dose">250–500µg daily<br>or 2,000µg weekly</div></td>
+            <td>B12 is found almost exclusively in animal products — vegetarians who eat eggs and dairy get some, but not reliably enough. Deficiency develops slowly over years and causes fatigue, nerve issues, and anaemia. Non-negotiable for vegetarians. Methylcobalamin form is best absorbed. A weekly high-dose tablet is just as effective as daily low-dose.</td>
+            <td><span class="supp-tier tier-1">Tier 1</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--evening)"></div>
+      <div class="section-title">Tier 2 — Useful if Needed</div>
+      <div class="section-subtitle">Use as tools, not foundations</div>
+    </div>
+    <div class="section-body" style="padding:0;">
+      <table class="supp-table">
+        <thead>
+          <tr>
+            <th style="width:22%">Supplement</th>
+            <th style="width:20%">Dose &amp; Timing</th>
+            <th>When to use it</th>
+            <th style="width:10%">Tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="supp-name">Whey Protein Powder</div></td>
+            <td><div class="supp-dose">25–30g per serving<br>post-training or with meals</div></td>
+            <td>Only needed if consistently struggling to hit protein targets from food. Not magic — it's just convenient protein. Whey is fast-absorbing and leucine-rich. Casein (in cottage cheese) is better for pre-sleep use. Don't rely on shakes when whole food is available.</td>
+            <td><span class="supp-tier tier-2">Tier 2</span></td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Iron (if deficient)</div></td>
+            <td><div class="supp-dose">As prescribed<br>with vitamin C</div></td>
+            <td>Iron deficiency is common in women and causes chronic fatigue that is often mistaken for poor fitness. If energy is persistently low despite good sleep and nutrition, get blood work. Only supplement if a test confirms deficiency — excess iron is harmful. Take with vitamin C for absorption.</td>
+            <td><span class="supp-tier tier-2">Tier 2</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FOODS TO PRIORITISE -->
+  <div class="section-label">Best protein sources for toning</div>
+
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--evening)"></div>
+      <div class="section-title">High-Protein Foods — Daily Staples</div>
+      <div class="section-subtitle">Lean sources first, then vary</div>
+    </div>
+    <div class="section-body" style="padding:0;">
+      <table class="supp-table">
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Serving</th>
+            <th>Protein</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="supp-name">Greek yoghurt (0% fat)</div></td>
+            <td>200g</td>
+            <td>~20g</td>
+            <td>Most versatile staple — breakfast, snack, dessert. Use large tubs daily.</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Eggs (whole)</div></td>
+            <td>3–4 large</td>
+            <td>~21–28g</td>
+            <td>Complete protein, easy to cook in bulk. Don't discard yolks — the micronutrients matter. The vegetarian workhorse.</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Cottage cheese</div></td>
+            <td>200g</td>
+            <td>~24g</td>
+            <td>Casein protein — ideal pre-sleep. Low calorie, very filling. Pair with eggs to hit 35g+ per meal.</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Firm tofu</div></td>
+            <td>200g</td>
+            <td>~16g</td>
+            <td>Pan-fry or bake for best texture. Low calorie, absorbs flavour well. Always pair with dairy or eggs for a complete meal.</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Tempeh</div></td>
+            <td>150g</td>
+            <td>~24g</td>
+            <td>Higher protein than tofu, meatier texture, fermented so easier to digest. Best meat-like substitute for dinners.</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Halloumi</div></td>
+            <td>100g</td>
+            <td>~18g</td>
+            <td>High protein, high satiety, grills or pan-fries well. High in fat so keep portions moderate — pair with eggs for a protein-dense lunch.</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Lentils / chickpeas</div></td>
+            <td>200g cooked</td>
+            <td>~18g</td>
+            <td>Good carbs + protein combo. Not complete on their own — always pair with eggs, dairy, or tofu to hit the meal protein target.</td>
+          </tr>
+          <tr>
+            <td><div class="supp-name">Edamame</div></td>
+            <td>200g (shelled)</td>
+            <td>~22g</td>
+            <td>One of the few complete plant proteins. Easy frozen snack. Good addition to salads and bowls.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHAT NOT TO DO -->
+  <div class="section-label">Common mistakes to avoid</div>
+
+  <div class="info-note" style="margin-bottom:12px;">
+    <div class="info-note-icon">Avoid</div>
+    <div class="info-note-body"><strong>Cutting carbs entirely.</strong> Carbohydrates fuel training. Low-carb approaches work for weight loss but reduce training performance, which reduces muscle stimulus, which undermines the whole toning goal. Keep carbs — time them around workouts.</div>
+  </div>
+  <div class="info-note" style="margin-bottom:12px;">
+    <div class="info-note-icon">Avoid</div>
+    <div class="info-note-body"><strong>Eating too little.</strong> A 500–700 kcal deficit feels like fast progress but causes muscle loss, low energy, and metabolic adaptation within weeks. A 250–350 kcal deficit is slower but sustainable and preserves the muscle that creates the toned look.</div>
+  </div>
+  <div class="info-note" style="margin-bottom:12px;">
+    <div class="info-note-icon">Avoid</div>
+    <div class="info-note-body"><strong>Measuring progress only on the scale.</strong> When building muscle and losing fat simultaneously, the scale often stays flat or moves slowly even when the body is visibly changing. Use measurements, photos every 2–3 weeks, and how clothes fit as primary indicators.</div>
+  </div>
+  <div class="info-note">
+    <div class="info-note-icon">Avoid</div>
+    <div class="info-note-body"><strong>Skipping protein at breakfast.</strong> Eating 35–40g protein at breakfast increases satiety, reduces cravings throughout the day, and ensures the protein total is achievable across three normal meals. A high-carb, low-protein breakfast (cereal, toast, fruit only) makes hitting the daily protein target very difficult.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <strong>Tracking tip:</strong> For the first two weeks, log food in any app (Cronometer is free and accurate) just to calibrate portion sizes. You don't need to track forever — most people find that after 2–3 weeks they have a solid intuition for whether a meal hits the protein target. The goal is to understand what 35g of protein looks like on a plate, not to count calories indefinitely.
+  </div>
+
+</div>
+</body>
+</html>

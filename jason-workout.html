@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Strength Plan">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Jason · Workout Plan · 2026</title>
+
+<style>
+  /* FONT STACK — fully offline, no external requests */
+<style>
+  /* FONT STACK — fully offline, no external requests */
+  :root {
+    --font-display: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+  }
+  :root {
+    --black: #ffffff;
+    --off-black: #f7f7f5;
+    --dark: #f0eeeb;
+    --mid: #e5e2dd;
+    --border: #d0ccc6;
+    --muted: #5a5652;
+    --text: #3a3632;
+    --white: #1a1714;
+    --morning: #b86a00;
+    --lunch: #1a6fd4;
+    --evening: #6b3fd4;
+    --accent: #cc2020;
+    --green: #1a8a4a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(184,106,0,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-label {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+    margin-bottom: 24px;
+  }
+
+  h1 span {
+    color: var(--morning);
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .meta-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  .meta-pill .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  /* SESSION LEGEND */
+  .legend {
+    display: flex;
+    gap: 0;
+    padding: 0 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 24px 16px 0;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-right: 24px;
+  }
+
+  .legend-bar {
+    width: 3px;
+    height: 20px;
+    border-radius: 2px;
+  }
+
+  /* MAIN LAYOUT */
+  .plan-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* PRINCIPLE BOXES */
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .principle {
+    background: var(--off-black);
+    padding: 20px;
+  }
+
+  .principle-label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .principle-value {
+    font-size: 17px;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* DAY BLOCKS */
+  .day-block {
+    margin-bottom: 48px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .day-number {
+    font-family: var(--font-display);
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    padding: 16px 20px;
+    border-right: 1px solid var(--border);
+    min-width: 80px;
+  }
+
+  .day-title {
+    font-family: var(--font-display);
+    font-size: 27px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    padding: 14px 20px;
+    flex: 1;
+  }
+
+  .day-tags {
+    display: flex;
+    gap: 8px;
+    padding: 0 20px;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .tag-morning { background: rgba(184,106,0,0.1); color: var(--morning); border: 1px solid rgba(184,106,0,0.25); }
+  .tag-lunch { background: rgba(26,111,212,0.1); color: var(--lunch); border: 1px solid rgba(26,111,212,0.25); }
+  .tag-evening { background: rgba(107,63,212,0.1); color: var(--evening); border: 1px solid rgba(107,63,212,0.25); }
+
+  /* SESSION BLOCKS */
+  .session {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .session:last-child {
+    border-bottom: none;
+  }
+
+  .session-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--dark);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .session-stripe {
+    width: 3px;
+    height: 18px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .session-name {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .session-name.morning { color: var(--morning); }
+  .session-name.lunch { color: var(--lunch); }
+  .session-name.evening { color: var(--evening); }
+
+  .session-duration {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* EXERCISE TABLE */
+  .exercises {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .exercises thead tr {
+    background: var(--off-black);
+  }
+
+  .exercises th {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .exercises td {
+    padding: 14px 16px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    vertical-align: top;
+  }
+
+  .exercises tr:last-child td {
+    border-bottom: none;
+  }
+
+  .exercises tr:hover td {
+    background: rgba(0,0,0,0.02);
+  }
+
+  .ex-name {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 19px;
+  }
+
+  .ex-cue {
+    font-size: 15px;
+    color: var(--muted);
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  .ex-video {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--lunch);
+    text-decoration: none;
+    border: 1px solid rgba(26,111,212,0.3);
+    background: rgba(26,111,212,0.07);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-right: 4px;
+  }
+
+  .ex-video:hover {
+    background: rgba(26,111,212,0.18);
+    border-color: var(--lunch);
+  }
+
+  .ex-sets {
+    font-family: var(--font-mono);
+    font-size: 17px;
+    color: var(--white);
+  }
+
+  .ex-tempo {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--text);
+  }
+
+  .ex-rest {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  .ex-notes {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 260px;
+  }
+
+  .superset-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background: rgba(26,138,74,0.1);
+    color: var(--green);
+    border: 1px solid rgba(26,138,74,0.25);
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  .finisher-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background: rgba(204,32,32,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(204,32,32,0.25);
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* NOTES BOX */
+  .session-note {
+    padding: 14px 20px;
+    background: rgba(0,0,0,0.02);
+    border-top: 1px solid var(--border);
+    font-size: 16px;
+    color: var(--muted);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .session-note::before {
+    content: '→';
+    color: var(--morning);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* SPECIALISATION BOX */
+  .spec-box {
+    margin: 0 20px 20px;
+    padding: 16px;
+    border: 1px solid rgba(184,106,0,0.2);
+    background: rgba(184,106,0,0.04);
+  }
+
+  .spec-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--morning);
+    margin-bottom: 8px;
+  }
+
+  .spec-text {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* TEMPO KEY */
+  .tempo-key {
+    margin-bottom: 48px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    background: var(--off-black);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px 32px;
+    align-items: start;
+  }
+
+  .tempo-title {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    grid-column: 1 / -1;
+    margin-bottom: 4px;
+  }
+
+  .tempo-item {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--morning);
+  }
+
+  .tempo-desc {
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  /* SHOULDER NOTE */
+  .shoulder-warning {
+    margin-bottom: 48px;
+    padding: 16px 20px;
+    border-left: 3px solid var(--accent);
+    background: rgba(204,32,32,0.05);
+    font-size: 16px;
+    color: var(--text);
+  }
+
+  .shoulder-warning strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* RESPONSIVE — MOBILE FIRST */
+  @media (max-width: 768px) {
+    header { padding: 28px 16px 24px; }
+    .legend { padding: 0 16px; flex-wrap: wrap; gap: 4px; }
+    .legend-item { font-size: 12px; padding: 10px 12px 10px 0; margin-right: 8px; }
+    .plan-container { padding: 16px 12px 60px; }
+    .day-tags { display: none; }
+    h1 { font-size: 42px; }
+    .header-meta { gap: 12px; }
+    .meta-pill { font-size: 14px; }
+
+    /* PRINCIPLES GRID — single column */
+    .principles { grid-template-columns: 1fr 1fr; }
+    .principle { padding: 14px; }
+    .principle-value { font-size: 15px; }
+
+    /* DAY HEADER */
+    .day-number { font-size: 13px; min-width: 60px; padding: 12px 14px; }
+    .day-title { font-size: 20px; padding: 12px 14px; }
+
+    /* SESSION HEADER */
+    .session-name { font-size: 13px; letter-spacing: 0.06em; }
+    .session-duration { font-size: 12px; }
+
+    /* EXERCISE TABLE → CARD LAYOUT ON MOBILE */
+    .exercises thead { display: none; }
+
+    .exercises tr {
+      display: block;
+      padding: 14px 14px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exercises tr:last-child {
+      border-bottom: none;
+    }
+
+    .exercises td {
+      display: block;
+      padding: 0;
+      border: none;
+      font-size: 15px;
+    }
+
+    /* Exercise name cell */
+    .exercises td:nth-child(1) {
+      margin-bottom: 10px;
+    }
+
+    .ex-name { font-size: 17px; }
+    .ex-cue { font-size: 14px; }
+
+    /* Sets cell — shown as pill */
+    .exercises td:nth-child(2) {
+      display: inline-block;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      margin-right: 6px;
+    }
+
+    .ex-sets { font-size: 14px; }
+
+    /* Tempo cell — shown as pill */
+    .exercises td:nth-child(3) {
+      display: inline-block;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      margin-right: 6px;
+    }
+
+    .ex-tempo { font-size: 14px; }
+
+    /* Rest cell — shown as pill */
+    .exercises td:nth-child(4) {
+      display: inline-block;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .ex-rest { font-size: 14px; }
+
+    /* Notes cell — full width below pills */
+    .exercises td:nth-child(5) {
+      display: block;
+      font-size: 14px;
+      color: var(--muted);
+      padding-top: 4px;
+      border-top: 1px dashed var(--border);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    .ex-notes { max-width: 100%; font-size: 14px; }
+
+    /* Session note */
+    .session-note { font-size: 14px; padding: 12px 14px; }
+
+    /* Tempo key */
+    .tempo-key { padding: 14px; gap: 10px 16px; }
+    .tempo-item { font-size: 14px; }
+    .tempo-desc { font-size: 14px; }
+
+    /* Progression tables on mobile */
+    .plan-container > div[style*="margin-top:48px"] table thead { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 34px; }
+    .principles { grid-template-columns: 1fr; }
+    .day-title { font-size: 16px; }
+  }
+
+  /* PROGRESSION TABLES MOBILE */
+  @media (max-width: 768px) {
+    .prog-table { width: 100%; border-collapse: collapse; }
+    .prog-table thead { display: none; }
+    .prog-table tr { display: block; padding: 14px; border-bottom: 1px solid #d0ccc6; }
+    .prog-table td { display: block; padding: 0 0 6px 0; border: none; font-size: 14px !important; }
+    .prog-table td:first-child { margin-bottom: 8px; border-bottom: 1px dashed #d0ccc6; padding-bottom: 8px; }
+  }
+
+  /* SITE NAV */
+  .site-nav-top {
+    display: flex;
+    align-items: stretch;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-home {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 0;
+    margin-right: 20px;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .nav-home:hover { color: var(--text); }
+  .nav-person {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s;
+  }
+  .nav-person:hover { color: var(--text); }
+  .nav-jason.active { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-emma.active { color: var(--evening); border-bottom-color: var(--evening); }
+  .site-nav-sub {
+    display: flex;
+    background: var(--off-black);
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-sub-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px 10px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s;
+  }
+  .nav-sub-link:hover { color: var(--text); }
+  .nav-sub-link.active-jason { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-sub-link.active-emma { color: var(--evening); border-bottom-color: var(--evening); }
+  @media (max-width: 600px) {
+    .site-nav-top { padding: 0 16px; }
+    .nav-person { padding: 10px 14px; font-size: 17px; }
+    .site-nav-sub { padding: 0 16px; }
+    .nav-sub-link { padding: 10px 14px 8px; font-size: 12px; }
+    .nav-home { padding: 0 12px 0 0; margin-right: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav-top">
+  <a href="index.html" class="nav-home">Home</a>
+  <a href="jason-workout.html" class="nav-person nav-jason active">Jason</a>
+  <a href="emma-workout.html" class="nav-person nav-emma">Emma</a>
+</nav>
+<nav class="site-nav-sub">
+  <a href="jason-workout.html" class="nav-sub-link active-jason">Workout Plan</a>
+  <a href="jason-nutrition.html" class="nav-sub-link">Nutrition</a>
+</nav>
+
+<header>
+  <div class="header-label">Training Programme · 2026</div>
+  <h1>GYMNASTICS<br><span>STRENGTH</span><br>PLAN</h1>
+  <div class="header-meta">
+    <div class="meta-pill"><span class="dot" style="background:var(--morning)"></span> 5–6 days / week</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--lunch)"></span> Three-session days × 3</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--evening)"></span> Evening flexibility daily</div>
+  </div>
+</header>
+
+<div class="legend" style="padding:0 40px;">
+  <div class="legend-item"><div class="legend-bar" style="background:var(--morning)"></div><span style="color:var(--morning)">Morning</span> — fasted strength</div>
+  <div class="legend-item"><div class="legend-bar" style="background:var(--lunch)"></div><span style="color:var(--lunch)">Lunch</span> — fed skill work</div>
+  <div class="legend-item"><div class="legend-bar" style="background:var(--evening)"></div><span style="color:var(--evening)">Evening</span> — flexibility & compression</div>
+</div>
+
+<div class="plan-container">
+
+  <!-- TEMPO KEY -->
+  <div class="tempo-key">
+    <div class="tempo-title">Tempo notation key — format: Eccentric · Pause · Concentric · Pause at top</div>
+    <div class="tempo-item">1141</div><div class="tempo-desc">1s down · 1s pause · 4s up (slow contraction) · 1s pause at top</div>
+    <div class="tempo-item">3010</div><div class="tempo-desc">3s eccentric/negative · no pause · 1s concentric · no pause</div>
+    <div class="tempo-item">Hold/10s</div><div class="tempo-desc">Static hold — squeeze hard throughout, don't just sit in position</div>
+    <div class="tempo-item">Pulse</div><div class="tempo-desc">Small 2–3cm range movements at end-range. Slow and controlled.</div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div class="principles">
+    <div class="principle"><div class="principle-label">Rest between strength sets</div><div class="principle-value">2–3 minutes</div></div>
+    <div class="principle"><div class="principle-label">Rest between superset rounds</div><div class="principle-value">90 seconds</div></div>
+    <div class="principle"><div class="principle-label">Gap before finisher</div><div class="principle-value">5 minutes</div></div>
+    <div class="principle"><div class="principle-label">Nutrition timing</div><div class="principle-value">First meal ~12:00. Protein 140–160g/day across 2 meals.</div></div>
+    <div class="principle"><div class="principle-label">Progression trigger</div><div class="principle-value">Top end of reps/hold feels controlled for 2 consecutive sessions → advance</div></div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">DAY 1</div>
+      <div class="day-title">Push · Core · Handstand</div>
+      <div class="day-tags">
+        <span class="tag tag-morning">Morning</span>
+        <span class="tag tag-lunch">Lunch</span>
+        <span class="tag tag-evening">Evening</span>
+      </div>
+    </div>
+
+    <!-- MORNING -->
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--morning)"></div>
+        <span class="session-name morning">Morning — Fasted Strength</span>
+        <span class="session-duration">~40 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Elevated Heel Pistol Squat Practice <a class="ex-video" href="https://www.youtube.com/results?search_query=elevated+heel+pistol+squat+tutorial+progressions" target="_blank">▶ Video</a></div><div class="ex-cue">Heel on a 2–3cm plate or wedge. Removes ankle restriction so you can learn correct position first.</div></td>
+            <td class="ex-sets">3 × 5 reps each side</td>
+            <td class="ex-tempo">3s descent. 1s pause at bottom. 2s return. Full depth every rep — no bouncing out.</td>
+            <td class="ex-rest">60s between sides</td>
+            <td class="ex-notes">Do this first while the nervous system is completely fresh — skill work before strength work. Heel on a book or plate. Focus on keeping the free leg straight and forward throughout. When 5 controlled reps each side feels easy, lower the heel elevation by 5mm.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Hip Flexor Pistol Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hip+flexor+strength+pistol+squat+free+leg+hold" target="_blank">▶ Video</a></div><div class="ex-cue">Trains holding the free leg up and forward — the position people forget is half the battle.</div></td>
+            <td class="ex-sets">3 × 15–20s hold each side</td>
+            <td class="ex-tempo">Stand on one leg, other leg extended straight forward at hip height. Hold. Torso slightly forward.</td>
+            <td class="ex-rest">45s</td>
+            <td class="ex-notes">If you can't hold the free leg at hip height for 15s your hip flexors are the limiting factor, not just your ankle. This drill directly fixes the heel-lift compensation pattern.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS A</span><div class="ex-name">Tuck Dragon Flag <a class="ex-video" href="https://www.youtube.com/results?search_query=tuck+dragon+flag+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Builds anterior chain for front lever & L-sit</div></td>
+            <td class="ex-sets">3 × 5 reps<br><span style="font-size:11px;color:var(--muted)">or 3 × 8–10s hold</span></td>
+            <td class="ex-tempo">3s negative<br>1s hold<br>1s return</td>
+            <td class="ex-rest">—</td>
+            <td class="ex-notes">Hips stay high. If doing hold version, squeeze abs hard — don't just hang.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS A</span><div class="ex-name">Prone Floor Press <a class="ex-video" href="https://www.youtube.com/results?search_query=prone+floor+press+scapular+strength+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Chest on floor. Scapular depression + protraction strength.</div></td>
+            <td class="ex-sets">3 × 5–6 reps<br><span style="font-size:11px;color:var(--muted)">or 3 × 8–10s hold</span></td>
+            <td class="ex-tempo">2s press<br>8s hold<br>2s lower</td>
+            <td class="ex-rest">90s after pair</td>
+            <td class="ex-notes">Upper back flat. Push floor away. Direct planche & handstand push-up builder.</td>
+          </tr>
+          <tr>
+            <td><span class="finisher-badge">Finisher</span><div class="ex-name">Alactic KB Swings <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+technique+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Metabolic + cardiovascular. Hip power.</div></td>
+            <td class="ex-sets">8–10 rounds<br>× 10 swings</td>
+            <td class="ex-tempo">Explosive hip snap. Not a squat.</td>
+            <td class="ex-rest">50–60s between rounds</td>
+            <td class="ex-notes">5 min gap after strength sets. Stop when power drops — don't grind through bad reps.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">Superset A: complete both exercises back to back with no rest, then rest 90s before repeating. Warm-up: 2 × 20s hollow body handstand hold (chest to wall) before starting — 4 minutes, no equipment, ingrains the position daily.</div>
+    </div>
+
+    <!-- LUNCH A -->
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name lunch">Weekday Lunch A — Muscle-Up Specialism</span>
+        <span class="session-duration">~15 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">False Grip Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=false+grip+rings+tutorial+muscle+up" target="_blank">▶ Video</a></div><div class="ex-cue">Wrist over ring — wrist crease on top. Both hands.</div></td>
+            <td class="ex-sets">3 × 20–30s</td>
+            <td class="ex-tempo">Dead hang. Squeeze grip actively throughout.</td>
+            <td class="ex-rest">60s</td>
+            <td class="ex-notes">Daily micro-touch: on any morning you don't have lunch, do 2 × 20s false grip hang + 1 set ring rows to keep the neurological pattern alive.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">False Grip Ring Row to Chest <a class="ex-video" href="https://www.youtube.com/results?search_query=false+grip+ring+row+muscle+up+progression" target="_blank">▶ Video</a></div><div class="ex-cue">Rings travel down and into lower sternum. This is the pulling arc.</div></td>
+            <td class="ex-sets">3 × 5 reps</td>
+            <td class="ex-tempo">2s pull. 1s hold rings at chest. 3s return. False grip maintained throughout.</td>
+            <td class="ex-rest">60s</td>
+            <td class="ex-notes">Elbows close to body. Rings finish at lower chest not chin. If grip slips during the row, reduce range until wrist conditioning improves.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">False Grip Ring Pull-Up or Transition <a class="ex-video" href="https://www.youtube.com/results?search_query=false+grip+ring+pull+up+muscle+up+transition" target="_blank">▶ Video</a></div><div class="ex-cue">Pulling height first. Transition practice when chest-to-rings is consistent.</div></td>
+            <td class="ex-sets">3 × 3–5 reps</td>
+            <td class="ex-tempo">Explosive pull. Rings to lower chest. 1s hold. Then attempt turnover.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Current priority: get rings to chest consistently in false grip. When that's reliable, begin the lean-forward press into support position. Use band assist for the transition until the pattern is grooved.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">This is your most time-sensitive specialism. Three focused sessions per week here will move you faster than any amount of general pulling work.</div>
+    </div>
+
+    <!-- EVENING -->
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--evening)"></div>
+        <span class="session-name evening">Evening — Flexibility & Compression</span>
+        <span class="session-duration">~20 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Weighted Pancake Pulses <a class="ex-video" href="https://www.youtube.com/results?search_query=pancake+stretch+weighted+flexibility+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Adductor length + compression for press-to-HS & straddle planche</div></td>
+            <td class="ex-sets">3–5 sets<br>× 8–12 pulses<br>+ 10–20s hold</td>
+            <td class="ex-tempo">Pulses: 2–3cm range at end position. Hold: breathe into it — don't fight.</td>
+            <td class="ex-rest">60s between sets</td>
+            <td class="ex-notes">Weight on chest. Straight back, lean forward maximally first, then pulse. Final hold: slow exhale = deeper position.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">Finish lying in your deepest pancake for 3–5 slow breaths. Parasympathetic state deepens the stretch passively.</div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">DAY 2</div>
+      <div class="day-title">Pull · Ring Strength · Handstand</div>
+      <div class="day-tags">
+        <span class="tag tag-morning">Morning</span>
+        <span class="tag tag-lunch">Lunch</span>
+        <span class="tag tag-evening">Evening</span>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--morning)"></div>
+        <span class="session-name morning">Morning — Fasted Strength</span>
+        <span class="session-duration">~45 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="superset-badge">SS A</span><div class="ex-name">Weighted Pull-Ups <a class="ex-video" href="https://www.youtube.com/results?search_query=weighted+pull+up+form+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Primary muscle-up & one-arm pull-up builder</div></td>
+            <td class="ex-sets">3–4 × 4–6 reps</td>
+            <td class="ex-tempo">1s down · 1s pause · 4s up · 1s hold<br>(tempo: 1141)</td>
+            <td class="ex-rest">—</td>
+            <td class="ex-notes">Palms away. 4s concentric = massive strength signal. Add weight only when top of range feels controlled.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS A</span><div class="ex-name">Ring Dips <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+dips+form+tutorial+technique" target="_blank">▶ Video</a></div><div class="ex-cue">Tricep, chest, stabiliser development. Muscle-up push phase.</div></td>
+            <td class="ex-sets">3–4 × 5–8 reps</td>
+            <td class="ex-tempo">1s down · 1s pause · 4s up · 1s hold<br>(tempo: 1141)</td>
+            <td class="ex-rest">2–3 min after pair</td>
+            <td class="ex-notes">Rings turned out at top. Full depression at top of each rep. Don't rush.</td>
+          </tr>
+          <tr>
+            <td><span class="finisher-badge">Finisher</span><div class="ex-name">KB Clean & Press <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+clean+press+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Cardiovascular + overhead strength. Shoulder health.</div></td>
+            <td class="ex-sets">5–6 rounds<br>× 3 reps/side</td>
+            <td class="ex-tempo">Controlled clean. Strict press — no leg drive.</td>
+            <td class="ex-rest">~60s between rounds</td>
+            <td class="ex-notes">5 min gap after strength sets. Breathing elevated but shoulders fresh enough for clean form.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- LUNCH B -->
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name lunch">Weekday Lunch B — Planche + Press-to-HS</span>
+        <span class="session-duration">~15 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Tuck Planche Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=tuck+planche+hold+tutorial+form+cues" target="_blank">▶ Video</a></div><div class="ex-cue">Fed CNS = best planche adaptation. The primary reason this session exists.</div></td>
+            <td class="ex-sets">3–4 × 8–12s hold</td>
+            <td class="ex-tempo">Hold. Scaps depressed and protracted. Upper spine flat. Hips up. Arms fully straight.</td>
+            <td class="ex-rest">2 min</td>
+            <td class="ex-notes">Best planche work of the week happens here — fed and fresh. When 12s feels controlled across 4 sets, you're ready for advanced tuck.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Pike Press Negative <a class="ex-video" href="https://www.youtube.com/results?search_query=pike+press+handstand+negative+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Press-to-HS in reverse. Lower from handstand to pike as slowly as possible.</div></td>
+            <td class="ex-sets">2–3 × 3–5 reps</td>
+            <td class="ex-tempo">5s+ descent. Arms straight. Hips push back over hands as you lower.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Use wall for safety. Slow descent further toward 8–10s as strength builds. Your evening pike compression lifts feed directly into this — you'll feel them converging.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">Two exercises done well. In and out in 15 minutes. Planche hold here will produce better adaptation than done fatigued after strength work.</div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--evening)"></div>
+        <span class="session-name evening">Evening — Flexibility & Compression</span>
+        <span class="session-duration">~15 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Weighted Pike Good Mornings <a class="ex-video" href="https://www.youtube.com/results?search_query=pike+good+morning+hamstring+flexibility+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Hamstring length under load. Press-to-HS prerequisite.</div></td>
+            <td class="ex-sets">3–5 sets<br>× 8–12 pulses<br>+ 10–20s hold</td>
+            <td class="ex-tempo">5s controlled descent. 8–12 pulses at end-range. 5s return.</td>
+            <td class="ex-rest">60s</td>
+            <td class="ex-notes">Weight on chest. Straight back — not rounded. Pulses are small: 2–3cm only. Feel it in hamstrings not lower back.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">Finish with 3–5 slow breaths in deepest pike position. No bouncing — just relaxed gravitational loading.</div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">DAY 3</div>
+      <div class="day-title">Active Recovery · Pistol Specialism · KB</div>
+      <div class="day-tags">
+        <span class="tag tag-morning">Morning</span>
+        <span class="tag tag-evening">Evening</span>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--morning)"></div>
+        <span class="session-name morning">Morning — Light Skill & KB Practice</span>
+        <span class="session-duration">~30 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Hollow Body Kick-Up Practice <a class="ex-video" href="https://www.youtube.com/results?search_query=handstand+kick+up+entry+technique+hollow+body" target="_blank">▶ Video</a></div><div class="ex-cue">Entry reliability. Hollow before feet leave floor — position is set before the kick, not after.</div></td>
+            <td class="ex-sets">2 × 8–10 attempts</td>
+            <td class="ex-tempo">Slow setup each rep. Engage hollow, squeeze glutes, arms by ears — then kick. 20s between attempts.</td>
+            <td class="ex-rest">60s between sets</td>
+            <td class="ex-notes">Recovery day so keep intensity low — this is pure pattern practice. Count how many of the 8–10 entries land in balance. Aim to improve that number each week. Don't chase the hold — just nail the entry.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">KB Snatch or Clean & Press Practice <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+snatch+clean+press+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Skill maintenance. Power + coordination.</div></td>
+            <td class="ex-sets">10 min practice</td>
+            <td class="ex-tempo">Unhurried. Focus on groove, not load.</td>
+            <td class="ex-rest">As needed</td>
+            <td class="ex-notes">This is practice, not training. Moderate weight. Stop if form degrades.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Ring Rows — Feet Elevated <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+rows+feet+elevated+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Lat, upper back and rear delt mass. Different pulling angle to pull-ups. Home rings.</div></td>
+            <td class="ex-sets">2 × 8–12 reps</td>
+            <td class="ex-tempo">2s pull. 1s hold chest to rings. 3s lower. Body rigid throughout.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Feet on a chair or box — the more horizontal your body, the harder it is. Start with a moderate angle and progress by lowering your body angle over weeks. Rings turned out at the top. This is a recovery day so keep it at a moderate effort — not a grind.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Ring Push-Ups — Feet Elevated <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+push+ups+feet+elevated+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Horizontal press with natural adduction at top. Upper chest emphasis with feet raised.</div></td>
+            <td class="ex-sets">2 × 8–12 reps</td>
+            <td class="ex-tempo">3s descent. 1s hold at bottom. 2s press. Hands naturally adduct and turn out at top.</td>
+            <td class="ex-rest">60s</td>
+            <td class="ex-notes">Feet on chair shifts emphasis to upper chest. Allow hands to travel slightly together at the top — that's the adduction that makes ring push-ups superior to floor push-ups for pec development. Keep body rigid, don't let hips sag.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Ring Flyes <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+flyes+chest+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Stretched-position pec loading. The stimulus your plan is currently missing entirely.</div></td>
+            <td class="ex-sets">2 × 8–10 reps</td>
+            <td class="ex-tempo">3s lowering arms out wide. 1s hold at full stretch. 2s return bringing hands together.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Rings at chest height, body angled forward. Start conservatively — this movement is deceptively hard and the pec stretch under load can cause soreness if you overdo it first session. Slightly bent arms throughout — never fully locked. Progress by increasing body angle (more horizontal = harder).</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Elevated Heel Pistol Squat Practice <a class="ex-video" href="https://www.youtube.com/results?search_query=elevated+heel+pistol+squat+tutorial+progressions" target="_blank">▶ Video</a></div><div class="ex-cue">Heel on a 2–3cm plate or wedge. Removes ankle restriction so you can learn correct position first.</div></td>
+            <td class="ex-sets">3 × 5 reps each side</td>
+            <td class="ex-tempo">4s descent. 2s hold at bottom. 3s return. Supported (post or band) if needed.</td>
+            <td class="ex-rest">60s between sides</td>
+            <td class="ex-notes">Key positions to nail: chest leans toward knee as you descend (not upright). Free leg extends forward — hip flexors hold it up, don't let it drop. At bottom, weight through heel even if elevated. Gradually reduce heel height over weeks as these positions become natural.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Ankle Dorsiflexion Wall Drill <a class="ex-video" href="https://www.youtube.com/results?search_query=ankle+dorsiflexion+wall+drill+pistol+squat" target="_blank">▶ Video</a></div><div class="ex-cue">Calf + Achilles length under load. The specific range needed for flat-footed pistol.</div></td>
+            <td class="ex-sets">3 × 10 reps each side</td>
+            <td class="ex-tempo">Lunge position, front foot 5–8cm from wall. Drive knee forward over toes to touch wall. Hold 2s. Return.</td>
+            <td class="ex-rest">30s</td>
+            <td class="ex-notes">Gradually move foot further from wall as range improves. When you can drive knee to wall with foot 10–12cm away flat-footed, your ankle restriction is solved. Track your distance each session.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Hip Flexor Pistol Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hip+flexor+strength+pistol+squat+free+leg+hold" target="_blank">▶ Video</a></div><div class="ex-cue">Trains holding the free leg up and forward — the position people forget is half the battle.</div></td>
+            <td class="ex-sets">3 × 15–20s hold each side</td>
+            <td class="ex-tempo">Stand on one leg, other leg extended straight forward at hip height. Hold. Torso slightly forward.</td>
+            <td class="ex-rest">45s</td>
+            <td class="ex-notes">If you can't hold the free leg at hip height for 15s your hip flexors are the limiting factor, not just your ankle. This drill directly fixes the heel-lift compensation pattern.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">Pistol work is 3x per week (Days 1, 3, 5) — Day 1 opens with Elevated Heel Pistol Practice + Hip Flexor Hold, Day 3 is the full specialism block, Day 5 opens with Ankle Dorsiflexion Drill as warm-up to the leg session. Quality over frequency for this skill given the ankle and hip position work needed. Muscle-up micro-drill (5 min max) can be tagged onto any session daily — just the transition catch and one set of chest-to-bar. Keep it light enough that it doesn't affect your main work.</div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--evening)"></div>
+        <span class="session-name evening">Evening — Flexibility</span>
+        <span class="session-duration">~15 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Pancake Good Mornings <a class="ex-video" href="https://www.youtube.com/results?search_query=pancake+stretch+good+morning+flexibility+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Adductor flexibility under tension. Resistance band.</div></td>
+            <td class="ex-sets">3–4 × 8–10 reps</td>
+            <td class="ex-tempo">5s forward lean. 5s hold. 5s return. No rounding.</td>
+            <td class="ex-rest">60s</td>
+            <td class="ex-notes">Band adds resistance to the return. Keep spine long. Lean from hips not waist.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">DAY 4</div>
+      <div class="day-title">Posterior Chain · Compression · Handstand</div>
+      <div class="day-tags">
+        <span class="tag tag-morning">Morning</span>
+        <span class="tag tag-lunch">Lunch</span>
+        <span class="tag tag-evening">Evening</span>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--morning)"></div>
+        <span class="session-name morning">Morning — Fasted Strength</span>
+        <span class="session-duration">~40 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="superset-badge">SS A</span><div class="ex-name">Floor Back Raises <a class="ex-video" href="https://www.youtube.com/results?search_query=floor+back+raises+hyperextension+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Posterior chain. Spinal erectors. Back lever & planche prerequisite.</div></td>
+            <td class="ex-sets">3 × 5–6 reps<br><span style="font-size:11px;color:var(--muted)">or 3 × 8–10s hold</span></td>
+            <td class="ex-tempo">3s raise. 8s hold at top. 3s lower.</td>
+            <td class="ex-rest">—</td>
+            <td class="ex-notes">Arms extended or by sides. Full spinal extension at top. Don't hyperextend neck.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS A</span><div class="ex-name">Hanging Tuck Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hanging+tuck+hold+compression+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Hip flexor strength + lat engagement. L-sit & front lever progression.</div></td>
+            <td class="ex-sets">3 × 8–10s hold</td>
+            <td class="ex-tempo">Hold. Knees to chest. Active depression — pull shoulder blades down.</td>
+            <td class="ex-rest">90s after pair</td>
+            <td class="ex-notes">Don't just hang — actively pull ribs down. This is compression strength, not passive hanging.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS B</span><div class="ex-name">Prone Floor Press <a class="ex-video" href="https://www.youtube.com/results?search_query=prone+floor+press+scapular+strength+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Scapular depression + protraction strength. Planche & handstand push-up builder.</div></td>
+            <td class="ex-sets">3 × 5–6 reps<br><span style="font-size:11px;color:var(--muted)">or 3 × 8–10s hold</span></td>
+            <td class="ex-tempo">2s press. 8s hold at top. 2s lower.</td>
+            <td class="ex-rest">—</td>
+            <td class="ex-notes">Upper spine flat. Push floor away actively. Moved here from lunch — same quality work, less time pressure.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS B</span><div class="ex-name">Hollow Body Kick-Up Practice <a class="ex-video" href="https://www.youtube.com/results?search_query=handstand+kick+up+entry+technique+hollow+body" target="_blank">▶ Video</a></div><div class="ex-cue">Entry reliability. Hollow before feet leave floor.</div></td>
+            <td class="ex-sets">2 × 6–8 attempts</td>
+            <td class="ex-tempo">Engage hollow, squeeze glutes, arms by ears — then kick. 20s between attempts.</td>
+            <td class="ex-rest">90s after pair</td>
+            <td class="ex-notes">Paired with prone press as an active rest — completely different muscle groups. Count successful balanced entries vs total attempts each session.</td>
+          </tr>
+          <tr>
+            <td><span class="finisher-badge">Finisher</span><div class="ex-name">KB Goblet Squat + Swing Complex <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+goblet+squat+swing+complex+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Leg strength + cardiovascular. Pistol squat builder.</div></td>
+            <td class="ex-sets">5 rounds</td>
+            <td class="ex-tempo">6 goblet squats (3s down, 1s hold, 1s up) then 10 swings explosive.</td>
+            <td class="ex-rest">60–90s between rounds</td>
+            <td class="ex-notes">5 min gap after strength sets. Goblet squat: chest tall, elbows inside knees, full depth.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- WEEKEND LUNCH -->
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name lunch">Weekend Lunch — Handstand Practice</span>
+        <span class="session-duration">~20 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Hollow Body Handstand Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+handstand+wall+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Chest to wall. Aggressive hollow — ribs down, glutes squeezed, no arch.</div></td>
+            <td class="ex-sets">2 × 25–30s hold</td>
+            <td class="ex-tempo">Hold. This is quality-check time — if you can't maintain hollow, the freestanding work won't stick.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Weekend = unhurried. Use this as a warm-up for the freestanding attempts. When 30s feels solid and flat, move hands 2cm closer to wall.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Freestanding Handstand Attempts <a class="ex-video" href="https://www.youtube.com/results?search_query=freestanding+handstand+kick+up+tutorial+balance" target="_blank">▶ Video</a></div><div class="ex-cue">Hollow body engaged before the kick. Entry sets everything.</div></td>
+            <td class="ex-sets">2 × 6–8 attempts</td>
+            <td class="ex-tempo">Full setup before each attempt. 20–30s rest between kicks. Stop when entries degrade.</td>
+            <td class="ex-rest">90s between sets</td>
+            <td class="ex-notes">Track your best hold time each weekend. Even 1 second of improvement per week compounds fast. Count successful entries (landed in balance) vs total attempts — aim to improve that ratio.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Pike Press Negative <a class="ex-video" href="https://www.youtube.com/results?search_query=pike+press+handstand+negative+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Press-to-HS builder. Lower from handstand to pike slowly.</div></td>
+            <td class="ex-sets">2 × 3–5 reps</td>
+            <td class="ex-tempo">5s+ descent. Arms straight throughout.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Weekend version — slightly fewer sets than weekdays. Focus on the quality of the descent rather than volume.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">Weekend gives you more time and a calmer environment — ideal for handstand balance work which requires patience and focus rather than intensity.</div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--evening)"></div>
+        <span class="session-name evening">Evening — Compression Strength</span>
+        <span class="session-duration">~15 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Pike Compression Lifts <a class="ex-video" href="https://www.youtube.com/results?search_query=pike+compression+lift+L+sit+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Hip flexor + compression strength. L-sit & press-to-HS direct builder.</div></td>
+            <td class="ex-sets">3–5 × 5–8 reps</td>
+            <td class="ex-tempo">Lift feet: 2s up. Hold: 5s. Lower: 3s. Rest: 10s between reps.</td>
+            <td class="ex-rest">60s between sets</td>
+            <td class="ex-notes">Hands on floor beside knees. Straight back. Both feet off floor together. This is hard — even small lifts count.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">DAY 5</div>
+      <div class="day-title">Legs · Aerobic · Handstand</div>
+      <div class="day-tags">
+        <span class="tag tag-morning">Morning</span>
+        <span class="tag tag-evening">Evening</span>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--morning)"></div>
+        <span class="session-name morning">Morning — Fasted Strength + Aerobic</span>
+        <span class="session-duration">~45 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Ankle Dorsiflexion Wall Drill <a class="ex-video" href="https://www.youtube.com/results?search_query=ankle+dorsiflexion+wall+drill+pistol+squat" target="_blank">▶ Video</a></div><div class="ex-cue">Calf + Achilles length under load. The specific range needed for flat-footed pistol.</div></td>
+            <td class="ex-sets">3 × 10 reps each side</td>
+            <td class="ex-tempo">Slow drive. 2s hold knee forward at end range. Return. Don't let heel lift.</td>
+            <td class="ex-rest">30s between sides</td>
+            <td class="ex-notes">Toes 5–10cm from wall. Drive knee forward and out over little toe — heel must stay flat. Move toes further from wall as range improves. This doubles as a warm-up for the heavy leg work that follows.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS A</span><div class="ex-name">Bulgarian Split Squat <a class="ex-video" href="https://www.youtube.com/results?search_query=bulgarian+split+squat+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Best single-leg leg exercise available. Directly feeds pistol squat strength more than lunge ISO.</div></td>
+            <td class="ex-sets">3 × 6–8 reps each side</td>
+            <td class="ex-tempo">3s descent. 1s pause at bottom. 2s return.</td>
+            <td class="ex-rest">—</td>
+            <td class="ex-notes">Rear foot elevated on bench or chair. Front foot far enough forward that shin stays vertical. KB in each hand or one goblet hold. Go only as deep as your front heel stays flat. This builds the quad and glute strength your pistol squat needs.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS A</span><div class="ex-name">Hamstring Planks <a class="ex-video" href="https://www.youtube.com/results?search_query=hamstring+plank+bridge+isometric+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Posterior chain isometric. Hamstring + glute strength for pistol & leg raises.</div></td>
+            <td class="ex-sets">4–5 × 8–10s hold</td>
+            <td class="ex-tempo">Hold. Hips up. Squeeze hamstrings and glutes. Don't sag.</td>
+            <td class="ex-rest">90s after pair</td>
+            <td class="ex-notes">Heels on bench or floor. Single-leg version when ready. Direct pistol squat strength builder.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Weighted Glute Bridge / Hip Thrust <a class="ex-video" href="https://www.youtube.com/results?search_query=weighted+glute+bridge+hip+thrust+kettlebell+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Direct glute mass builder. KB across hips. Most effective loaded glute exercise available.</div></td>
+            <td class="ex-sets">3 × 10–12 reps</td>
+            <td class="ex-tempo">2s up. 2s hold at top. 3s lower. Squeeze glutes hard at top — don't just bounce.</td>
+            <td class="ex-rest">90s after pair</td>
+            <td class="ex-notes">Feet flat on floor, KB across hip crease. Drive hips to full extension — body straight from shoulders to knees at top. Progress by increasing KB weight when 12 reps feels controlled.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Single-Leg Calf Raises <a class="ex-video" href="https://www.youtube.com/results?search_query=single+leg+calf+raise+eccentric+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Calf and Achilles strength. Directly improves ankle dorsiflexion for pistol squat.</div></td>
+            <td class="ex-sets">3 × 12–15 reps each side</td>
+            <td class="ex-tempo">2s up. 1s hold at top. 3s lower. Slow eccentric is the key — don't bounce.</td>
+            <td class="ex-rest">60s between sides</td>
+            <td class="ex-notes">Stand on edge of a step for full range. Hold something lightly for balance only. When 15 reps feels easy, add weight (hold a KB). The slow 3s lowering phase is what builds the Achilles strength needed for flat-footed pistol squat depth.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS B</span><div class="ex-name">Single-Leg KB Romanian Deadlift <a class="ex-video" href="https://www.youtube.com/results?search_query=single+leg+kettlebell+romanian+deadlift+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Posterior chain mass + single-leg stability. Direct pistol squat feeder. Home exercise.</div></td>
+            <td class="ex-sets">3 × 6–8 reps each side</td>
+            <td class="ex-tempo">3s hinge down. 1s pause at bottom. 2s return. Free leg extends back as counterbalance.</td>
+            <td class="ex-rest">—</td>
+            <td class="ex-notes">KB in same hand as working leg (ipsilateral) or opposite hand — try both, use whichever keeps hips level. Back flat throughout. Feel the stretch in the hamstring at the bottom. This builds the hamstring and glute mass your current plan doesn't cover.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS B</span><div class="ex-name">Supine Hollow Body Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+hold+tutorial+gymnastics" target="_blank">▶ Video</a></div><div class="ex-cue">Gymnastic core. Feeds every skill.</div></td>
+            <td class="ex-sets">3 × 10–20s hold</td>
+            <td class="ex-tempo">Hold. Lower back to floor. Legs 30–45°. Arms overhead.</td>
+            <td class="ex-rest">90s after pair</td>
+            <td class="ex-notes">Paired with the RDL as an active rest — completely different muscle groups. If lower back lifts, raise legs. Progress by lowering legs over weeks.</td>
+          </tr>
+          <tr>
+            <td><span class="superset-badge">SS B</span><div class="ex-name">Hollow Body Handstand Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+handstand+wall+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Chest to wall. Aggressive hollow body — same as Day 1. Ingrain the position.</div></td>
+            <td class="ex-sets">2 × 25–30s hold</td>
+            <td class="ex-tempo">Hold. Ribs down. Glutes squeezed. No arch. This should feel like hard core work.</td>
+            <td class="ex-rest">90s after pair</td>
+            <td class="ex-notes">If you can hold 30s with a genuinely flat body, move hands 2cm closer to wall next session. The wall hollow hold is your quality check — if you can't maintain it here, you can't maintain it freestanding.</td>
+          </tr>
+          <tr>
+            <td><span class="finisher-badge">Finisher</span><div class="ex-name">Bodyweight Aerobic Circuit <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+rocks+tutorial+form+gymnastics" target="_blank">▶ Video</a></div><div class="ex-cue">Cardiovascular health. Active recovery stimulus.</div></td>
+            <td class="ex-sets">3–5 rounds</td>
+            <td class="ex-tempo">Step-back lunges ×10 → Hollow rocks ×20 → Dead hang 20–30s. No rest within round.</td>
+            <td class="ex-rest">60s between rounds</td>
+            <td class="ex-notes">5 min gap after strength. Steady breathing pace. Dead hang: active shoulders — don't just dangle.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--evening)"></div>
+        <span class="session-name evening">Evening — Flexibility</span>
+        <span class="session-duration">~20 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Weighted Pancake Pulses <a class="ex-video" href="https://www.youtube.com/results?search_query=pancake+stretch+weighted+flexibility+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Repeat Day 1 evening protocol.</div></td>
+            <td class="ex-sets">3–5 sets<br>× 8–12 pulses<br>+ 10–20s hold</td>
+            <td class="ex-tempo">Same as Day 1. End-range pulses then hold.</td>
+            <td class="ex-rest">60s</td>
+            <td class="ex-notes">Twice-weekly pancake work will compound meaningfully over months.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 6/7 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">DAY 6/7</div>
+      <div class="day-title">Full Review · Single Sets · Skill Audit</div>
+      <div class="day-tags">
+        <span class="tag tag-morning">Morning</span>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--morning)"></div>
+        <span class="session-name morning">Morning — Weekly Skill Audit</span>
+        <span class="session-duration">~50 min</span>
+      </div>
+      <table class="exercises">
+        <thead>
+          <tr>
+            <th style="width:30%">Exercise</th>
+            <th>Sets × Reps / Hold</th>
+            <th>Tempo</th>
+            <th>Rest</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="ex-name">Tuck Dragon Flag <a class="ex-video" href="https://www.youtube.com/results?search_query=tuck+dragon+flag+tutorial+form" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">1 × 5 reps or 8s hold</td>
+            <td class="ex-tempo">Full quality. As per Day 1.</td>
+            <td class="ex-rest">2 min</td>
+            <td class="ex-notes">Note: is this harder or easier than Monday? That's your progress signal.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Tuck Planche Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=tuck+planche+hold+tutorial+form+cues" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">1 × 8–10s hold</td>
+            <td class="ex-tempo">Best quality hold you can produce today.</td>
+            <td class="ex-rest">2 min</td>
+            <td class="ex-notes">Shoulder check: any discomfort? Log it.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Weighted Pull-Ups <a class="ex-video" href="https://www.youtube.com/results?search_query=weighted+pull+up+form+tutorial" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">1 × 4–6 reps</td>
+            <td class="ex-tempo">1141</td>
+            <td class="ex-rest">2 min</td>
+            <td class="ex-notes">Same weight as Day 2. Note how it feels comparatively.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Ring Dips <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+dips+form+tutorial+technique" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">1 × 5–8 reps</td>
+            <td class="ex-tempo">1141</td>
+            <td class="ex-rest">2 min</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Floor Back Raises <a class="ex-video" href="https://www.youtube.com/results?search_query=floor+back+raises+hyperextension+tutorial" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">1 × 6 reps or 8s hold</td>
+            <td class="ex-tempo">3s raise. 8s hold. 3s lower.</td>
+            <td class="ex-rest">2 min</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Hanging Tuck Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hanging+tuck+hold+compression+tutorial" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">1 × 8–10s hold</td>
+            <td class="ex-tempo">Active compression. Scaps down.</td>
+            <td class="ex-rest">2 min</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Fingertip Lunge ISO <a class="ex-video" href="https://www.youtube.com/results?search_query=single+leg+lunge+isometric+hold+tutorial" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">1 × 8–10s each side</td>
+            <td class="ex-tempo">As per Day 5.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Hamstring Planks <a class="ex-video" href="https://www.youtube.com/results?search_query=hamstring+plank+bridge+isometric+tutorial" target="_blank">▶ Video</a></div></td>
+            <td class="ex-sets">1 × 8–10s hold</td>
+            <td class="ex-tempo">Hold. Squeeze throughout.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">KB Practice</div></td>
+            <td class="ex-sets">10 min</td>
+            <td class="ex-tempo">Unhurried. Snatch or clean & press.</td>
+            <td class="ex-rest">As needed</td>
+            <td class="ex-notes">End of week — keep it light and enjoyable.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note">This session's purpose is retention and assessment — not accumulation. If anything feels off, cut it. A tired Day 6/7 session done poorly is worth less than a fresh Day 1.</div>
+    </div>
+  </div>
+
+  <!-- PROGRESSION GUIDE -->
+  <div style="margin-top:48px;">
+    <div style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;">Exercise Progressions — Current Move → Next Move → When to Advance</div>
+
+    <!-- SHARED TABLE STYLES via inline -->
+
+    <!-- TUCK PLANCHE -->
+    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
+      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+        <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Tuck Planche Hold</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Days 1 · 4 · 6/7</div>
+      </div>
+      <table class="prog-table" style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off-black);">
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(184,106,0,0.04);">
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--morning);">★ Tuck Planche Hold</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Knees tucked tight to chest. Hips up. Upper back rounded. Straight arms, shoulders depressed and protracted.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 12s hold with hips level to shoulders, arms fully straight, no wobbling or sinking. Feels controlled, not desperate.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Advanced Tuck</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Knees still tucked but back now flat and horizontal — not rounded. Hips higher. Much harder than it sounds.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 10s with back truly parallel to floor and arms straight. Hips not dropping.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">One-Leg Extension</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Advanced tuck but one leg extends straight back. Alternate legs. Bridge between tuck and straddle.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 8s each side cleanly, hips level throughout.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Straddle Planche</div></td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">Both legs extended wide apart, body horizontal. This is where your pancake flexibility becomes essential.</td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">3 × 8s. Then gradually narrow the straddle width over months toward full planche.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MUSCLE UP -->
+    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;margin-top:24px;">
+      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+        <div style="width:3px;height:20px;background:var(--lunch);border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Ring False Grip Muscle-Up Progression</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Day 2 lunch · daily micro-drill</div>
+      </div>
+      <table class="prog-table" style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off-black);">
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(26,111,212,0.04);">
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--lunch);">★ False Grip Conditioning</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Wrist draped over ring in dead hang. Building wrist tolerance and grip security. Both hands.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Can hold 3 × 30s in solid false grip without grip slipping or wrist pain. Grip feels secure, not precarious.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">False Grip Ring Rows + Pull-Ups</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">Current training</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Pulling in false grip — rows first, then full pull-ups. Rings travel to lower chest. Elbows close.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">4 × 5 false grip pull-ups with rings touching lower sternum at top. False grip maintained throughout every rep.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Assisted Ring Muscle-Up</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Band or jump assist through the transition. Full movement — pull, lean forward, press to support. Rings turned out at top.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">5 smooth assisted reps with minimal band tension. Transition feels like a continuation of the pull, not a separate effort.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Negative Ring Muscle-Up</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Jump or press to support position, then lower slowly through the transition back to dead hang. 5s negative.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">5 controlled negatives with full 5s descent. No crashing through the transition on the way down.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Strict Ring False Grip Muscle-Up</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">Goal</div></td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">Dead hang start, false grip, pull rings to chest, lean and press to locked support with rings turned out. No kip, no jump. The complete movement.</td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">First clean rep. Then build to 3, then 5. Then string multiple reps together.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
+      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+        <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Tuck Dragon Flag</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Days 1 · 6/7</div>
+      </div>
+      <table class="prog-table" style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off-black);">
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(184,106,0,0.04);">
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--morning);">★ Tuck Dragon Flag</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Shoulders on bench, knees tucked to chest. Lower with 3s negative, hold, return. Hips up throughout.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 6 reps with slow, controlled 3s negative and no hip drop. Or 3 × 10s static hold at horizontal.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Single-Leg Extension</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Tuck position but one leg extends straight. Alternate. Lengthens the lever progressively.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 5 reps each side, controlled negative, no twisting.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Straddle Dragon Flag</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Both legs extended, straddled wide. Reduces lever compared to legs-together version.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 4 reps with full straight-body negative. Hips in line with shoulders throughout.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Full Dragon Flag</div></td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">Both legs together, fully extended. Body rigid as a plank. Bruce Lee territory.</td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">3 × 4 clean reps. Then add reps and eventually load (ankles weighted).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FLOOR BACK RAISES -->
+    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
+      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+        <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Floor Back Raises</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Days 4 · 6/7</div>
+      </div>
+      <table class="prog-table" style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off-black);">
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(184,106,0,0.04);">
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--morning);">★ Floor Back Raises</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Prone on floor, arms by sides or extended. Raise chest and legs simultaneously. 3s up, 8s hold, 3s lower.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 6 reps with 8s hold at top, arms fully extended overhead, feels easy and controlled.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Weighted Floor Back Raises</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Same movement but hold a light plate or KB behind the head. Increases spinal erector load directly.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 6 with 5kg, 8s hold. Then increase load incrementally.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Back Extension (on bench/GHD)</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Hips over the edge of a bench or GHD machine. Full range of motion, greater stretch at the bottom.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 8 bodyweight reps, full range. Then add load.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Weighted Back Extension</div></td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">Loaded back extension. This is the direct feeder for back lever strength and planche upper-spine engagement.</td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">Build load progressively. 3 × 8 at significant weight = very strong posterior chain.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- HANGING TUCK HOLD -->
+    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
+      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+        <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Hanging Tuck Hold</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Days 4 · 6/7</div>
+      </div>
+      <table class="prog-table" style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off-black);">
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(184,106,0,0.04);">
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--morning);">★ Hanging Tuck Hold</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Dead hang, knees pulled to chest. Active scapular depression — pull shoulder blades down, don't just hang passively.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 12s hold, knees above hip height, fully active shoulders. No passive hanging at all.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Hanging L-Sit Hold</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Legs extend to horizontal — thighs parallel to floor, knees bent 90°. Greater hip flexor demand.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 10s with thighs horizontal and active shoulders throughout.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Hanging Straight-Leg Raise to Hold</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Raise straight legs to horizontal and hold. Full hip flexor + lat compression. Feeds front lever directly.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 8s hold with legs straight and horizontal. No swinging to get there.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Tuck Front Lever</div></td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">Body horizontal, arms straight, knees tucked. The beginning of front lever — a major milestone in its own right.</td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">3 × 8s with body parallel to floor and straight arms. Then begin extending legs toward straddle front lever.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FINGERTIP LUNGE ISO -->
+    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
+      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+        <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Pistol Squat Specialism</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Days 3, 5 + Fingertip Lunge Days 5 · 6/7</div>
+      </div>
+      <table class="prog-table" style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off-black);">
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(184,106,0,0.04);">
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--morning);">★ Elevated Heel Pistol</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here — fixing position first</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Heel on 2–3cm plate/wedge. Supported (band or post). Focus on: chest leans toward knee, free leg held high and forward, weight through heel at bottom.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">5 controlled reps each side with correct body position — chest forward, free leg at hip height throughout. Heel not lifting even at full depth.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Reduce Heel Elevation</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Drop heel plate from ~3cm to ~1.5cm. Same movement, same positions. Ankle dorsiflexion now doing more work.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">5 reps each side at reduced elevation, positions intact, heel flat on plate throughout.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Flat Foot Assisted Pistol</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">No heel elevation. Band or post for balance only — not for pulling yourself up. Heel must stay flat through full range.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">5 smooth reps each side, flat foot, minimal band tension used. You're doing 90%+ of the work.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Full Unassisted Pistol Squat</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">Goal</div></td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">No support, no elevation. Flat heel, chest forward, free leg held horizontal. The complete movement.</td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">5 × 5 each side. Then add a goblet hold for loaded pistol work.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- BULGARIAN SPLIT SQUAT -->
+    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
+      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+        <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Bulgarian Split Squat</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Day 5</div>
+      </div>
+      <table class="prog-table" style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off-black);">
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(184,106,0,0.04);">
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--morning);">★ Bodyweight Bulgarian Split Squat</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Rear foot elevated, front foot forward enough for vertical shin. 3s descent, 1s pause, 2s return. Bodyweight only.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 8 each side with front heel flat throughout and controlled tempo. No wobbling at the bottom.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Goblet Hold Bulgarian Split Squat</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Hold a KB at chest height in goblet position. Adds load, also helps counterbalance for cleaner depth.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 8 each side with a moderate KB, heel flat, controlled throughout.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Double KB Bulgarian Split Squat</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">KB in each hand (farmer hold). Greater loading, more demand on trunk stability.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 6–8 each side, heels flat, clean tempo. Then increase KB weight progressively.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Pistol Squat Transfer</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">Goal</div></td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">The quad and glute strength built here directly enables flat-foot pistol squat depth. When split squat strength is high, pistol squat feels like the easier skill.</td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">Unassisted pistol squat with flat heel and controlled descent — the split squat was the vehicle that got you there.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- WEIGHTED GLUTE BRIDGE / HIP THRUST -->
+    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
+      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+        <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Weighted Glute Bridge / Hip Thrust</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Day 5</div>
+      </div>
+      <table class="prog-table" style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off-black);">
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(184,106,0,0.04);">
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--morning);">★ Weighted Glute Bridge</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Flat on floor, KB across hip crease. Drive hips to full extension. 2s up, 2s hold, 3s lower. Body straight at top — shoulders to knees.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 12 controlled reps with a moderate KB. Hard squeeze at the top, no bouncing at the bottom.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Heavier Weighted Glute Bridge</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Increase KB weight when 12 reps feels fully controlled. Keep the 2s hold and 3s lowering tempo.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 12 at new heavier KB with same controlled tempo. Progress load progressively over weeks.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Barbell Hip Thrust (if available)</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Shoulders elevated on a bench, barbell across hips. Greater range of motion and loading potential than floor bridge.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 10 at bodyweight + meaningful load. Hips fully extended at top with neutral spine.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Single-Leg Hip Thrust</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">Advanced progression</div></td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">One leg elevated or extended. Doubles the per-leg demand. Directly feeds single-leg strength for pistol squat.</td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">3 × 10 each side with full extension and no hip rotation. Load progressively.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SINGLE-LEG CALF RAISES -->
+    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
+      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+        <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Single-Leg Calf Raises</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Day 5</div>
+      </div>
+      <table class="prog-table" style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off-black);">
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(184,106,0,0.04);">
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--morning);">★ Single-Leg Calf Raise (step edge)</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Stand on edge of a step, full range — heel drops below step at the bottom. 2s up, 1s hold, 3s lower. Light fingertip contact for balance only.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 15 each side with controlled 3s lowering and full range. No bouncing at the bottom.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Weighted Single-Leg Calf Raise</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Hold a KB in the working-side hand. Maintains full range, adds direct load to the calf and Achilles.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 12 with a light KB, full range, same tempo. Increase KB weight progressively.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Heavy Loaded Single-Leg Calf Raise</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Progressively heavier KB. The 3s eccentric remains the key — this is where Achilles tendon remodelling occurs.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 10 with a heavy KB, full range, full control. Ankle dorsiflexion should noticeably improve for pistol squat over 4–6 weeks.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Flat-Foot Pistol Squat Depth</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">Goal</div></td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">The Achilles and calf strength built here removes the ankle restriction that causes heel lift in the pistol squat. Calf raise work is often the missing link.</td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">Flat heel stays grounded through full pistol squat depth, no external elevation needed.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- HAMSTRING PLANKS -->
+    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
+      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+        <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Hamstring Planks</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Days 5 · 6/7</div>
+      </div>
+      <table class="prog-table" style="width:100%;border-collapse:collapse;">
+        <thead><tr style="background:var(--off-black);">
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
+          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:rgba(184,106,0,0.04);">
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--morning);">★ Two-Leg Hamstring Plank</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Heels on floor or low bench, hips raised, squeeze hamstrings and glutes to hold body straight. 10s holds.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 15s with hips fully extended, no sagging, heels on a raised surface (30cm bench). Feels solid.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Single-Leg Hamstring Plank</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">One heel on bench, other leg raised straight. Doubles the load per leg. Hips must stay level.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 10s each side with hips level and no rotation. No dropping the raised leg for support.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Nordic Hamstring Curl Negative</div></td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Heels anchored, lower body toward floor as slowly as possible, arms catch at the bottom. Brutal eccentric.</td>
+            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 4 reps with 5s+ descent. One of the most effective hamstring strength builders available.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Full Nordic Hamstring Curl</div></td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">Full rep — lower and raise under hamstring power only. Exceptional posterior chain strength. Feeds pistol squat directly.</td>
+            <td style="padding:14px 16px;font-size:15px;color:var(--text);">3 × 5 clean reps. Then add load or tempo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div style="margin-top:48px; padding:24px; border:1px solid var(--border); background:var(--off-black);">
+    <div style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Goals this plan builds toward</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
+      <div style="font-size:15px;color:var(--text);">→ Tuck → Full Planche</div>
+      <div style="font-size:15px;color:var(--text);">→ Muscle-Up</div>
+      <div style="font-size:15px;color:var(--text);">→ Press to Handstand</div>
+      <div style="font-size:15px;color:var(--text);">→ Pistol Squat</div>
+      <div style="font-size:15px;color:var(--text);">→ One-Arm Pull-Up</div>
+      <div style="font-size:15px;color:var(--text);">→ Freestanding Handstand</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
