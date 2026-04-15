@@ -183,7 +183,7 @@
   .principle-value { font-size: 17px; color: var(--white); font-weight: 500; }
 
   /* DAY BLOCKS */
-  .day-block { margin-bottom: 48px; border: 1px solid var(--border); overflow: hidden; }
+  .day-block { margin-bottom: 48px; border: 1px solid var(--border); overflow: hidden; scroll-margin-top: 132px; }
   .day-header {
     display: flex;
     align-items: center;
@@ -368,6 +368,39 @@
     .principles { grid-template-columns: 1fr; }
     .day-title { font-size: 20px; }
   }
+  /* DAY NAV */
+  html { scroll-behavior: auto; }
+  .site-nav-top { position: sticky; top: 0; z-index: 103; }
+  .site-nav-sub { position: sticky; top: 48px; z-index: 102; }
+  .site-nav-days {
+    display: flex;
+    align-items: stretch;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    position: sticky;
+    top: 88px;
+    z-index: 101;
+    flex-wrap: wrap;
+  }
+  .nav-day-pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 10px 16px 8px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-day-pill:hover { color: var(--evening); border-bottom-color: var(--evening); }
+  @media (max-width: 600px) {
+    .site-nav-days { padding: 0 16px; }
+    .nav-day-pill { padding: 8px 10px 6px; font-size: 10px; }
+  }
 </style>
 </head>
 <body>
@@ -380,6 +413,12 @@
 <nav class="site-nav-sub">
   <a href="emma-workout.html" class="nav-sub-link active-emma">Workout Plan</a>
   <a href="emma-nutrition.html" class="nav-sub-link">Nutrition</a>
+</nav>
+<nav class="site-nav-days">
+  <a href="#day-1" class="nav-day-pill" title="Lower Body &amp; Glutes">Day 1</a>
+  <a href="#day-2" class="nav-day-pill" title="Upper Body &amp; Core">Day 2</a>
+  <a href="#day-3" class="nav-day-pill" title="Full Body + Metabolic">Day 3</a>
+  <a href="#day-4" class="nav-day-pill" title="Active Conditioning">Day 4</a>
 </nav>
 
 <header>
@@ -413,7 +452,7 @@
   </div>
 
   <!-- DAY 1 -->
-  <div class="day-block">
+  <div class="day-block" id="day-1">
     <div class="day-header">
       <div class="day-number">DAY 1</div>
       <div class="day-title">Lower Body &amp; Glutes</div>
@@ -511,7 +550,7 @@
   </div>
 
   <!-- DAY 2 -->
-  <div class="day-block">
+  <div class="day-block" id="day-2">
     <div class="day-header">
       <div class="day-number">DAY 2</div>
       <div class="day-title">Upper Body &amp; Core</div>
@@ -585,7 +624,7 @@
   </div>
 
   <!-- DAY 3 -->
-  <div class="day-block">
+  <div class="day-block" id="day-3">
     <div class="day-header">
       <div class="day-number">DAY 3</div>
       <div class="day-title">Full Body + Metabolic</div>
@@ -673,7 +712,7 @@
   </div>
 
   <!-- DAY 4 -->
-  <div class="day-block">
+  <div class="day-block" id="day-4">
     <div class="day-header">
       <div class="day-number">DAY 4</div>
       <div class="day-title">Active Conditioning</div>

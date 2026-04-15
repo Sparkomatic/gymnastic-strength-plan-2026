@@ -172,6 +172,7 @@
     margin-bottom: 48px;
     border: 1px solid var(--border);
     overflow: hidden;
+    scroll-margin-top: 132px;
   }
 
   .day-header {
@@ -673,6 +674,39 @@
     .nav-sub-link { padding: 10px 14px 8px; font-size: 12px; }
     .nav-home { padding: 0 12px 0 0; margin-right: 12px; }
   }
+  /* DAY NAV */
+  html { scroll-behavior: auto; }
+  .site-nav-top { position: sticky; top: 0; z-index: 103; }
+  .site-nav-sub { position: sticky; top: 48px; z-index: 102; }
+  .site-nav-days {
+    display: flex;
+    align-items: stretch;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    position: sticky;
+    top: 88px;
+    z-index: 101;
+    flex-wrap: wrap;
+  }
+  .nav-day-pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 10px 16px 8px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-day-pill:hover { color: var(--morning); border-bottom-color: var(--morning); }
+  @media (max-width: 600px) {
+    .site-nav-days { padding: 0 16px; }
+    .nav-day-pill { padding: 8px 10px 6px; font-size: 10px; }
+  }
 </style>
 </head>
 <body>
@@ -685,6 +719,14 @@
 <nav class="site-nav-sub">
   <a href="jason-workout.html" class="nav-sub-link active-jason">Workout Plan</a>
   <a href="jason-nutrition.html" class="nav-sub-link">Nutrition</a>
+</nav>
+<nav class="site-nav-days">
+  <a href="#day-1" class="nav-day-pill" title="Push · Core · Handstand">Day 1</a>
+  <a href="#day-2" class="nav-day-pill" title="Pull · Ring Strength · Handstand">Day 2</a>
+  <a href="#day-3" class="nav-day-pill" title="Active Recovery · Pistol Specialism · KB">Day 3</a>
+  <a href="#day-4" class="nav-day-pill" title="Posterior Chain · Compression · Handstand">Day 4</a>
+  <a href="#day-5" class="nav-day-pill" title="Legs · Aerobic · Handstand">Day 5</a>
+  <a href="#day-67" class="nav-day-pill" title="Full Review · Single Sets · Skill Audit">Day 6/7</a>
 </nav>
 
 <header>
@@ -724,7 +766,7 @@
   </div>
 
   <!-- DAY 1 -->
-  <div class="day-block">
+  <div class="day-block" id="day-1">
     <div class="day-header">
       <div class="day-number">DAY 1</div>
       <div class="day-title">Push · Core · Handstand</div>
@@ -869,7 +911,7 @@
   </div>
 
   <!-- DAY 2 -->
-  <div class="day-block">
+  <div class="day-block" id="day-2">
     <div class="day-header">
       <div class="day-number">DAY 2</div>
       <div class="day-title">Pull · Ring Strength · Handstand</div>
@@ -990,7 +1032,7 @@
   </div>
 
   <!-- DAY 3 -->
-  <div class="day-block">
+  <div class="day-block" id="day-3">
     <div class="day-header">
       <div class="day-number">DAY 3</div>
       <div class="day-title">Active Recovery · Pistol Specialism · KB</div>
@@ -1108,7 +1150,7 @@
   </div>
 
   <!-- DAY 4 -->
-  <div class="day-block">
+  <div class="day-block" id="day-4">
     <div class="day-header">
       <div class="day-number">DAY 4</div>
       <div class="day-title">Posterior Chain · Compression · Handstand</div>
@@ -1249,7 +1291,7 @@
   </div>
 
   <!-- DAY 5 -->
-  <div class="day-block">
+  <div class="day-block" id="day-5">
     <div class="day-header">
       <div class="day-number">DAY 5</div>
       <div class="day-title">Legs · Aerobic · Handstand</div>
@@ -1373,7 +1415,7 @@
   </div>
 
   <!-- DAY 6/7 -->
-  <div class="day-block">
+  <div class="day-block" id="day-67">
     <div class="day-header">
       <div class="day-number">DAY 6/7</div>
       <div class="day-title">Full Review · Single Sets · Skill Audit</div>
