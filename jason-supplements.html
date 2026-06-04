@@ -242,6 +242,97 @@
   }
   .section-label:first-child { margin-top: 0; }
 
+  /* SUPPLIER BAND */
+  .supplier-band {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .supplier-band + .supplier-band {
+    border-top: 1px solid var(--border);
+  }
+  .supplier-name {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .supplier-note {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: 4px;
+  }
+
+  /* SUPPLEMENT ENTRY */
+  .supp-entry {
+    padding: 20px 24px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .supp-entry:last-child { border-bottom: none; }
+  .supp-entry-header {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-bottom: 14px;
+  }
+  .supp-entry-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .supp-price {
+    font-size: 14px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .supp-link {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--green);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .supp-link:hover { text-decoration: underline; }
+  .supp-dose-tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .supp-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .supp-why {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .why-col {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .why-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
   /* FOOTER */
   .page-footer {
     margin-top: 48px;
@@ -264,9 +355,11 @@
     .site-nav-sub { padding: 0 16px; }
     .nav-sub-link { padding: 10px 14px 8px; font-size: 12px; }
     .nav-home { padding: 0 12px 0 0; margin-right: 12px; }
-    .supp-table thead { display: none; }
-    .supp-table tr { display: block; padding: 14px 16px; border-bottom: 1px solid var(--border); }
-    .supp-table td { display: block; padding: 2px 0; border: none; font-size: 15px; }
+    .supp-why { grid-template-columns: 1fr; }
+    .supp-entry { padding: 16px; }
+    .supplier-band { padding: 8px 16px; }
+    .supplier-note { display: none; }
+    .supp-entry-meta { margin-left: 0; flex-wrap: wrap; }
   }
   @media (max-width: 480px) {
     h1 { font-size: 34px; }
@@ -305,341 +398,369 @@
     <strong>Primary site: <a href="https://www.bulk.com/uk" target="_blank" style="color:var(--green);">bulk.com</a></strong> — UK-based, own-brand products, frequent 40–50% off sales. Covers 4 of the core supplements (creatine, omega-3, magnesium, collagen) in correct forms at the best prices. <strong>Healthspan</strong> covers D3+K2, Opti-Turmeric (curcumin), and milk thistle — consolidating three previous exceptions into one delivery. <strong>Zinc</strong> — Holland &amp; Barrett only (Solgar picolinate form — bulk.com and others use the wrong form). <strong>Methylation complex</strong> — Cytoplan only. That's 4 suppliers total, down from 5. Buy in bulk during sales to minimise deliveries — most supplements last 1–2 years unopened. bulk.com Payday Sales run the last week of the month with 40–75% off.
   </div>
 
-  <!-- QUICK REFERENCE TABLE -->
-  <div class="section-label">Quick-buy reference</div>
-
-  <div style="border:1px solid var(--border);overflow:hidden;margin-bottom:40px;">
-    <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
-      <div style="width:3px;height:20px;background:var(--green);border-radius:2px;flex-shrink:0;"></div>
-      <div style="font-family:'Impact','Arial Narrow Bold',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">What to buy, where, and why not from one place</div>
-    </div>
-    <table class="supp-table" style="width:100%;border-collapse:collapse;">
-      <thead><tr>
-        <th style="width:20%">Supplement</th>
-        <th style="width:14%">Buy from</th>
-        <th style="width:32%">Product (click to open)</th>
-        <th style="width:12%">~Monthly cost</th>
-        <th>Why this site</th>
-      </tr></thead>
-      <tbody>
-        <tr>
-          <td><div class="supp-name">Creatine Monohydrate</div><div style="font-size:12px;color:var(--muted);">5g daily</div></td>
-          <td style="font-weight:500;color:var(--green);">bulk.com</td>
-          <td><a href="https://www.bulk.com/uk/products/creapure-creatine-monohydrate/bpb-crea-0000" target="_blank" style="color:var(--green);">Creapure® Creatine Monohydrate</a></td>
-          <td>£3–4</td>
-          <td>Genuine Creapure® badge (German, 99.99% pure). Cheapest per gram of any major UK retailer. No fillers.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">Vitamin D3 + K2</div><div style="font-size:12px;color:var(--muted);">4,000 IU D3 · 100µg K2</div></td>
-          <td style="font-weight:500;color:var(--morning);">Healthspan</td>
-          <td><a href="https://www.healthspan.co.uk/vitamin-d3-and-k2/" target="_blank" style="color:var(--green);">Vitamin D3 &amp; K2 Tablets</a></td>
-          <td>~£7</td>
-          <td>4,000 IU D3 (cholecalciferol ✓) + 100µg K2 as MK-7 (menaquinone-7 ✓). bulk.com's K2 is only 75µg — below the 100µg target. Switching to Healthspan also drops Myprotein as a separate delivery.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">Omega-3 Fish Oil</div><div style="font-size:12px;color:var(--muted);">2–3g EPA+DHA · 6 caps/day</div></td>
-          <td style="font-weight:500;color:var(--green);">bulk.com</td>
-          <td><a href="https://www.bulk.com/uk/products/prom3ga/bpps-omg3-0000" target="_blank" style="color:var(--green);">PROM3GA ★ Informed Sport certified</a><br><span style="font-size:12px;color:var(--muted);">Budget: <a href="https://www.bulk.com/uk/products/super-strength-omega-3-softgels/bpb-o3ss-0000" target="_blank" style="color:var(--muted);">Super Strength Omega 3</a> (4–5 caps/day)</span></td>
-          <td>£17–34</td>
-          <td>Standard "1,000mg fish oil" at H&amp;B and most retailers = only ~300mg actual EPA+DHA. You'd need 7–10 caps/day to hit target. PROM3GA = 1,800mg EPA+DHA per 3-cap serving — the only Informed Sport certified fish oil across all major UK retailers. <strong style="color:var(--accent);">Note on EVCLO:</strong> fermented cod liver oil (Green Pasture etc.) is not a replacement — cod liver oil contains only ~300–500mg EPA+DHA per teaspoon. Getting to a therapeutic 2–3g from EVCLO would require 4–6+ tsp/day, pushing vitamin A to toxic levels. Keep EVCLO if you value the whole-food vitamins A+D, but take PROM3GA on top for the anti-inflammatory dose.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">Magnesium Glycinate</div><div style="font-size:12px;color:var(--muted);">300–400mg elemental · before bed</div></td>
-          <td style="font-weight:500;color:var(--green);">bulk.com</td>
-          <td><a href="https://www.bulk.com/uk/products/magnesium-bisglycinate-tablets/bpb-magb-0000" target="_blank" style="color:var(--green);">Magnesium Bisglycinate Tablets</a></td>
-          <td>~£4</td>
-          <td>Confirmed bisglycinate form — the only form worth buying. Magnesium oxide (most cheap products) absorbs at ~4%. H&amp;B own-brand magnesium glycinate costs ~£30/month for the same dose. bulk.com is ~7× cheaper.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">Collagen Peptides + Vit C</div><div style="font-size:12px;color:var(--muted);">15g · 30–60 min pre-session</div></td>
-          <td style="font-weight:500;color:var(--green);">bulk.com</td>
-          <td><a href="https://www.bulk.com/uk/products/collagen-vitamin-c/bpb-coll-vitc" target="_blank" style="color:var(--green);">Collagen &amp; Vitamin C Powder</a></td>
-          <td>~£13–14</td>
-          <td>Hydrolysed bovine collagen (Type I &amp; III) — must be hydrolysed for absorption. Vitamin C is low at 24mg per serving (target is 50mg+) — add a cheap vit C tablet alongside or squeeze half a lemon into water when you take it.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">Zinc</div><div style="font-size:12px;color:var(--muted);">22mg picolinate · with food</div></td>
-          <td style="font-weight:500;color:var(--morning);">Holland &amp; Barrett</td>
-          <td><a href="https://www.hollandandbarrett.com/shop/product/solgar-zinc-picolinate-22mg-tablets-60001433" target="_blank" style="color:var(--green);">Solgar Zinc Picolinate 22mg</a></td>
-          <td>~£3–4</td>
-          <td>bulk.com uses zinc monomethionine, Myprotein uses zinc citrate — both decent but picolinate has the strongest absorption evidence. Solgar is premium quality. Only H&amp;B stocks the picolinate form at this price point.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">Desiccated Beef Liver</div><div style="font-size:12px;color:var(--muted);">Natural vitamin A · 4 caps/day</div></td>
-          <td style="font-weight:500;color:var(--evening);">Holland &amp; Barrett</td>
-          <td><a href="https://www.amazon.co.uk/s?k=grass+fed+beef+liver+capsules+uk" target="_blank" style="color:var(--green);">Grass-fed freeze-dried beef liver capsules</a></td>
-          <td>~£20–30</td>
-          <td>Replaces EVCLO's vitamin A. Natural preformed retinol — the form most people absorb well. Also provides B12, folate, iron, CoQ10. Safer alongside milk thistle (hepatoprotective). See Tier 3 detail below.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">Milk Thistle</div><div style="font-size:12px;color:var(--muted);">Silymarin · 1–2 caps/day · with food</div></td>
-          <td style="font-weight:500;color:var(--green);">Holland &amp; Barrett</td>
-          <td><a href="https://www.hollandandbarrett.com/search/?q=milk+thistle" target="_blank" style="color:var(--green);">Milk Thistle Extract Tablets</a></td>
-          <td>~£4–5</td>
-          <td>Already taking. Supports elevated ALT (33, above functional range). Complements curcumin for liver + inflammation support. Improves fat-soluble vitamin absorption (D3, K2, vitamin A). No interactions with rest of stack. See Tier 3 detail below.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">Curcumin (Opti-Turmeric)</div><div style="font-size:12px;color:var(--muted);">liquid curcumin · daily · with food</div></td>
-          <td style="font-weight:500;color:var(--green);">Healthspan</td>
-          <td><a href="https://www.healthspan.co.uk/opti-turmeric/" target="_blank" style="color:var(--green);">Opti-Turmeric®</a></td>
-          <td>~£5–6</td>
-          <td>Strongest single anti-inflammatory supplement with RCT evidence for CRP reduction. Must include piperine — plain curcumin has near-zero absorption. See Tier 3 detail below.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">Methylation Complex</div><div style="font-size:12px;color:var(--muted);">5-MTHF + methylcobalamin + P5P + TMG · daily</div></td>
-          <td style="font-weight:500;color:var(--evening);">Cytoplan</td>
-          <td><a href="https://www.cytoplan.co.uk/methyl-factors-capsules" target="_blank" style="color:var(--green);">Cytoplan Methyl Factors</a></td>
-          <td>~£13</td>
-          <td>Not available in correct active forms from bulk.com, Myprotein, or H&amp;B. Cytoplan is the recommended choice — active forms, includes riboflavin-5-phosphate (B2) that Metagenics lacks, and cheaper. See Tier 3 detail below.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">Ashwagandha (KSM-66)</div><div style="font-size:12px;color:var(--muted);">600mg/day · with food · morning or pre-bed</div></td>
-          <td style="font-weight:500;color:var(--green);">bulk.com</td>
-          <td><a href="https://www.bulk.com/uk/search?query=ksm-66+ashwagandha" target="_blank" style="color:var(--green);">KSM-66® Ashwagandha — bulk.com</a></td>
-          <td>~£8–10</td>
-          <td>KSM-66 only (root extract, 5% withanolides). Replaces Vital Adapt from the original prescription — the ashwagandha component is the most evidence-backed part. Directly supports the elevated cortisol / low adrenal picture. Safe to start now. See Tier 2 detail below.</td>
-        </tr>
-        <tr>
-          <td><div class="supp-name">DHEA</div><div style="font-size:12px;color:var(--muted);">25mg/day · morning · with food · after retesting</div></td>
-          <td style="font-weight:500;color:var(--accent);">Amazon UK</td>
-          <td><a href="https://www.amazon.co.uk/s?k=DHEA+25mg+life+extension+uk" target="_blank" style="color:var(--green);">Life Extension DHEA 25mg — Amazon UK</a></td>
-          <td>~£10–15</td>
-          <td>Directly prescribed from your DUTCH test (low cortisol + low-normal DHEA-S). Do not start until after hormone retest — DHEA is a hormone precursor and dose should be guided by current levels. Most significant gap from the original Evolution Rehab prescription. See Tier 3 detail below.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div style="border:1px solid var(--border);background:var(--off-black);padding:18px 24px;margin-bottom:40px;font-size:14px;color:var(--muted);line-height:1.7;">
-    <strong style="color:var(--white);display:block;margin-bottom:8px;">Total: ~£44–60/month (Tier 1 + 2) · Two sites: bulk.com + H&amp;B for zinc</strong>
-    If budget is tight, prioritise in this order: <strong style="color:var(--text);">1. Creatine</strong> (strongest evidence, cheapest) → <strong style="color:var(--text);">2. Magnesium</strong> (most deficient, sleep improvement is fast) → <strong style="color:var(--text);">3. D3+K2</strong> (essential in UK, especially Oct–Apr) → <strong style="color:var(--text);">4. Omega-3</strong> → <strong style="color:var(--text);">5. Collagen</strong>. bulk.com runs Payday Sales (usually last week of the month) with 40–75% off — stock up then.
-  </div>
-
-  <!-- TIER 1 DETAIL -->
-  <div class="section-label">Tier 1 — ingredient detail</div>
-
+  <!-- TIER 1 -->
   <div class="section-block">
     <div class="section-header">
       <div class="section-accent" style="background:var(--green)"></div>
-      <div class="section-title">Tier 1 — Where to buy &amp; what to get</div>
-      <div class="section-subtitle">Specific products checked for correct forms and ingredient quality</div>
+      <div class="section-title">Tier 1 — Core: Performance &amp; Training Foundation</div>
+      <div class="section-subtitle">Highest evidence · start here · ~£31–49/month</div>
     </div>
-    <div class="section-body" style="padding:0;">
-      <table class="supp-table">
-        <thead><tr><th style="width:20%">Supplement</th><th style="width:22%">Product &amp; Site</th><th style="width:15%">Est. monthly cost</th><th>Ingredient check — why this product</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><div class="supp-name">Creatine Monohydrate</div><div style="font-size:13px;color:var(--muted)">5g daily</div></td>
-            <td><a href="https://www.bulk.com/uk/products/creapure-creatine-monohydrate/bpb-crea-0000" target="_blank" style="color:var(--green);font-weight:500;">Creapure® Creatine — bulk.com</a></td>
-            <td>~£3–4/month</td>
-            <td>Genuine Creapure® badge — German-manufactured, 99.99% pure creatine monohydrate, no fillers, no additives. The gold standard. Avoid any creatine that doesn't name its source — cheap creatine often contains impurities. 500g lasts ~100 days at 5g/day.</td>
-          </tr>
-          <tr>
-            <td><div class="supp-name">Vitamin D3 + K2</div><div style="font-size:13px;color:var(--muted)">4,000 IU D3 + 100µg K2</div></td>
-            <td><a href="https://www.healthspan.co.uk/vitamin-d3-and-k2/" target="_blank" style="color:var(--green);font-weight:500;">Vitamin D3 &amp; K2 — Healthspan</a></td>
-            <td>~£7/month</td>
-            <td>4,000 IU D3 (cholecalciferol ✓) + 100µg K2 as MK-7 (menaquinone-7 ✓). bulk.com's K2 is only 75µg — below target. Previously sourced from Myprotein but Healthspan matches the spec exactly and you're already ordering Opti-Turmeric from them — one fewer delivery. Don't accept K2 as MK-4 — shorter half-life, less effective.</td>
-          </tr>
-          <tr>
-            <td><div class="supp-name">Omega-3 Fish Oil</div><div style="font-size:13px;color:var(--muted)">2–3g EPA+DHA/day</div></td>
-            <td><a href="https://www.bulk.com/uk/products/prom3ga/bpps-omg3-0000" target="_blank" style="color:var(--green);font-weight:500;">PROM3GA — bulk.com</a><div style="font-size:13px;color:var(--muted);margin-top:4px;">Budget: <a href="https://www.bulk.com/uk/products/super-strength-omega-3-softgels/bpb-o3ss-0000" target="_blank" style="color:var(--muted);">Super Strength Omega 3</a></div></td>
-            <td>~£17–34/month</td>
-            <td>This is where most cheap fish oil fails. Standard "1,000mg fish oil" capsules typically contain only 300mg actual EPA+DHA — you'd need 7–10 per day to hit the target. PROM3GA gives 1,080mg EPA + 720mg DHA per 3-cap serving = 1,800mg EPA+DHA. Take 2 servings (6 caps) for 3,600mg EPA+DHA. Only Informed Sport-certified fish oil across all three major UK retailers. Budget option: Super Strength (550mg EPA+DHA per cap — take 4–5/day, ~£16–20/month, no certification).</td>
-          </tr>
-          <tr>
-            <td><div class="supp-name">Magnesium Glycinate</div><div style="font-size:13px;color:var(--muted)">300–400mg elemental/night</div></td>
-            <td><a href="https://www.bulk.com/uk/products/magnesium-bisglycinate-tablets/bpb-magb-0000" target="_blank" style="color:var(--green);font-weight:500;">Magnesium Bisglycinate — bulk.com</a></td>
-            <td>~£4/month</td>
-            <td>Confirmed bisglycinate form ✓ — the only form worth buying. Magnesium oxide (the most common cheap form) has ~4% absorption. Magnesium citrate is better but can cause loose stools at higher doses. Bisglycinate is best absorbed and gentlest on the gut. Take 3–4 tablets before bed to reach 300–400mg elemental Mg. H&amp;B's own-brand magnesium glycinate costs ~£30/month for the same dose — bulk.com is 7× cheaper.</td>
-          </tr>
-        </tbody>
-      </table>
+
+    <!-- bulk.com T1 -->
+    <div class="supplier-band" style="background:rgba(26,138,74,0.05);">
+      <div style="width:3px;height:16px;background:var(--green);border-radius:2px;flex-shrink:0;"></div>
+      <span class="supplier-name" style="color:var(--green);">bulk.com</span>
+      <span class="supplier-note">— order together · stock up on Payday Sales (last week of month, 40–75% off)</span>
     </div>
-  </div>
 
-  <!-- TIER 2 DETAIL -->
-  <div class="section-label">Tier 2 — ingredient detail</div>
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Creatine Monohydrate</span>
+        <span class="supp-dose-tag">5g daily</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">~£3–4/month</span>
+          <a class="supp-link" href="https://www.bulk.com/uk/products/creapure-creatine-monohydrate/bpb-crea-0000" target="_blank">Creapure® — bulk.com →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Strongest evidence base of any training supplement. At 51, creatine offsets the natural age-related decline in muscle phosphocreatine stores — supporting explosive power output, strength, and recovery between sets in gymnastic training. Also has emerging evidence for cardiovascular and cognitive protection.
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          Genuine <strong style="color:var(--white);">Creapure®</strong> badge — German-manufactured, 99.99% pure, no fillers. Unbranded creatine often contains impurities (creatinine, dicyandiamide). Cheapest per gram of any major UK retailer. 500g lasts ~100 days at 5g/day.
+        </div>
+      </div>
+    </div>
 
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Omega-3 Fish Oil (PROM3GA)</span>
+        <span class="supp-dose-tag">6 caps/day · 2–3g EPA+DHA</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">£17–34/month</span>
+          <a class="supp-link" href="https://www.bulk.com/uk/products/prom3ga/bpps-omg3-0000" target="_blank">PROM3GA — bulk.com →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Your <strong style="color:var(--white);">CRP-hs of 6.9</strong> is the most urgent marker on your panel — more than double the lab upper limit of 3.0. EPA+DHA at therapeutic doses (2–3g/day) directly reduces CRP and fibrinogen by suppressing prostaglandin inflammatory pathways. Also raises HDL (yours at 51, target 55–85) and supports joint and connective tissue recovery.
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          Standard "1,000mg fish oil" at H&amp;B contains only ~300mg actual EPA+DHA — you'd need 7–10 capsules to hit the target. PROM3GA delivers 1,800mg per 3-cap serving — the only <strong style="color:var(--white);">Informed Sport-certified</strong> fish oil across all major UK retailers. Budget: <a href="https://www.bulk.com/uk/products/super-strength-omega-3-softgels/bpb-o3ss-0000" target="_blank" style="color:var(--muted);">Super Strength Omega 3</a> (4–5 caps/day, ~£16–20/month, no certification).
+        </div>
+      </div>
+    </div>
+
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Magnesium Bisglycinate</span>
+        <span class="supp-dose-tag">300–400mg elemental · before bed</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">~£4/month</span>
+          <a class="supp-link" href="https://www.bulk.com/uk/products/magnesium-bisglycinate-tablets/bpb-magb-0000" target="_blank">Magnesium Bisglycinate — bulk.com →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Depleted heavily by training (lost in sweat, consumed in energy metabolism). Supports sleep quality and muscle recovery, and has evidence for lowering CRP — directly relevant to your elevated inflammatory markers. Also a cofactor in the methylation cycle, supporting the homocysteine picture.
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          Bisglycinate form only — magnesium oxide (most cheap products) absorbs at ~4%. Magnesium citrate causes loose stools at higher doses. H&amp;B own-brand magnesium glycinate costs ~£30/month for the same dose — bulk.com is <strong style="color:var(--white);">7× cheaper</strong>. Take 3–4 tablets before bed to reach 300–400mg elemental magnesium.
+        </div>
+      </div>
+    </div>
+
+    <!-- Healthspan T1 -->
+    <div class="supplier-band" style="background:rgba(184,106,0,0.05);border-top:1px solid var(--border);">
+      <div style="width:3px;height:16px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+      <span class="supplier-name" style="color:var(--morning);">Healthspan</span>
+      <span class="supplier-note">— also order Opti-Turmeric and Milk Thistle here (Tier 3) to consolidate into one delivery</span>
+    </div>
+
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Vitamin D3 + K2</span>
+        <span class="supp-dose-tag">4,000 IU D3 · 100µg K2-MK7</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">~£7/month</span>
+          <a class="supp-link" href="https://www.healthspan.co.uk/vitamin-d3-and-k2/" target="_blank">D3 &amp; K2 — Healthspan →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Your <strong style="color:var(--white);">TGA antibody of 16</strong> vs lab range 0–0.9 is the most under-discussed finding on your panel — suggesting possible autoimmune thyroid activity. Low D3 is strongly associated with Hashimoto's and D3 is a key immune modulator relevant to your elevated monocytes and eosinophils. Essential Oct–Apr for anyone in the UK (no meaningful UVB from October through April).
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          4,000 IU D3 (cholecalciferol ✓) + 100µg K2 as <strong style="color:var(--white);">MK-7</strong> (menaquinone-7 ✓). bulk.com's K2 is only 75µg — below the 100µg target. K2 directs calcium into bone rather than soft tissue — don't take high-dose D3 without it. MK-7 has a much longer half-life than MK-4 (the inferior form in cheaper products).
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tier 1 -->
+
+
+  <!-- TIER 2 -->
   <div class="section-block">
     <div class="section-header">
       <div class="section-accent" style="background:var(--morning)"></div>
-      <div class="section-title">Tier 2 — Where to buy &amp; what to get</div>
-      <div class="section-subtitle">Collagen, zinc — form matters as much as dose</div>
+      <div class="section-title">Tier 2 — Targeted Support</div>
+      <div class="section-subtitle">Connective tissue · adrenal / cortisol · immune · ~£24–28/month</div>
     </div>
-    <div class="section-body" style="padding:0;">
-      <table class="supp-table">
-        <thead><tr><th style="width:20%">Supplement</th><th style="width:22%">Product &amp; Site</th><th style="width:15%">Est. monthly cost</th><th>Ingredient check — why this product</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><div class="supp-name">Collagen Peptides + Vit C</div><div style="font-size:13px;color:var(--muted)">15g collagen + 50mg vit C pre-session</div></td>
-            <td><a href="https://www.bulk.com/uk/products/collagen-vitamin-c/bpb-coll-vitc" target="_blank" style="color:var(--green);font-weight:500;">Collagen &amp; Vitamin C Powder — bulk.com</a></td>
-            <td>~£13–14/month</td>
-            <td>Hydrolysed bovine collagen (Type I &amp; III) ✓ — the hydrolysed form is required for absorption. 15g scoop = 12g collagen + 24mg vitamin C. The vitamin C is on the low side (research suggests 50mg+ for optimal collagen synthesis) — add a cheap vitamin C tablet alongside it, or squeeze half a lemon into water when you take it. Don't buy collagen tablets — you can't get 15g/day from tablets economically.</td>
-          </tr>
-          <tr>
-            <td><div class="supp-name">Zinc</div><div style="font-size:13px;color:var(--muted)">22mg zinc picolinate/day</div></td>
-            <td><a href="https://www.hollandandbarrett.com/shop/product/solgar-zinc-picolinate-22mg-tablets-60001433" target="_blank" style="color:var(--green);font-weight:500;">Solgar Zinc Picolinate 22mg — Holland &amp; Barrett</a></td>
-            <td>~£3–4/month</td>
-            <td>The one product that must come from H&amp;B. bulk.com uses zinc monomethionine (OptiZinc), Myprotein uses zinc citrate — both decent but picolinate has the strongest absorption evidence. Solgar is a premium, well-established brand. 22mg sits perfectly in the 15–25mg daily target. 100 tablets ≈ 3 months' supply. Don't exceed 40mg/day (suppresses copper absorption).</td>
-          </tr>
-          <tr>
-            <td><div class="supp-name">Ashwagandha (KSM-66)</div><div style="font-size:13px;color:var(--muted)">600mg/day · with food</div></td>
-            <td><a href="https://www.bulk.com/uk/search?query=ksm-66+ashwagandha" target="_blank" style="color:var(--green);font-weight:500;">KSM-66® Ashwagandha — bulk.com</a></td>
-            <td>~£8–10/month</td>
-            <td>KSM-66 is the only form worth buying — root-only extract, standardised to 5% withanolides, with the most RCT evidence of any ashwagandha extract. It is the functional replacement for Vital Adapt (the adaptogen component of the original prescription). Directly relevant to your health picture: well-evidenced for lowering elevated cortisol, supporting adrenal function, improving sleep quality, and — critically for gymnastic training — multiple RCTs show significant increases in VO₂ max, strength, and recovery. Also supports testosterone, which works synergistically with DHEA. Avoid any product that says "ashwagandha root and leaf" or doesn't state the % withanolides — most cheap capsules. bulk.com's KSM-66 is the branded form. 300mg twice daily (morning + pre-bed) or 600mg with dinner.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 
-  <!-- TIER 3 DETAIL -->
-  <div class="section-label">Tier 3 — targeted / therapeutic</div>
-
-  <!-- DESICCATED LIVER -->
-  <div class="section-block" style="margin-bottom:24px;">
-    <div class="section-header">
-      <div class="section-accent" style="background:var(--evening)"></div>
-      <div class="section-title">Tier 3 — Desiccated Beef Liver</div>
-      <div class="section-subtitle">Natural vitamin A · replaces EVCLO · Holland &amp; Barrett · ~£20–30/month</div>
+    <!-- bulk.com T2 -->
+    <div class="supplier-band" style="background:rgba(26,138,74,0.05);">
+      <div style="width:3px;height:16px;background:var(--green);border-radius:2px;flex-shrink:0;"></div>
+      <span class="supplier-name" style="color:var(--green);">bulk.com</span>
+      <span class="supplier-note">— add to your Tier 1 bulk.com order</span>
     </div>
-    <div class="section-body">
-      <p style="margin-bottom:14px;font-size:15px;line-height:1.75;">EVCLO (fermented cod liver oil) is primarily valued for its <strong style="color:var(--white);">natural preformed vitamin A (retinol)</strong> and fat-soluble vitamin cofactors — not its omega-3 content, which is too low to be therapeutic. PROM3GA covers the omega-3. The missing piece is vitamin A. Desiccated grass-fed beef liver is the most natural, whole-food way to replace it — liver is the densest retinol source in existence, far richer than cod liver oil per gram.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;font-size:14px;">
-        <div style="padding:14px;border:1px solid var(--border);background:var(--off-black);">
-          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">What EVCLO gives you</div>
-          <div style="line-height:1.7;">Vitamin A (retinol) ✓<br>Vitamin D (small) — <em>covered by D3+K2</em><br>EPA+DHA (low) — <em>covered by PROM3GA</em><br>Whole-food cofactors ✓</div>
-        </div>
-        <div style="padding:14px;border:1px solid var(--border);background:var(--off-black);">
-          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">What desiccated liver gives you</div>
-          <div style="line-height:1.7;">Vitamin A (retinol) ✓ — higher than EVCLO<br>B12 (natural form) ✓<br>Folate ✓<br>Iron, CoQ10, copper ✓</div>
+
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Collagen Peptides + Vit C</span>
+        <span class="supp-dose-tag">15g · 30–60 min pre-session</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">£13–14/month</span>
+          <a class="supp-link" href="https://www.bulk.com/uk/products/collagen-vitamin-c/bpb-coll-vitc" target="_blank">Collagen &amp; Vit C — bulk.com →</a>
         </div>
       </div>
-      <div style="padding:12px 16px;background:rgba(26,138,74,0.06);border-left:3px solid var(--green);font-size:14px;line-height:1.6;margin-bottom:14px;">
-        <strong style="color:var(--white);">Milk thistle note:</strong> Vitamin A is processed by the liver. At normal supplemental doses from food-based sources this is entirely safe, and your milk thistle provides an additional hepatoprotective layer — a reassuring combination. Don't exceed 4 caps/day (standard serving) to keep retinol within a safe range.
-      </div>
-      <div style="font-size:15px;line-height:1.75;color:var(--text);">
-        <strong style="color:var(--white);">Buy:</strong> Look for <strong>grass-fed, freeze-dried</strong> on Holland &amp; Barrett — brands like Wilderland, Ancestral Supplements, or similar. Freeze-dried preserves the nutrient profile without heat damage. Avoid anything with fillers or "desiccated liver powder" in a proprietary blend with no dose transparency. ~£20–30/month for 4 caps/day. Alternatively: eat 100g lamb or beef liver once a week — far cheaper, higher retinol, and more bioavailable than any capsule.
-      </div>
-    </div>
-  </div>
-
-  <!-- MILK THISTLE -->
-  <div class="section-block" style="margin-bottom:24px;">
-    <div class="section-header">
-      <div class="section-accent" style="background:var(--green)"></div>
-      <div class="section-title">Tier 3 — Milk Thistle</div>
-      <div class="section-subtitle">Liver support · ALT elevation · Holland &amp; Barrett · ~£4–5/month · already taking</div>
-    </div>
-    <div class="section-body">
-      <p style="margin-bottom:14px;font-size:15px;line-height:1.75;">Your ALT of <strong style="color:var(--white);">33</strong> is above the functional range of 0–26 — a mild liver enzyme elevation, almost certainly why milk thistle was recommended. Silymarin (the active compound) is well-evidenced for reducing elevated liver enzymes and protecting hepatocytes from oxidative stress. Already in your stack — just documenting it here for completeness and sourcing.</p>
-      <div style="padding:12px 16px;background:rgba(26,138,74,0.06);border-left:3px solid var(--green);font-size:14px;line-height:1.6;margin-bottom:14px;">
-        <strong style="color:var(--white);">Stack interactions — all positive:</strong> Milk thistle + curcumin is a well-established liver/inflammation combination — complementary, not duplicating. Milk thistle improves bile flow, which increases absorption of fat-soluble vitamins (your D3+K2, vitamin A from liver capsules). No negative interactions with omega-3, methylation complex, magnesium, zinc, or any other supplement in this plan.
-      </div>
-      <div style="font-size:15px;line-height:1.75;color:var(--text);">
-        <strong style="color:var(--white);">Buy:</strong> <a href="https://www.hollandandbarrett.com/search/?q=milk+thistle" target="_blank" style="color:var(--green);">Milk Thistle Extract Tablets — Holland &amp; Barrett</a> · ~£4–5/month. Look for a product standardised to 80% silymarin — the form used in clinical trials. bulk.com previously stocked this but no longer lists it.
-      </div>
-    </div>
-  </div>
-
-  <!-- CURCUMIN -->
-  <div class="section-block" style="margin-bottom:24px;">
-    <div class="section-header">
-      <div class="section-accent" style="background:var(--morning)"></div>
-      <div class="section-title">Tier 3 — Curcumin (Opti-Turmeric)</div>
-      <div class="section-subtitle">CRP / systemic inflammation · Healthspan · Opti-Turmeric®</div>
-    </div>
-    <div class="section-body">
-      <p style="margin-bottom:14px;font-size:15px;line-height:1.75;">Your CRP-hs of <strong style="color:var(--white);">6.9</strong> is more than double the lab upper limit of 3.0. Curcumin (the active compound in turmeric) has the strongest RCT evidence of any supplement for reducing CRP — multiple trials show meaningful reductions at 500–1,000mg/day. It works by inhibiting NF-κB, a key inflammatory signalling pathway.</p>
-      <div style="padding:12px 16px;background:rgba(204,32,32,0.06);border-left:3px solid var(--accent);font-size:14px;line-height:1.6;margin-bottom:14px;">
-        <strong style="color:var(--white);">Why standard turmeric products fail:</strong> Plain curcumin has near-zero bioavailability — it passes through almost unabsorbed. Most products add piperine (black pepper extract) to improve this, which helps, but Healthspan's Opti-Turmeric uses a liquid curcumin delivery system that achieves 185× better absorption than standard turmeric powder — no piperine needed.
-      </div>
-      <div style="font-size:15px;line-height:1.75;">
-        <strong style="color:var(--white);">Buy:</strong> <a href="https://www.healthspan.co.uk/opti-turmeric/" target="_blank" style="color:var(--green);">Opti-Turmeric® — Healthspan</a> · take with food · their No.1 bestseller for joint and immune health. This is the strongest curcumin product available from a UK retailer and directly targets your elevated CRP.
-      </div>
-    </div>
-  </div>
-
-  <!-- DHEA -->
-  <div class="section-block" style="margin-bottom:24px;">
-    <div class="section-header">
-      <div class="section-accent" style="background:var(--accent)"></div>
-      <div class="section-title">Tier 3 — DHEA</div>
-      <div class="section-subtitle">Hormone precursor · DUTCH test prescribed · start after retest only · Amazon UK · ~£10–15/month</div>
-    </div>
-    <div class="section-body">
-      <div style="padding:14px 18px;background:rgba(204,32,32,0.07);border-left:3px solid var(--accent);font-size:15px;line-height:1.7;margin-bottom:20px;">
-        <strong style="color:var(--accent);">Do not start until after your hormone retest.</strong> DHEA is a hormone precursor — it converts to testosterone and oestrogen depending on what your body needs. Your DUTCH test flagged low cortisol and low-normal DHEA-S, which is why it was prescribed. But DHEA levels change, and starting blind without knowing your current DHEA-S level risks overshooting. Get it tested at Medical Diagnostics alongside the rest of your panel, then start.
-      </div>
-      <p style="margin-bottom:16px;font-size:15px;line-height:1.75;">Your Report of Findings (Jul 2023) notes that low DHEA-S affects <strong style="color:var(--white);">energy, recovery from exercise, muscle building, and mood</strong> — all directly relevant to gymnastic strength training. It's the most significant gap from the original prescription and the one most likely to have a noticeable effect on training performance when reintroduced. DHEA also supports healthy cortisol rhythm, which compounds the adrenal support from ashwagandha.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;font-size:14px;">
-        <div style="padding:14px;border:1px solid var(--border);background:var(--off-black);">
-          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">What DHEA supports</div>
-          <div style="line-height:1.8;">Energy and fatigue resistance ✓<br>Muscle synthesis and recovery ✓<br>Testosterone precursor ✓<br>Cortisol balance ✓<br>Mood and motivation ✓</div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Gymnastic strength training places high mechanical load on tendons, ligaments, and fascia — the structures most prone to injury and slowest to adapt. Collagen synthesis peaks when you load 30–60 minutes after a priming dose. Entirely preventive and performance-targeted; no blood marker flags this directly.
         </div>
-        <div style="padding:14px;border:1px solid var(--border);background:var(--off-black);">
-          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Dosing guidance</div>
-          <div style="line-height:1.8;">Start at <strong style="color:var(--white);">25mg/day</strong> — do not start at 50mg<br>Take in the morning with food<br>Reassess after 8–12 weeks<br>Retest DHEA-S after ~3 months<br>Stack: safe with all current supplements</div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          Must be <strong style="color:var(--white);">hydrolysed</strong> bovine collagen (Type I &amp; III ✓) — intact collagen passes through undigested. The vitamin C at 24mg per serving is below the 50mg+ target for optimal collagen synthesis — add a cheap vit C tablet alongside, or squeeze half a lemon into the water when you take it. Don't buy collagen tablets — you can't economically reach 15g/day.
         </div>
       </div>
-      <div style="font-size:15px;line-height:1.75;color:var(--text);">
-        <strong style="color:var(--white);">Buy:</strong> <a href="https://www.amazon.co.uk/s?k=DHEA+25mg+life+extension+uk" target="_blank" style="color:var(--green);">Life Extension DHEA 25mg — Amazon UK</a> · ~£10–15/month. Life Extension is one of the most rigorously tested supplement brands globally — third-party tested, established formulations, 25mg is the correct starting dose (most products default to 50mg, which is too high to start blind). Not stocked by bulk.com, Healthspan, H&amp;B, or Cytoplan. Amazon is the most reliable UK source.
-      </div>
     </div>
-  </div>
 
-  <!-- GLUTATHIONE -->
-  <div class="section-block" style="margin-bottom:24px;">
-    <div class="section-header">
-      <div class="section-accent" style="background:var(--muted)"></div>
-      <div class="section-title">Tier 3 — Glutathione (Liposomal)</div>
-      <div class="section-subtitle">Master antioxidant · hold until after retest · add if CRP remains elevated</div>
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Ashwagandha (KSM-66)</span>
+        <span class="supp-dose-tag">600mg/day · with food</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">£8–10/month</span>
+          <a class="supp-link" href="https://www.bulk.com/uk/search?query=ksm-66+ashwagandha" target="_blank">KSM-66® — bulk.com →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Your DUTCH test flagged <strong style="color:var(--white);">low cortisol and low-normal DHEA-S</strong> — consistent with HPA axis dysregulation. KSM-66 is the functional replacement for Vital Adapt from the original prescription, and has the strongest RCT evidence of any adaptogen for lowering cortisol, supporting adrenal function, and improving sleep. Multiple RCTs also show significant improvements in VO₂ max, strength, and recovery — directly training-relevant. Works synergistically with DHEA (Tier 3) when you add that post-retest.
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          <strong style="color:var(--white);">KSM-66 only</strong> — root-only extract, standardised to 5% withanolides, with the most clinical evidence of any ashwagandha form. Avoid "root and leaf" blends or products without a stated withanolide percentage. 300mg twice daily (morning + dinner) or 600mg once with dinner. bulk.com uses the branded KSM-66 extract.
+        </div>
+      </div>
     </div>
-    <div class="section-body">
-      <div style="padding:14px 18px;background:rgba(90,86,82,0.07);border-left:3px solid var(--muted);font-size:15px;line-height:1.7;margin-bottom:20px;">
-        <strong style="color:var(--text);">Hold for now — revisit at retest.</strong> Glutathione was in the original Evolution Rehab prescription and is a meaningful gap. But with curcumin, milk thistle, and omega-3 already addressing CRP and liver function, it's reasonable to assess whether those are sufficient before adding cost. If your CRP-hs and ALT haven't moved significantly at retest, glutathione is the logical next add.
-      </div>
-      <p style="margin-bottom:16px;font-size:15px;line-height:1.75;">Glutathione is the body's primary intracellular antioxidant — it doesn't reduce inflammation from the outside like curcumin does, it protects cells directly from oxidative damage. Your elevated CRP, monocytes, and eosinophils all suggest significant oxidative burden. Glutathione is also the liver's main detoxification molecule, so it directly supports the ALT picture.</p>
-      <div style="padding:12px 16px;background:rgba(204,32,32,0.06);border-left:3px solid var(--accent);font-size:14px;line-height:1.6;margin-bottom:16px;">
-        <strong style="color:var(--white);">Form matters critically:</strong> Standard oral glutathione has very poor absorption — it's broken down in the gut before it reaches the bloodstream. You need either <strong>liposomal glutathione</strong> (encapsulated in lipid spheres that bypass gut breakdown) or <strong>S-acetyl glutathione</strong>. Avoid plain "reduced glutathione" capsules — they are largely ineffective orally. N-acetyl cysteine (NAC) is a cheaper alternative that raises glutathione indirectly by supplying the rate-limiting precursor.
-      </div>
-      <div style="font-size:15px;line-height:1.75;color:var(--text);">
-        <strong style="color:var(--white);">Buy (when ready):</strong> <a href="https://www.amazon.co.uk/s?k=liposomal+glutathione+uk+500mg" target="_blank" style="color:var(--green);">Liposomal glutathione 500mg — Amazon UK</a> · ~£20–30/month. Look for brands that state "liposomal" clearly and provide 500mg/serving. Alternatively: <a href="https://www.amazon.co.uk/s?k=NAC+n-acetyl+cysteine+600mg+uk" target="_blank" style="color:var(--green);">NAC (N-acetyl cysteine) 600mg</a> at ~£8–12/month from bulk.com or Amazon is a cheaper starting option that achieves a similar endpoint via a different mechanism.
-      </div>
-    </div>
-  </div>
 
+    <!-- H&B T2 -->
+    <div class="supplier-band" style="background:rgba(26,111,212,0.05);border-top:1px solid var(--border);">
+      <div style="width:3px;height:16px;background:var(--lunch);border-radius:2px;flex-shrink:0;"></div>
+      <span class="supplier-name" style="color:var(--lunch);">Holland &amp; Barrett</span>
+      <span class="supplier-note">— also order Beef Liver and Milk Thistle here (Tier 3) to consolidate into one delivery</span>
+    </div>
+
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Zinc Picolinate (Solgar)</span>
+        <span class="supp-dose-tag">22mg · with food</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">£3–4/month</span>
+          <a class="supp-link" href="https://www.hollandandbarrett.com/shop/product/solgar-zinc-picolinate-22mg-tablets-60001433" target="_blank">Solgar Zinc Picolinate — H&amp;B →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Your <strong style="color:var(--white);">WBC of 3.5</strong> sits at the bottom of lab range and below the functional optimum (5.0–8.0). Elevated monocytes (8.4) and eosinophils (4.6) both point to immune dysregulation. Zinc is essential for immune cell production, testosterone synthesis, and thyroid hormone conversion — all relevant to your panel. Heavy training further depletes it.
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          The one supplement that must come from H&amp;B. bulk.com uses zinc monomethionine, Myprotein uses zinc citrate — both decent but picolinate has the strongest absorption evidence. Solgar is a premium, independently tested brand. 22mg is within the optimal 15–25mg range. 100 tablets ≈ 3 months' supply. Don't exceed 40mg/day — suppresses copper absorption.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tier 2 -->
+
+
+  <!-- TIER 3 -->
   <div class="section-block">
     <div class="section-header">
       <div class="section-accent" style="background:var(--evening)"></div>
-      <div class="section-title">Tier 3 — Methylation Complex</div>
-      <div class="section-subtitle">High homocysteine · MTHFR · active forms only</div>
+      <div class="section-title">Tier 3 — Therapeutic &amp; Functional Health</div>
+      <div class="section-subtitle">Address specific markers from your blood panel · 4 suppliers · ~£55–75/month</div>
     </div>
-    <div class="section-body">
 
-      <div style="padding:14px 18px;background:rgba(107,63,212,0.07);border-left:3px solid var(--evening);font-size:15px;line-height:1.7;margin-bottom:24px;">
-        <strong style="color:var(--white);">Context: MTHFR mutation and high homocysteine.</strong> MTHFR (methylenetetrahydrofolate reductase) is a very common genetic variant that reduces your ability to convert folate into its active form (5-MTHF). This impairs the methylation cycle, which is one of the main routes the body uses to clear homocysteine. Supplementing with active, pre-methylated forms bypasses the genetic block entirely. The critical point: folic acid and cyanocobalamin (the forms in every mainstream supplement) are useless here — you need 5-MTHF and methylcobalamin, plus ideally riboflavin (B2 as R5P, a required MTHFR cofactor) and TMG/betaine as a backup methylation pathway.
-        <div style="margin-top:8px;font-size:14px;color:var(--muted);">None of bulk.com, Myprotein, or Holland &amp; Barrett stock the active forms. This is a separate purchase from a specialist retailer.</div>
-      </div>
-
-      <div style="font-size:15px;line-height:1.75;color:var(--text);margin-bottom:20px;">
-        <strong style="color:var(--white);">Recommended: <a href="https://www.cytoplan.co.uk/methyl-factors-capsules" target="_blank" style="color:var(--green);">Cytoplan Methyl Factors</a> — ~£13/month.</strong> Active methylfolate (5-MTHF), methylcobalamin, P5P, TMG, and critically — riboflavin-5-phosphate (B2), which is a direct cofactor for the MTHFR enzyme and missing from most competitors. All the right forms, the most complete formula at this price point, and the cheapest of the practitioner-grade options.
-      </div>
-
-      <div style="padding:12px 16px;background:rgba(26,138,74,0.06);border-left:3px solid var(--green);font-size:14px;line-height:1.6;margin-bottom:20px;">
-        <strong style="color:var(--white);">On Metagenics already?</strong> Finish your current stock — it's a good product with the right active forms, just missing the B2. Switch to Cytoplan when it runs out. No need to throw it away.
-      </div>
-
-      <div style="padding:12px 16px;background:rgba(0,0,0,0.03);border-left:3px solid var(--border);font-size:13px;line-height:1.6;color:var(--muted);margin-bottom:20px;">
-        <strong style="color:var(--text);">Note on Thorne Methyl-Guard Plus (£79–92/month):</strong> It is a higher quality product — 2.5× the methylfolate dose, 2× the B12, and 3,000mg TMG for a more aggressive methylation bypass. For homocysteine of 8.0 µmol/L (only just above the functional optimum of 7.0), it is unnecessary. Revisit if a retest shows homocysteine has climbed significantly higher.
-      </div>
-
-      <div style="margin-top:18px;padding:12px 16px;background:rgba(204,32,32,0.06);border-left:3px solid var(--accent);font-size:14px;line-height:1.6;">
-        <strong style="color:var(--accent);">Why bulk.com, Myprotein, and H&amp;B won't work here:</strong> All three use folic acid (not methylfolate) and cyanocobalamin (not methylcobalamin) — the inactive forms. If your MTHFR enzyme is impaired, you can't convert folic acid to 5-MTHF anyway. This isn't a quality-vs-price trade-off — the inactive forms simply don't address the underlying issue regardless of dose.
-      </div>
-
+    <!-- Cytoplan T3 -->
+    <div class="supplier-band" style="background:rgba(107,63,212,0.05);">
+      <div style="width:3px;height:16px;background:var(--evening);border-radius:2px;flex-shrink:0;"></div>
+      <span class="supplier-name" style="color:var(--evening);">Cytoplan</span>
+      <span class="supplier-note">— active methylation forms not available at bulk.com, H&amp;B, or Healthspan</span>
     </div>
-  </div>
+
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Methylation Complex (Methyl Factors)</span>
+        <span class="supp-dose-tag">1 capsule/day · permanent</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">~£13/month</span>
+          <a class="supp-link" href="https://www.cytoplan.co.uk/methyl-factors-capsules" target="_blank">Methyl Factors — Cytoplan →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Your <strong style="color:var(--white);">homocysteine of 8.0</strong> µmol/L is above the functional optimum of 7.0 and is the most credible single root cause connecting multiple markers on your panel. Elevated homocysteine is directly toxic to blood vessel walls, triggering the cascade that raises CRP (6.9), fibrinogen, ESR, monocytes, and eosinophils. Your MTHFR variant reduces the ability to convert standard folate to active 5-MTHF — supplementing with pre-methylated active forms bypasses the genetic block entirely. MTHFR is genetic — this stays in the stack permanently.
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          Active forms only: <strong style="color:var(--white);">5-MTHF</strong> (not folic acid), <strong style="color:var(--white);">methylcobalamin</strong> (not cyanocobalamin), P5P (B6), TMG, and critically <strong style="color:var(--white);">riboflavin-5-phosphate (B2)</strong> — a direct MTHFR enzyme cofactor missing from most competitors including the previous Metagenics product. bulk.com, Myprotein, and H&amp;B all use inactive forms that can't address the underlying impairment regardless of dose. Already switched from Metagenics — Cytoplan is more complete and cheaper.
+        </div>
+      </div>
+    </div>
+
+    <!-- Healthspan T3 -->
+    <div class="supplier-band" style="background:rgba(184,106,0,0.05);border-top:1px solid var(--border);">
+      <div style="width:3px;height:16px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
+      <span class="supplier-name" style="color:var(--morning);">Healthspan</span>
+      <span class="supplier-note">— add to your Tier 1 Healthspan order · both situational (drop once markers normalise at retest)</span>
+    </div>
+
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Curcumin (Opti-Turmeric)</span>
+        <span class="supp-dose-tag">daily · with food · situational</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">~£5–6/month</span>
+          <a class="supp-link" href="https://www.healthspan.co.uk/opti-turmeric/" target="_blank">Opti-Turmeric® — Healthspan →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Your <strong style="color:var(--white);">CRP-hs of 6.9</strong> is more than double the lab upper limit of 3.0. Curcumin has the strongest RCT evidence of any supplement for reducing CRP — multiple trials show meaningful reductions by inhibiting NF-κB, a key inflammatory signalling pathway. Works via a different mechanism to omega-3, so the two are complementary. <em style="color:var(--muted);">Drop once CRP normalises at retest.</em>
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          Plain curcumin has near-zero bioavailability — it passes through almost unabsorbed. Most products add piperine (black pepper) as a workaround. Healthspan's <strong style="color:var(--white);">Opti-Turmeric</strong> uses a liquid curcumin delivery system achieving 185× better absorption than standard turmeric powder — no piperine needed. Add to the same order as D3+K2.
+        </div>
+      </div>
+    </div>
+
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Milk Thistle</span>
+        <span class="supp-dose-tag">1–2 caps/day · with food · situational</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">£4–5/month</span>
+          <a class="supp-link" href="https://www.healthspan.co.uk/search?q=milk+thistle" target="_blank">Milk Thistle — Healthspan →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Your <strong style="color:var(--white);">ALT of 33</strong> is above the functional range of 0–26 — a mild liver enzyme elevation. Silymarin (the active compound) has solid evidence for reducing elevated liver enzymes and protecting hepatocytes. Also improves bile flow, which increases absorption of all the fat-soluble supplements in your stack (D3, K2, vitamin A, omega-3). <em style="color:var(--muted);">Drop once ALT normalises at retest.</em>
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          Look for a product standardised to <strong style="color:var(--white);">80% silymarin</strong> — the form used in clinical trials. bulk.com previously stocked this but no longer lists it. Healthspan carry it — consolidate into the same order as D3+K2 and Opti-Turmeric. Milk thistle + curcumin is a well-established liver/inflammation combination; they're complementary, not duplicating.
+        </div>
+      </div>
+    </div>
+
+    <!-- H&B T3 -->
+    <div class="supplier-band" style="background:rgba(26,111,212,0.05);border-top:1px solid var(--border);">
+      <div style="width:3px;height:16px;background:var(--lunch);border-radius:2px;flex-shrink:0;"></div>
+      <span class="supplier-name" style="color:var(--lunch);">Holland &amp; Barrett</span>
+      <span class="supplier-note">— add to your Tier 2 H&amp;B zinc order</span>
+    </div>
+
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">Desiccated Beef Liver</span>
+        <span class="supp-dose-tag">4 caps/day · natural vitamin A</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">£20–30/month</span>
+          <a class="supp-link" href="https://www.amazon.co.uk/s?k=grass+fed+beef+liver+capsules+uk" target="_blank">Grass-fed beef liver — H&amp;B / Amazon →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Replaces EVCLO (fermented cod liver oil) from the original prescription. EVCLO's value was natural preformed <strong style="color:var(--white);">vitamin A (retinol)</strong> — not its EPA+DHA, which PROM3GA covers. Beef liver is the densest retinol source in existence, and also provides natural B12, folate, iron, and CoQ10. Vitamin A supports thyroid function — directly relevant to your borderline TSH and TGA antibody of 16. Milk thistle in your stack provides a hepatoprotective layer alongside the supplemental vitamin A.
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          Look for <strong style="color:var(--white);">grass-fed, freeze-dried</strong> — brands like Wilderland or Ancestral Supplements. Freeze-drying preserves the nutrient profile without heat damage. Avoid proprietary blends with no per-capsule dose transparency. <strong>Cheaper alternative:</strong> 100g lamb or beef liver once a week costs ~£1–2, is more bioavailable than any capsule, and achieves the same outcome. Don't exceed 4 caps/day to keep retinol within a safe range.
+        </div>
+      </div>
+    </div>
+
+    <!-- Amazon T3 -->
+    <div class="supplier-band" style="background:rgba(204,32,32,0.04);border-top:1px solid var(--border);">
+      <div style="width:3px;height:16px;background:var(--accent);border-radius:2px;flex-shrink:0;"></div>
+      <span class="supplier-name" style="color:var(--accent);">Amazon UK</span>
+      <span class="supplier-note">— hormone-related supplements not stocked by mainstream UK health retailers</span>
+    </div>
+
+    <div class="supp-entry">
+      <div class="supp-entry-header">
+        <span class="supp-name">DHEA 25mg</span>
+        <span class="supp-dose-tag">morning · with food</span>
+        <span class="supp-tag" style="background:rgba(204,32,32,0.1);color:var(--accent);">Start after hormone retest only</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">£10–15/month</span>
+          <a class="supp-link" href="https://www.amazon.co.uk/s?k=DHEA+25mg+life+extension+uk" target="_blank">Life Extension DHEA 25mg →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you're taking it</div>
+          Your DUTCH test directly prescribed DHEA because it flagged <strong style="color:var(--white);">low cortisol and low-normal DHEA-S</strong>. The Report of Findings notes this affects energy, recovery from exercise, muscle building, and mood — all directly relevant to gymnastic training. The most significant gap from the original Evolution Rehab prescription. Works synergistically with ashwagandha for the adrenal picture. Retest DHEA-S at Medical Diagnostics first — DHEA is a hormone precursor that converts to testosterone and oestrogen, and starting blind risks overshooting.
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why this product</div>
+          Start at <strong style="color:var(--white);">25mg</strong> — not the 50mg most products default to, which is too high to start blind. Life Extension is rigorously third-party tested with established formulations. Not stocked by bulk.com, H&amp;B, Healthspan, or Cytoplan — Amazon UK is the most reliable route. Reassess dose after 8–12 weeks and retest DHEA-S at ~3 months.
+        </div>
+      </div>
+    </div>
+
+    <div class="supp-entry" style="opacity:0.65;">
+      <div class="supp-entry-header">
+        <span class="supp-name" style="color:var(--muted);">Glutathione (Liposomal)</span>
+        <span class="supp-dose-tag">500mg/day</span>
+        <span class="supp-tag" style="background:rgba(90,86,82,0.1);color:var(--muted);">Hold — add only if CRP/ALT don't respond at retest</span>
+        <div class="supp-entry-meta">
+          <span class="supp-price">£20–30/month</span>
+          <a class="supp-link" style="color:var(--muted);" href="https://www.amazon.co.uk/s?k=liposomal+glutathione+uk+500mg" target="_blank">Liposomal glutathione — Amazon →</a>
+        </div>
+      </div>
+      <div class="supp-why">
+        <div class="why-col">
+          <div class="why-label">Why you'd take it</div>
+          Glutathione is the body's primary intracellular antioxidant and the liver's main detoxification molecule — directly relevant to elevated CRP, monocytes, eosinophils, and ALT. Was in the original Evolution Rehab prescription. With curcumin, omega-3, and milk thistle already addressing these markers, assess at retest whether they were sufficient before adding the cost.
+        </div>
+        <div class="why-col">
+          <div class="why-label">Why liposomal form only</div>
+          Standard oral glutathione is broken down in the gut before reaching the bloodstream — largely ineffective. <strong style="color:var(--text);">Liposomal</strong> or <strong style="color:var(--text);">S-acetyl glutathione</strong> only. Budget alternative: <a href="https://www.amazon.co.uk/s?k=NAC+n-acetyl+cysteine+600mg+uk" target="_blank" style="color:var(--muted);">NAC (N-acetyl cysteine) 600mg</a> at ~£8–12/month raises glutathione indirectly by supplying the rate-limiting precursor.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tier 3 -->
+
 
   <div style="border:1px solid var(--border);background:var(--off-black);padding:20px 24px;margin-bottom:32px;">
     <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Full stack — monthly cost breakdown</div>
@@ -650,31 +771,35 @@
         <th style="text-align:right;padding:6px 0 8px 12px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:400;">~/month</th>
       </tr></thead>
       <tbody>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Creatine Monohydrate</td><td style="padding:8px 12px;color:var(--muted);">bulk.com</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">£3–4</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Vitamin D3 + K2</td><td style="padding:8px 12px;color:var(--muted);">Healthspan</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">~£7</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Omega-3 PROM3GA</td><td style="padding:8px 12px;color:var(--muted);">bulk.com</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">£17–34</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Magnesium Bisglycinate</td><td style="padding:8px 12px;color:var(--muted);">bulk.com</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">~£4</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Collagen + Vit C</td><td style="padding:8px 12px;color:var(--muted);">bulk.com</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">£13–14</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Zinc Picolinate</td><td style="padding:8px 12px;color:var(--muted);">H&amp;B</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">£3–4</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Methylation Complex (Cytoplan — recommended)</td><td style="padding:8px 12px;color:var(--muted);">Cytoplan</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">~£13</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Desiccated Beef Liver (vitamin A)</td><td style="padding:8px 12px;color:var(--muted);">Holland &amp; Barrett</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">£20–30</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Milk Thistle</td><td style="padding:8px 12px;color:var(--muted);">Holland &amp; Barrett</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">£4–5</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Curcumin (Opti-Turmeric)</td><td style="padding:8px 12px;color:var(--muted);">Healthspan</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">~£5–6</td></tr>
-        <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 12px 8px 0;color:var(--text);">Ashwagandha KSM-66</td><td style="padding:8px 12px;color:var(--muted);">bulk.com</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">£8–10</td></tr>
-        <tr><td style="padding:8px 12px 8px 0;color:var(--text);">DHEA 25mg <span style="color:var(--accent);font-size:12px;">— after retest only</span></td><td style="padding:8px 12px;color:var(--muted);">Amazon UK</td><td style="padding:8px 0 8px 12px;text-align:right;color:var(--white);">£10–15</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Creatine Monohydrate</td><td style="padding:7px 12px;color:var(--muted);">bulk.com</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">£3–4</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Omega-3 PROM3GA</td><td style="padding:7px 12px;color:var(--muted);">bulk.com</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">£17–34</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Magnesium Bisglycinate</td><td style="padding:7px 12px;color:var(--muted);">bulk.com</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">~£4</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Collagen + Vit C</td><td style="padding:7px 12px;color:var(--muted);">bulk.com</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">£13–14</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Ashwagandha KSM-66</td><td style="padding:7px 12px;color:var(--muted);">bulk.com</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">£8–10</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Vitamin D3 + K2</td><td style="padding:7px 12px;color:var(--muted);">Healthspan</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">~£7</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Curcumin (Opti-Turmeric)</td><td style="padding:7px 12px;color:var(--muted);">Healthspan</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">£5–6</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Milk Thistle</td><td style="padding:7px 12px;color:var(--muted);">Healthspan</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">£4–5</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Zinc Picolinate (Solgar)</td><td style="padding:7px 12px;color:var(--muted);">H&amp;B</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">£3–4</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Desiccated Beef Liver</td><td style="padding:7px 12px;color:var(--muted);">H&amp;B</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">£20–30</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:7px 12px 7px 0;color:var(--text);">Methylation Complex (Cytoplan)</td><td style="padding:7px 12px;color:var(--muted);">Cytoplan</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">~£13</td></tr>
+        <tr><td style="padding:7px 12px 7px 0;color:var(--text);">DHEA 25mg <em style="color:var(--accent);font-size:12px;"> — after retest</em></td><td style="padding:7px 12px;color:var(--muted);">Amazon UK</td><td style="padding:7px 0 7px 12px;text-align:right;color:var(--white);">£10–15</td></tr>
       </tbody>
-      <tfoot><tr style="border-top:2px solid var(--border);">
-        <td colspan="2" style="padding:12px 12px 4px 0;font-weight:600;color:var(--white);">Full stack inc. ashwagandha (PROM3GA omega-3)</td>
-        <td style="padding:12px 0 4px 12px;text-align:right;font-weight:600;font-size:18px;color:var(--white);">~£107–146/month</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--border);"><td colspan="2" style="padding:4px 12px 4px 0;color:var(--muted);font-size:13px;">Add DHEA after retest</td>
-        <td style="padding:4px 0 4px 12px;text-align:right;color:var(--muted);font-size:13px;">+£10–15</td>
-      </tr>
-      <tr><td colspan="2" style="padding:4px 12px 4px 0;color:var(--muted);font-size:13px;">Budget omega-3 (Super Strength) — no ashwagandha/DHEA</td>
-        <td style="padding:4px 0 4px 12px;text-align:right;color:var(--muted);font-size:13px;">~£80–114/month</td>
-      </tr></tfoot>
+      <tfoot>
+        <tr style="border-top:2px solid var(--border);">
+          <td colspan="2" style="padding:12px 12px 4px 0;font-weight:600;color:var(--white);">Full stack exc. DHEA (PROM3GA omega-3)</td>
+          <td style="padding:12px 0 4px 12px;text-align:right;font-weight:600;font-size:18px;color:var(--white);">~£97–131/month</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td colspan="2" style="padding:4px 12px 4px 0;color:var(--muted);font-size:13px;">Add DHEA after retest</td>
+          <td style="padding:4px 0 4px 12px;text-align:right;color:var(--muted);font-size:13px;">+£10–15/month</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="padding:4px 12px 4px 0;color:var(--muted);font-size:13px;">Budget omega-3 (Super Strength), no DHEA</td>
+          <td style="padding:4px 0 4px 12px;text-align:right;color:var(--muted);font-size:13px;">~£80–114/month</td>
+        </tr>
+      </tfoot>
     </table>
-    <div style="font-size:14px;color:var(--muted);line-height:1.6;">Omega-3 and desiccated liver are the two biggest cost drivers. If budget is tight, liver once a week as food instead of capsules cuts ~£20–30/month and is more bioavailable anyway. Ashwagandha (KSM-66) is worth prioritising — strong evidence, directly addresses the cortisol/adrenal gap, and cheap at ~£8–10/month. Hold DHEA until after the hormone retest.</div>
+    <div style="font-size:14px;color:var(--muted);line-height:1.6;">Omega-3 and desiccated liver are the two biggest cost drivers. Eating 100g liver once a week instead of capsules cuts ~£20–30/month and is more bioavailable. Ashwagandha at ~£8–10/month is worth prioritising — strong evidence, directly addresses the cortisol/adrenal gap. Curcumin and milk thistle are situational — drop them once CRP and ALT normalise at retest.</div>
   </div>
 
   <div class="page-footer">
