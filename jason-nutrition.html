@@ -82,10 +82,15 @@
   .nav-emma.active { color: var(--evening); border-bottom-color: var(--evening); }
   .site-nav-sub {
     display: flex;
+    flex-wrap: nowrap;
     background: var(--off-black);
     border-bottom: 2px solid var(--border);
     padding: 0 40px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .site-nav-sub::-webkit-scrollbar { display: none; }
   .nav-sub-link {
     font-family: var(--font-mono);
     font-size: 13px;
@@ -97,6 +102,8 @@
     border-bottom: 2px solid transparent;
     margin-bottom: -2px;
     transition: color 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   .nav-sub-link:hover { color: var(--text); }
   .nav-sub-link.active-jason { color: var(--morning); border-bottom-color: var(--morning); }
