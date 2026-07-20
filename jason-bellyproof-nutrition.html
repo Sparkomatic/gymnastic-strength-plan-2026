@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Strength Plan">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Jason · Bellyproof Nutrition · 2026</title>
+
+<style>
+  :root {
+    --font-display: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+  }
+  :root {
+    --black: #ffffff;
+    --off-black: #f7f7f5;
+    --dark: #f0eeeb;
+    --mid: #e5e2dd;
+    --border: #d0ccc6;
+    --muted: #5a5652;
+    --text: #3a3632;
+    --white: #1a1714;
+    --morning: #b86a00;
+    --lunch: #1a6fd4;
+    --evening: #6b3fd4;
+    --accent: #cc2020;
+    --green: #1a8a4a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* SITE NAV */
+  .site-nav-top {
+    display: flex;
+    align-items: stretch;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-home {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 0;
+    margin-right: 20px;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .nav-home:hover { color: var(--text); }
+  .nav-person {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s;
+  }
+  .nav-person:hover { color: var(--text); }
+  .nav-jason.active { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-emma.active { color: var(--evening); border-bottom-color: var(--evening); }
+  .site-nav-sub {
+    display: flex;
+    background: var(--off-black);
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+    overflow-x: auto;
+  }
+  .nav-sub-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px 10px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-sub-link:hover { color: var(--text); }
+  .nav-sub-link.active-jason { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-sub-link.active-emma { color: var(--evening); border-bottom-color: var(--evening); }
+
+  /* DAY NAV */
+  .site-nav-days {
+    display: flex;
+    align-items: stretch;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    flex-wrap: wrap;
+  }
+  .nav-day-pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 10px 16px 8px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-day-pill:hover { color: var(--lunch); border-bottom-color: var(--lunch); }
+  .site-nav-top { position: sticky; top: 0; z-index: 103; }
+  .site-nav-sub { position: sticky; top: 48px; z-index: 102; }
+  .site-nav-days { position: sticky; top: 88px; z-index: 101; }
+
+  /* HEADER */
+  header {
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(26,111,212,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-label {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+    margin-bottom: 24px;
+  }
+  h1 span { color: var(--lunch); }
+  .header-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+  .meta-pill { display: flex; align-items: center; gap: 8px; font-size: 16px; color: var(--muted); }
+  .meta-pill .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* MAIN LAYOUT */
+  .plan-container { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+
+  /* PRINCIPLE BOXES */
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .principle { background: var(--off-black); padding: 20px; }
+  .principle-label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .principle-value { font-size: 17px; color: var(--white); font-weight: 500; }
+
+  /* INTRO NOTE */
+  .age-note {
+    display: flex;
+    gap: 16px;
+    padding: 20px 24px;
+    border: 1px solid rgba(26,111,212,0.3);
+    background: rgba(26,111,212,0.04);
+    margin-bottom: 40px;
+  }
+  .age-note-icon {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lunch);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .age-note-body { font-size: 16px; color: var(--text); line-height: 1.6; }
+  .age-note-body strong { color: var(--white); font-weight: 500; }
+
+  /* DAY SECTION BLOCKS */
+  .section-block {
+    margin-bottom: 32px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    scroll-margin-top: 150px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+  }
+  .section-accent { width: 3px; height: 24px; border-radius: 2px; flex-shrink: 0; }
+  .section-title { font-family: var(--font-display); font-size: 26px; letter-spacing: 0.05em; color: var(--white); }
+  .diet-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+  .diet-veg { background: rgba(26,138,74,0.12); color: var(--green); border: 1px solid rgba(26,138,74,0.25); }
+  .diet-pesc { background: rgba(26,111,212,0.12); color: var(--lunch); border: 1px solid rgba(26,111,212,0.25); }
+  .section-subtitle {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .section-subtitle strong { color: var(--white); font-weight: 500; }
+  .section-body { padding: 20px 24px 24px; }
+
+  /* MEAL CARD */
+  .meal-card { border: 1px solid var(--border); margin-bottom: 16px; overflow: hidden; }
+  .meal-card:last-child { margin-bottom: 0; }
+  .meal-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+  }
+  .meal-time {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .meal-name { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.04em; color: var(--white); }
+  .meal-macros {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--lunch);
+    white-space: nowrap;
+  }
+  .meal-body { padding: 18px 20px; }
+  .meal-body ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .meal-body li { font-size: 16px; color: var(--text); padding-left: 16px; position: relative; }
+  .meal-body li::before { content: '→'; position: absolute; left: 0; color: var(--muted); font-size: 13px; top: 2px; }
+
+  /* DAY FOOT (top-up + total) */
+  .day-foot {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 14px 20px;
+    margin-top: 16px;
+    background: var(--off-black);
+    border: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .day-foot .total {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .day-foot .tip { font-style: italic; }
+  .day-foot .tip strong { color: var(--text); font-weight: 500; font-style: normal; }
+
+  /* FOOTER */
+  .page-footer {
+    margin-top: 40px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    background: var(--off-black);
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .page-footer strong { color: var(--text); font-weight: 500; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    header { padding: 40px 20px 28px; }
+    .plan-container { padding: 24px 16px 60px; }
+    .section-body { padding: 16px; }
+    .site-nav-top { padding: 0 16px; }
+    .nav-person { padding: 10px 14px; font-size: 17px; }
+    .site-nav-sub { padding: 0 16px; }
+    .nav-sub-link { padding: 10px 14px 8px; font-size: 12px; }
+    .nav-home { padding: 0 12px 0 0; margin-right: 12px; }
+    .site-nav-days { padding: 0 16px; }
+    .nav-day-pill { padding: 8px 10px 6px; font-size: 10px; }
+    .section-header { flex-wrap: wrap; gap: 8px; }
+    .section-subtitle { margin-left: 0; width: 100%; white-space: normal; }
+    .meal-header { flex-wrap: wrap; gap: 6px; }
+    .meal-macros { margin-left: 0; }
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: 34px; }
+    .principles { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav-top">
+  <a href="index.html" class="nav-home">Home</a>
+  <a href="jason-workout.html" class="nav-person nav-jason active">Jason</a>
+  <a href="emma-workout.html" class="nav-person nav-emma">Emma</a>
+</nav>
+<nav class="site-nav-sub">
+  <a href="jason-workout.html" class="nav-sub-link">Workout Plan</a>
+  <a href="jason-bellyproof.html" class="nav-sub-link">Bellyproof Workout</a>
+  <a href="jason-bellyproof4.html" class="nav-sub-link">Bellyproof 4 Workout</a>
+  <a href="jason-nutrition.html" class="nav-sub-link">Nutrition</a>
+  <a href="jason-bellyproof-nutrition.html" class="nav-sub-link active-jason">Bellyproof Nutrition</a>
+  <a href="jason-supplements.html" class="nav-sub-link">Buying Supplements</a>
+</nav>
+<nav class="site-nav-days">
+  <a href="#day-1" class="nav-day-pill" title="Vegetarian">Day 1</a>
+  <a href="#day-2" class="nav-day-pill" title="Pescatarian">Day 2</a>
+  <a href="#day-3" class="nav-day-pill" title="Vegetarian">Day 3</a>
+  <a href="#day-4" class="nav-day-pill" title="Pescatarian">Day 4</a>
+  <a href="#day-5" class="nav-day-pill" title="Vegetarian">Day 5</a>
+  <a href="#day-6" class="nav-day-pill" title="Pescatarian">Day 6</a>
+  <a href="#day-7" class="nav-day-pill" title="Vegetarian">Day 7</a>
+</nav>
+
+<header>
+  <div class="header-label">BellyProof Nutrition · 7-Day Two-Meal Plan</div>
+  <h1>TWO-MEAL<br><span>PLAN</span></h1>
+  <div class="header-meta">
+    <div class="meta-pill"><span class="dot" style="background:var(--lunch)"></span> ~60g P / 88g C / 53g F per day</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--morning)"></span> Meal 1 post-workout · Meal 2 dinner</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--green)"></span> Veg / pescatarian rotation</div>
+  </div>
+</header>
+
+<div class="plan-container">
+
+  <!-- KEY NUMBERS -->
+  <div class="principles">
+    <div class="principle"><div class="principle-label">Daily target</div><div class="principle-value">~60P / 88C / 53F</div></div>
+    <div class="principle"><div class="principle-label">Meals per day</div><div class="principle-value">2</div></div>
+    <div class="principle"><div class="principle-label">Meal 1</div><div class="principle-value">Post-workout</div></div>
+    <div class="principle"><div class="principle-label">Meal 2</div><div class="principle-value">Dinner</div></div>
+  </div>
+
+  <div class="age-note">
+    <div class="age-note-icon">How to use</div>
+    <div class="age-note-body">
+      Two meals a day on a 7-day rotation — <strong>Meal 1 is your post-workout feed</strong>, Meal 2 is dinner. Days alternate <strong>vegetarian</strong> and <strong>pescatarian</strong>. Each day's macros land near <strong>~60P / 88C / 53F</strong>; where a day runs low on fat, use the top-up tip in the footer (avocado, nuts, or extra oil) to hit the target. Weights are for the stated form (cooked / drained where noted).
+    </div>
+  </div>
+
+  <!-- ===== DAY 1 ===== -->
+  <div class="section-block" id="day-1">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--green)"></div>
+      <div class="section-title">Day 1</div>
+      <span class="diet-badge diet-veg">Vegetarian</span>
+      <div class="section-subtitle">Total ≈ <strong>60P / 90C / 50F</strong></div>
+    </div>
+    <div class="section-body">
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 1 · Post-Workout</div>
+          <div class="meal-name">Greek Yogurt &amp; Berry Power Bowl</div>
+          <div class="meal-macros">28P · 48C · 9F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>200g 0% Greek yogurt</li>
+            <li>40g rolled oats (soaked)</li>
+            <li>100g mixed berries</li>
+            <li>10g honey</li>
+            <li>8g chia seeds</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 2 · Dinner</div>
+          <div class="meal-name">Tofu &amp; Veg Stir-fry</div>
+          <div class="meal-macros">32P · 42C · 26F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>150g firm tofu, pan-seared</li>
+            <li>Mixed peppers, broccoli &amp; pak choi</li>
+            <li>80g brown rice (cooked)</li>
+            <li>1 tbsp sesame oil</li>
+            <li>Soy–ginger–garlic sauce</li>
+          </ul>
+        </div>
+      </div>
+      <div class="day-foot">
+        <span class="total">Day total ≈ 60P / 90C / 50F</span>
+        <span class="tip"><strong>Top up ~15g fat:</strong> ½ avocado on the side or extra oil if you're under.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DAY 2 ===== -->
+  <div class="section-block" id="day-2">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--lunch)"></div>
+      <div class="section-title">Day 2</div>
+      <span class="diet-badge diet-pesc">Pescatarian</span>
+      <div class="section-subtitle">Total ≈ <strong>60P / 88C / 52F</strong></div>
+    </div>
+    <div class="section-body">
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 1 · Post-Workout</div>
+          <div class="meal-name">Cottage Cheese &amp; Tomato Toast</div>
+          <div class="meal-macros">24P · 32C · 12F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>1 slice sourdough</li>
+            <li>150g low-fat cottage cheese</li>
+            <li>Sliced tomato &amp; cucumber</li>
+            <li>Fresh herbs</li>
+            <li>Drizzle of olive oil</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 2 · Dinner</div>
+          <div class="meal-name">Baked Cod with Lemon &amp; Potatoes</div>
+          <div class="meal-macros">36P · 48C · 18F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>160g cod fillet, baked with lemon &amp; herbs</li>
+            <li>180g new potatoes</li>
+            <li>Big side salad, 1 tbsp olive oil dressing</li>
+            <li>Steamed green beans</li>
+          </ul>
+        </div>
+      </div>
+      <div class="day-foot">
+        <span class="total">Day total ≈ 60P / 88C / 52F</span>
+        <span class="tip"><strong>Top up fat:</strong> a small handful (15g) of walnuts.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DAY 3 ===== -->
+  <div class="section-block" id="day-3">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--green)"></div>
+      <div class="section-title">Day 3</div>
+      <span class="diet-badge diet-veg">Vegetarian</span>
+      <div class="section-subtitle">Total ≈ <strong>60P / 85C / 50F</strong></div>
+    </div>
+    <div class="section-body">
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 1 · Post-Workout</div>
+          <div class="meal-name">Egg White &amp; Feta Scramble Wrap</div>
+          <div class="meal-macros">28P · 30C · 16F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>5 egg whites + 1 whole egg, scrambled</li>
+            <li>20g feta</li>
+            <li>Spinach</li>
+            <li>Small wholemeal tortilla</li>
+            <li>Salsa</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 2 · Dinner</div>
+          <div class="meal-name">Lentil &amp; Halloumi Bowl</div>
+          <div class="meal-macros">32P · 55C · 34F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>150g green lentils (cooked)</li>
+            <li>40g grilled halloumi</li>
+            <li>Roasted courgette &amp; pepper</li>
+            <li>Rocket</li>
+            <li>60g quinoa (cooked)</li>
+            <li>Lemon–olive oil dressing</li>
+          </ul>
+        </div>
+      </div>
+      <div class="day-foot">
+        <span class="total">Day total ≈ 60P / 85C / 50F</span>
+        <span class="tip"><strong>Note:</strong> halloumi is fatty — keep it to 40g.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DAY 4 ===== -->
+  <div class="section-block" id="day-4">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--lunch)"></div>
+      <div class="section-title">Day 4</div>
+      <span class="diet-badge diet-pesc">Pescatarian</span>
+      <div class="section-subtitle">Total ≈ <strong>60P / 88C / 52F</strong></div>
+    </div>
+    <div class="section-body">
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 1 · Post-Workout</div>
+          <div class="meal-name">Smoked Salmon &amp; Yogurt Bagel-thin</div>
+          <div class="meal-macros">30P · 34C · 10F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>1 bagel thin</li>
+            <li>60g smoked salmon</li>
+            <li>60g 0% Greek yogurt with dill &amp; capers, as spread</li>
+            <li>Cucumber</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 2 · Dinner</div>
+          <div class="meal-name">Prawn &amp; Edamame Noodle Bowl</div>
+          <div class="meal-macros">34P · 52C · 16F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>120g prawns</li>
+            <li>100g shelled edamame</li>
+            <li>80g soba noodles (cooked)</li>
+            <li>Stir-fried veg</li>
+            <li>2 tsp sesame oil</li>
+            <li>Chilli–lime–soy sauce</li>
+          </ul>
+        </div>
+      </div>
+      <div class="day-foot">
+        <span class="total">Day total ≈ 60P / 88C / 52F</span>
+        <span class="tip"><strong>Top up fat:</strong> ¼ avocado to hit the fat target.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DAY 5 ===== -->
+  <div class="section-block" id="day-5">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--green)"></div>
+      <div class="section-title">Day 5</div>
+      <span class="diet-badge diet-veg">Vegetarian</span>
+      <div class="section-subtitle">Total ≈ <strong>60P / 92C / 50F</strong></div>
+    </div>
+    <div class="section-body">
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 1 · Post-Workout</div>
+          <div class="meal-name">High-Protein Overnight Oats</div>
+          <div class="meal-macros">30P · 50C · 16F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>40g oats</li>
+            <li>200g 0% Greek yogurt</li>
+            <li>15g peanut butter</li>
+            <li>1 tbsp cocoa</li>
+            <li>80g banana</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 2 · Dinner</div>
+          <div class="meal-name">Tofu Tikka with Rice</div>
+          <div class="meal-macros">30P · 42C · 34F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>150g firm tofu, marinated in spiced yogurt &amp; oven-baked</li>
+            <li>70g basmati rice (cooked)</li>
+            <li>Tomato–onion curry base (cooked in 1 tbsp oil)</li>
+            <li>Cauliflower</li>
+          </ul>
+        </div>
+      </div>
+      <div class="day-foot">
+        <span class="total">Day total ≈ 60P / 92C / 50F</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DAY 6 ===== -->
+  <div class="section-block" id="day-6">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--lunch)"></div>
+      <div class="section-title">Day 6</div>
+      <span class="diet-badge diet-pesc">Pescatarian</span>
+      <div class="section-subtitle">Total ≈ <strong>60P / 88C / 52F</strong></div>
+    </div>
+    <div class="section-body">
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 1 · Post-Workout</div>
+          <div class="meal-name">Tuna &amp; White Bean Salad</div>
+          <div class="meal-macros">34P · 30C · 16F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>1 can (110g drained) tuna in spring water</li>
+            <li>120g cannellini beans</li>
+            <li>Red onion, tomato &amp; parsley</li>
+            <li>1 tbsp olive oil + lemon</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 2 · Dinner</div>
+          <div class="meal-name">Fish Tacos</div>
+          <div class="meal-macros">30P · 50C · 20F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>140g white fish (haddock / pollock)</li>
+            <li>2 small corn tortillas</li>
+            <li>Cabbage slaw with lime-yogurt dressing</li>
+            <li>Salsa</li>
+            <li>15g crumbled feta</li>
+          </ul>
+        </div>
+      </div>
+      <div class="day-foot">
+        <span class="total">Day total ≈ 60P / 88C / 52F</span>
+        <span class="tip"><strong>Top up fat:</strong> a few slices of avocado if under.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DAY 7 ===== -->
+  <div class="section-block" id="day-7">
+    <div class="section-header">
+      <div class="section-accent" style="background:var(--green)"></div>
+      <div class="section-title">Day 7</div>
+      <span class="diet-badge diet-veg">Vegetarian</span>
+      <div class="section-subtitle">Total ≈ <strong>60P / 88C / 52F</strong></div>
+    </div>
+    <div class="section-body">
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 1 · Post-Workout</div>
+          <div class="meal-name">Cottage Cheese Pancakes</div>
+          <div class="meal-macros">30P · 48C · 12F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>Blend 100g cottage cheese, 40g oats &amp; 3 egg whites into batter</li>
+            <li>Cook in a little oil</li>
+            <li>Top with 100g berries</li>
+            <li>10g maple syrup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meal-card">
+        <div class="meal-header">
+          <div class="meal-time">Meal 2 · Dinner</div>
+          <div class="meal-name">Chickpea &amp; Paneer Traybake</div>
+          <div class="meal-macros">30P · 40C · 38F</div>
+        </div>
+        <div class="meal-body">
+          <ul>
+            <li>60g paneer + 120g chickpeas, roasted with peppers, courgette &amp; onion</li>
+            <li>1 tbsp oil</li>
+            <li>Spinach</li>
+            <li>Small side of 50g rice (cooked)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="day-foot">
+        <span class="total">Day total ≈ 60P / 88C / 52F</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <strong>Reminder:</strong> macros are approximate targets, not exact prescriptions — brands and portion sizes vary. Meal 1 lands in the post-workout window; get the protein in first. On any day that reads low on fat, use the top-up tip to reach ~53g. Keep hydration up across the eating window.
+  </div>
+
+</div>
+
+</body>
+</html>
