@@ -172,7 +172,7 @@
     margin-bottom: 48px;
     border: 1px solid var(--border);
     overflow: hidden;
-    scroll-margin-top: 132px;
+    scroll-margin-top: var(--nav-h, 140px);
   }
 
   .day-header {
@@ -683,17 +683,16 @@
   }
   /* DAY NAV */
   html { scroll-behavior: auto; }
-  .site-nav-top { position: sticky; top: 0; z-index: 103; }
-  .site-nav-sub { position: sticky; top: 48px; z-index: 102; }
+  /* The three bars stick as ONE block. They were previously stuck
+     independently at top:0/48px/88px — hardcoded offsets that did not match
+     their real heights (58/45/38px), so each bar overlapped the one above it. */
+  .site-nav-stack { position: sticky; top: 0; z-index: 103; background: var(--white); }
   .site-nav-days {
     display: flex;
     align-items: stretch;
     background: var(--off-black);
     border-bottom: 1px solid var(--border);
     padding: 0 40px;
-    position: sticky;
-    top: 88px;
-    z-index: 101;
     flex-wrap: wrap;
   }
   .nav-day-pill {
@@ -718,6 +717,7 @@
 </head>
 <body>
 
+<div class="site-nav-stack">
 <nav class="site-nav-top">
   <a href="index.html" class="nav-home">Home</a>
   <a href="jason-workout.html" class="nav-person nav-jason active">Jason</a>
@@ -732,13 +732,14 @@
   <a href="jason-supplements.html" class="nav-sub-link">Buying Supplements</a>
 </nav>
 <nav class="site-nav-days">
-  <a href="#day-1" class="nav-day-pill" title="Push · Core · Handstand">Day 1</a>
-  <a href="#day-2" class="nav-day-pill" title="Pull · Ring Strength · Handstand">Day 2</a>
-  <a href="#day-3" class="nav-day-pill" title="Leg Accessory · Pistol Specialism · KB">Day 3</a>
-  <a href="#day-4" class="nav-day-pill" title="Posterior Chain · Compression · Handstand">Day 4</a>
+  <a href="#day-1" class="nav-day-pill" title="Pistol · Push · Core">Day 1</a>
+  <a href="#day-2" class="nav-day-pill" title="Pull · Ring Strength · Calves">Day 2</a>
+  <a href="#day-3" class="nav-day-pill" title="Pistol Specialism · Ankle · Legs">Day 3</a>
+  <a href="#day-4" class="nav-day-pill" title="Pull · Posterior Chain · Compression">Day 4</a>
   <a href="#day-5" class="nav-day-pill" title="Legs · Aerobic · Handstand">Day 5</a>
   <a href="#day-67" class="nav-day-pill" title="Full Review · Single Sets · Skill Audit">Day 6/7</a>
 </nav>
+</div>
 
 <header>
   <div class="header-label">Training Programme · 2026</div>
@@ -746,7 +747,7 @@
   <div class="header-meta">
     <div class="meta-pill"><span class="dot" style="background:var(--morning)"></span> 5–6 days / week</div>
     <div class="meta-pill"><span class="dot" style="background:var(--lunch)"></span> Three-session days × 4</div>
-    <div class="meta-pill"><span class="dot" style="background:var(--evening)"></span> Evening flexibility daily</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--evening)"></span> Evening work × 5</div>
   </div>
 </header>
 
@@ -759,6 +760,43 @@
 <div class="plan-container">
 
   <!-- TEMPO KEY -->
+  <!-- PRIORITIES -->
+  <div style="border:2px solid var(--accent);margin:0 40px 24px;padding:20px 24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">The two absolute priorities</div>
+    <div style="display:flex;gap:32px;flex-wrap:wrap;margin-bottom:14px;">
+      <div style="font-family:var(--font-display);font-size:28px;color:var(--white);letter-spacing:0.02em;">1 · FALSE GRIP RING MUSCLE-UP</div>
+      <div style="font-family:var(--font-display);font-size:28px;color:var(--white);letter-spacing:0.02em;">2 · PISTOL SQUAT</div>
+    </div>
+    <div style="font-size:16px;color:var(--text);line-height:1.6;">Everything else in this plan — planche, front lever, press to handstand, one-arm pull-up, dragon flag — is <strong>general athletic build and maintenance</strong>. It is kept because it is cheap and it keeps you rounded, not because it is being progressed. When these two goals are banked, they drop to maintenance and the volume goes back to the others.<br><br>
+    <span style="color:var(--muted);">Mobility is a genuine goal, but it is ranked underneath these two, and it is dosed by what serves them: ankle dorsiflexion and hamstring length feed the pistol, wrist and shoulder-extension work protect and finish the muscle-up. Adductor/pancake work is held at maintenance for now — it serves straddle planche and press-to-handstand, neither of which is a priority.</span></div>
+  </div>
+
+  <!-- DELOAD -->
+  <div style="border:1px solid var(--border);background:var(--off-black);margin:0 40px 24px;padding:20px 24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--morning);margin-bottom:12px;">Deload — every 6th or 7th week</div>
+    <div style="font-size:16px;color:var(--text);line-height:1.6;">
+      A deload is a planned easy week. You are running up to 16 sessions a week with near-maximal isometrics and skill work, and the only progression rule here is "advance when it feels controlled" — which works right up until it doesn't. Strength is built by recovering from training, not by training. A deload is where the adaptation you already paid for actually shows up.<br><br>
+
+      <strong>Take one every 6–7 weeks, or sooner if the triggers below fire.</strong><br><br>
+
+      <span style="color:var(--morning);font-weight:500;">How to do it: cut the sets, keep the load.</span> That is the whole method for this plan. Halve the number of working sets and leave the weight, the tempo, and the positions exactly as they are. Do not drop to "50% load" across the board — that is a barbell-programme instinct and it works badly here. Most of your priority work is skill under tension (false grip pulls, pistol isometrics, planche and support holds), and a lighter or easier version of a skill is a <em>different skill</em>. You want fewer, clean exposures — not many sloppy ones.<br><br>
+
+      <span style="font-weight:500;">The specifics for this plan:</span>
+      <ul style="margin:8px 0 0 20px;padding:0;">
+        <li style="margin-bottom:7px;"><strong>Morning strength</strong> — halve the sets (3–4 sets becomes 2). Same weight on the pull-ups, same tempo, same heel elevation. Stop every set two reps short of where you'd normally stop.</li>
+        <li style="margin-bottom:7px;"><strong>Isometrics and holds</strong> — halve the sets and stop at roughly 70% of your best hold. No near-limit holds at all this week. This applies to the pistol sticking-point work, the overcoming isometrics, planche, ring support and the hanging tuck.</li>
+        <li style="margin-bottom:7px;"><strong>Finishers</strong> — cut them entirely. The KB complexes and the aerobic circuit are the most fatiguing, least priority-relevant things in the week. Go for a walk instead.</li>
+        <li style="margin-bottom:7px;"><strong>Lunch muscle-up sessions</strong> — keep all three touches, at one set each. Skill retention is a frequency effect, so you keep showing up; you just do less each time. This is the one place not to skip days.</li>
+        <li style="margin-bottom:7px;"><strong>Evening mobility</strong> — leave completely unchanged. It costs almost nothing systemically, and range is the thing you lose fastest by stopping.</li>
+        <li><strong>Day 6/7 audit</strong> — skip it. You are not testing anything during a deload; the numbers would only mislead you.</li>
+      </ul><br>
+
+      <span style="font-weight:500;">Take one early if any of these show up:</span> a number that was solid two weeks ago goes backwards two sessions running; joints (wrists, elbows, knees) ache on waking rather than during the session; sleep or appetite drops off; or you're finding reasons not to train. Those are fatigue signals, not motivation problems — the fix is a week off the gas, not more discipline.<br><br>
+
+      <span style="color:var(--muted);">Coming back: return to full sets immediately the following week at the same numbers you left on. Don't ramp back up over a fortnight, and don't try to make up the missed volume. Expect the first week back to feel unusually good — that's the point of the exercise.</span>
+    </div>
+  </div>
+
   <div class="tempo-key">
     <div class="tempo-title">Tempo notation key — format: Eccentric · Pause · Concentric · Pause at top</div>
     <div class="tempo-item">1141</div><div class="tempo-desc">1s down · 1s pause · 4s up (slow contraction) · 1s pause at top</div>
@@ -780,7 +818,7 @@
   <div class="day-block" id="day-1">
     <div class="day-header">
       <div class="day-number">DAY 1</div>
-      <div class="day-title">Push · Core · Handstand</div>
+      <div class="day-title">Pistol · Push · Core</div>
       <div class="day-tags">
         <span class="tag tag-morning">Morning</span>
         <span class="tag tag-lunch">Lunch</span>
@@ -793,7 +831,7 @@
       <div class="session-header">
         <div class="session-stripe" style="background:var(--morning)"></div>
         <span class="session-name morning">Morning — Fasted Strength</span>
-        <span class="session-duration">~40 min</span>
+        <span class="session-duration">~50 min</span>
       </div>
       <table class="exercises">
         <thead>
@@ -807,11 +845,25 @@
         </thead>
         <tbody>
           <tr>
-            <td><div class="ex-name">Pistol Squat: Sticking Point Holds + Negatives <a class="ex-video" href="https://www.youtube.com/results?search_query=elevated+heel+pistol+squat+tutorial+progressions" target="_blank">▶ Video</a></div><div class="ex-cue">Heel elevated 2–3cm. Target the 90° weakness directly — isometric holds and slow negatives, not full reps.</div></td>
+            <td><div class="ex-name">Ankle Dorsiflexion Wall Drill — Prep <a class="ex-video" href="https://www.youtube.com/results?search_query=ankle+dorsiflexion+wall+drill+pistol+squat" target="_blank">▶ Video</a></div><div class="ex-cue">Joint prep before the pistol work, not a stretch session. Opens the exact range the descent needs.</div></td>
+            <td class="ex-sets">2 × 5 reps each side</td>
+            <td class="ex-tempo">Slow drive. Hold knee forward at end range for 10s. Return. Heel must not lift.</td>
+            <td class="ex-rest">30s between sides</td>
+            <td class="ex-notes">Done <strong>first</strong> — you are about to load the ankle at end range under near-maximal single-leg tension, fasted. Toes 5–10cm from wall, drive the knee forward and out over the little toe. Short version of the Day 3 / Day 5 drill: this is prep, not the training dose. Roughly 3 minutes.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Pistol Squat: Sticking Point Holds + Negatives <a class="ex-video" href="https://www.youtube.com/results?search_query=elevated+heel+pistol+squat+tutorial+progressions" target="_blank">▶ Video</a></div><div class="ex-cue">Heel elevated 2–3cm. Target the ~85° sticking point directly — isometric holds and slow negatives, not full reps.</div></td>
             <td class="ex-sets">3 sets each side:<br>3 × 5s isometric holds<br>then 3 × negatives</td>
-            <td class="ex-tempo">Alternate sides each rep. Hold: lower to ~90° sticking point, hold 5s, use post/wall to return — then do the other side. Switching sides gives ~10–15s passive rest per leg. Negative: same alternating pattern, 6s controlled descent, step forward to return — do not squat back up.</td>
+            <td class="ex-tempo">Alternate sides each rep. Hold: lower to your ~85° sticking point (just below parallel — measured, not guessed), hold 5s, use post/wall to return — then do the other side. Switching sides gives ~10–15s passive rest per leg. Negative: same alternating pattern, 6s controlled descent, step forward to return — do not squat back up.</td>
             <td class="ex-rest">~10–15s (built in by alternating). 60s after all holds before starting negatives.</td>
             <td class="ex-notes">Do NOT try to complete full reps — rushing past the sticking point is the problem. Alternate L→R→L→R throughout. For holds: stop dead at the exact angle where you'd normally bail or speed up, count 5 full seconds, grab a post or band to stand, then switch to the other side — the time spent on the other leg is your rest. For negatives: same pattern — 6s controlled descent feeling every degree, step the free foot down, switch sides. Free leg stays straight and forward throughout. Heel stays elevated throughout — this removes the ankle restriction so you're only fighting the strength deficit.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Pistol Overcoming Isometric <a class="ex-video" href="https://www.youtube.com/results?search_query=overcoming+isometric+squat+drive+against+immovable+resistance" target="_blank">▶ Video</a></div><div class="ex-cue">Maximal upward drive against an immovable anchor at ~85°. Builds the concentric that yielding holds cannot.</div></td>
+            <td class="ex-sets">3 × 5–6s max drive<br>each side</td>
+            <td class="ex-tempo">Sink to your ~85° sticking point, then drive UP as hard as you physically can into an immovable anchor. Ramp to full effort over the first second — don't jerk into it. Alternate sides.</td>
+            <td class="ex-rest">60s between sides</td>
+            <td class="ex-notes">This is the missing half of the isometric work. The sticking-point holds above are <strong>yielding</strong> isometrics — you resist gravity and try not to sink. This is an <strong>overcoming</strong> isometric — you push against something that will not move. Overcoming work transfers considerably better to concentric strength, which is exactly what standing up out of the hole requires. <strong>Setup:</strong> loop a strap or non-stretchy band under your working foot and hold the other end at shoulder height, or wedge your shoulders under a fixed bar or worktop edge. Free leg stays forward and straight. Nothing should actually move — all the effort goes into force production at that one angle. Lower the anchor as your sticking point drops.</td>
           </tr>
           <tr>
             <td><div class="ex-name">Hip Flexor Pistol Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hip+flexor+strength+pistol+squat+free+leg+hold" target="_blank">▶ Video</a></div><div class="ex-cue">Trains holding the free leg up and forward — the position people forget is half the battle.</div></td>
@@ -843,15 +895,15 @@
           </tr>
         </tbody>
       </table>
-      <div class="session-note">Superset A: complete both exercises back to back with no rest, then rest 90s before repeating. Warm-up: 2 × 20s hollow body handstand hold (chest to wall) before starting — 4 minutes, no equipment, ingrains the position daily.</div>
+      <div class="session-note">Order changed: ankle prep now runs <strong>before</strong> the pistol work, not after and not in a footnote. You were previously loading a cold ankle at end range, fasted, as the first movement of the day. Superset A: both exercises back to back with no rest, then 90s before repeating. Optional extra warm-up: 2 × 20s hollow body handstand hold, chest to wall. Realistically ~50 min now, not 40 — the two pistol additions cost about ten minutes and they are the point of the session.</div>
     </div>
 
     <!-- LUNCH A -->
     <div class="session">
       <div class="session-header">
         <div class="session-stripe" style="background:var(--lunch)"></div>
-        <span class="session-name lunch">Weekday Lunch A — Muscle-Up Specialism</span>
-        <span class="session-duration">~10 min</span>
+        <span class="session-name lunch">Weekday Lunch A — Muscle-Up: Pull + Transition</span>
+        <span class="session-duration">~15 min</span>
       </div>
       <table class="exercises">
         <thead>
@@ -870,6 +922,13 @@
             <td class="ex-tempo">Explosive pull. Rings to lower chest. 1s hold. Then attempt turnover. Dismount fully, reset grip, rest ~15s before next rep — each pull is near-maximal, not continuous.</td>
             <td class="ex-rest">90s</td>
             <td class="ex-notes">Current priority: get rings to chest consistently in false grip. When that's reliable, begin the lean-forward press into support position. Use band assist for the transition until the pattern is grooved.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Band-Assisted Ring Muscle-Up <a class="ex-video" href="https://www.youtube.com/results?search_query=band+assisted+ring+muscle+up+transition+drill" target="_blank">▶ Video</a></div><div class="ex-cue">The transition as its own exercise. This is the rung your progression card names and the plan never prescribed.</div></td>
+            <td class="ex-sets">3 × 3 reps</td>
+            <td class="ex-tempo">Stand in the band. Pull in false grip, then <strong>immediately</strong> lean the chest forward and over the rings — do not pause at the top of the pull. Press to support. Lower under control. Reset fully between reps.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">The pull is not what fails a muscle-up — the turnover is, and it was previously only a note appended to the pull-up row. Use enough band tension that all three reps are smooth; the goal is to groove the pattern, not to grind. <strong>The cue that matters:</strong> the transition is a continuation of the pull, not a separate movement — the moment the rings reach your sternum the chest goes forward and the elbows come back and up. Hesitating at the top is what makes it feel impossible. Reduce band tension over weeks. Advance when 5 reps are smooth on minimal tension.</td>
           </tr>
         </tbody>
       </table>
@@ -911,7 +970,7 @@
   <div class="day-block" id="day-2">
     <div class="day-header">
       <div class="day-number">DAY 2</div>
-      <div class="day-title">Pull · Ring Strength · Handstand</div>
+      <div class="day-title">Pull · Ring Strength · Calves</div>
       <div class="day-tags">
         <span class="tag tag-morning">Morning</span>
         <span class="tag tag-lunch">Lunch</span>
@@ -923,7 +982,7 @@
       <div class="session-header">
         <div class="session-stripe" style="background:var(--morning)"></div>
         <span class="session-name morning">Morning — Fasted Strength</span>
-        <span class="session-duration">~40 min</span>
+        <span class="session-duration">~45 min</span>
       </div>
       <table class="exercises">
         <thead>
@@ -951,6 +1010,13 @@
             <td class="ex-notes">Rings turned out at top. Full depression at top of each rep. Don't rush.</td>
           </tr>
           <tr>
+            <td><div class="ex-name">Single-Leg Calf Raises <a class="ex-video" href="https://www.youtube.com/results?search_query=single+leg+calf+raise+eccentric+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Second calf session of the week. Achilles strength for flat-footed pistol depth.</div></td>
+            <td class="ex-sets">3 × 12–15 reps each side</td>
+            <td class="ex-tempo">2s up. 1s hold at top. 3s lower. Slow eccentric is the key — don't bounce.</td>
+            <td class="ex-rest">60s between sides</td>
+            <td class="ex-notes">Sits on Day 2 because this is your shortest morning — the only place a second calf session fits without lengthening a leg day. Tendon remodelling wants 2–3 exposures a week; Day 3 alone was not enough. Stand on the edge of a step for full range, heel dropping below the step at the bottom. Light fingertip contact for balance only. When 15 reps feels easy, hold a KB.</td>
+          </tr>
+          <tr>
             <td><span class="finisher-badge">Finisher</span><div class="ex-name">KB Clean & Press <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+clean+press+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Cardiovascular + overhead strength. Shoulder health.</div></td>
             <td class="ex-sets">4 rounds<br>× 3 reps/side</td>
             <td class="ex-tempo">Clean 1s to shoulder · 1s pause at shoulder · 2s press overhead · 1s hold at top · 2s lower. No leg drive.</td>
@@ -965,8 +1031,8 @@
     <div class="session">
       <div class="session-header">
         <div class="session-stripe" style="background:var(--lunch)"></div>
-        <span class="session-name lunch">Weekday Lunch B — Planche Specialism</span>
-        <span class="session-duration">~10 min</span>
+        <span class="session-name lunch">Weekday Lunch B — Wrist Prep & Ring Support</span>
+        <span class="session-duration">~15 min</span>
       </div>
       <table class="exercises">
         <thead>
@@ -980,15 +1046,29 @@
         </thead>
         <tbody>
           <tr>
-            <td><div class="ex-name">Tuck Planche Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=tuck+planche+hold+tutorial+form+cues" target="_blank">▶ Video</a></div><div class="ex-cue">Fed CNS = best planche adaptation. The primary reason this session exists.</div></td>
-            <td class="ex-sets">3–4 × 8–12s hold</td>
+            <td><div class="ex-name">Wrist Prep Circuit <a class="ex-video" href="https://www.youtube.com/results?search_query=gymnastics+wrist+prep+conditioning+routine+handstand" target="_blank">▶ Video</a></div><div class="ex-cue">Insurance on priority #1. Do this before it hurts, not after.</div></td>
+            <td class="ex-sets">2 rounds<br>× 10 reps each position</td>
+            <td class="ex-tempo">Slow and deliberate. Fingers-forward rock, fingers-back rock, fingers-sideways each way, then palm-up (back of hand down) rock. 10 slow rocks per position, then 20s of fist-knuckle rocking to finish.</td>
+            <td class="ex-rest">30s between rounds</td>
+            <td class="ex-notes">This is the one non-negotiable addition that isn't a mobility goal — it's protection for the two things you actually care about. You load the wrist in false grip three times a week and in handstands three to four times, and the plan previously contained <strong>zero</strong> wrist preparation. A wrist that gets angry doesn't slow the muscle-up down, it stops it for six weeks. Kneel, hands on the floor, and shift weight gently into each position — you're looking for a stretch, never a pinch. Also do a 30s round of this before any handstand session.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Ring Support Hold — Rings Turned Out <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+support+hold+rings+turned+out+RTO+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">The position you finish a muscle-up in. Straight-arm support strength plus the shoulder extension the turnover demands.</div></td>
+            <td class="ex-sets">3 × 15–20s hold</td>
+            <td class="ex-tempo">Hold. Arms locked straight, rings rotated out so palms face forward, shoulders depressed, ribs down, legs together and squeezed.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Directly serves priority #1: a muscle-up you can't finish in a stable turned-out support isn't finished. This is also the only shoulder-<em>extension</em> work in the plan — the range at the bottom of a ring dip and through the turnover — which is a different range from the shoulder flexion your handstand already proves you have. If turning the rings fully out is too much, start with rings neutral and rotate a little further each week. Shaking is normal at first; stop the set when the arms bend.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Tuck Planche Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=tuck+planche+hold+tutorial+form+cues" target="_blank">▶ Video</a></div><div class="ex-cue">Retained but demoted — planche is not one of your two priorities.</div></td>
+            <td class="ex-sets">2 × 8–12s hold</td>
             <td class="ex-tempo">Hold. Scaps depressed and protracted. Upper spine flat. Hips up. Arms fully straight.</td>
             <td class="ex-rest">2 min</td>
-            <td class="ex-notes">Best planche work of the week happens here — fed and fresh. When 12s feels controlled across 4 sets, you're ready for advanced tuck.</td>
+            <td class="ex-notes">Kept, at reduced volume, because general athletic build still matters and this is cheap. But be clear about what it is: <strong>maintenance, not progress.</strong> Two sets a week will hold the position; it will not advance you to advanced tuck. That is the correct trade while the muscle-up and pistol are the absolute priority — the sets that came out of here funded the wrist prep and ring support above, both of which feed priority #1. When the muscle-up is banked, put the volume back and this becomes a real planche session again.</td>
           </tr>
         </tbody>
       </table>
-      <div class="session-note">Fed CNS is the whole reason this session exists. One quality planche hold here beats twice the volume done fatigued. In and out in 10 minutes.</div>
+      <div class="session-note">Repurposed session. This slot used to be planche-only; planche is not a priority goal, so most of it now funds work that is — wrist protection for the false grip, and the turned-out support position that finishes a muscle-up. Planche stays on as two maintenance sets. Fed CNS still applies to all three.</div>
     </div>
 
     <div class="session">
@@ -1025,7 +1105,7 @@
   <div class="day-block" id="day-3">
     <div class="day-header">
       <div class="day-number">DAY 3</div>
-      <div class="day-title">Leg Accessory · Pistol Specialism · KB</div>
+      <div class="day-title">Pistol Specialism · Ankle · Legs</div>
       <div class="day-tags">
         <span class="tag tag-morning">Morning</span>
         <span class="tag tag-lunch">Lunch</span>
@@ -1037,7 +1117,7 @@
       <div class="session-header">
         <div class="session-stripe" style="background:var(--morning)"></div>
         <span class="session-name morning">Morning — Skill, Pistol & Leg Accessory</span>
-        <span class="session-duration">~40 min</span>
+        <span class="session-duration">~45 min</span>
       </div>
       <table class="exercises">
         <thead>
@@ -1051,11 +1131,25 @@
         </thead>
         <tbody>
           <tr>
-            <td><div class="ex-name">Pistol Squat: Sticking Point Holds + Negatives <a class="ex-video" href="https://www.youtube.com/results?search_query=elevated+heel+pistol+squat+tutorial+progressions" target="_blank">▶ Video</a></div><div class="ex-cue">Heel elevated 2–3cm. Target the 90° weakness directly — isometric holds and slow negatives, not full reps.</div></td>
+            <td><div class="ex-name">Ankle Dorsiflexion: Wall Drill or Banded Mobilisation <a class="ex-video" href="https://www.youtube.com/results?search_query=banded+ankle+mobilisation+dorsiflexion" target="_blank">▶ Video</a></div><div class="ex-cue">Use the wall drill if the restriction feels like a stretch. Use the band if it feels like a hard joint block.</div></td>
+            <td class="ex-sets">3 × 5 reps each side</td>
+            <td class="ex-tempo">Hold 10s at end range each rep. Heel flat throughout.</td>
+            <td class="ex-rest">30s</td>
+            <td class="ex-notes"><strong>Wall drill:</strong> lunge position, foot 5–8cm from wall, drive knee forward to touch wall, hold 10s, heel flat. Move foot further from wall as range improves. <strong>Banded mobilisation:</strong> anchor a resistance band to something behind you, loop it around the ankle just below the joint so it pulls the talus backward, then do the same wall drill movement. If the band gives you noticeably more range, the restriction is the talus sitting too far forward — keep using the band version. If you get no extra range with the band, the restriction is soft tissue and the standard drill is the right tool. Track foot-to-wall distance each session regardless of which version you use.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Pistol Squat: Sticking Point Holds + Negatives <a class="ex-video" href="https://www.youtube.com/results?search_query=elevated+heel+pistol+squat+tutorial+progressions" target="_blank">▶ Video</a></div><div class="ex-cue">Heel elevated 2–3cm. Target the ~85° sticking point directly — isometric holds and slow negatives, not full reps.</div></td>
             <td class="ex-sets">3 sets each side:<br>3 × 5s isometric holds<br>then 3 × negatives</td>
-            <td class="ex-tempo">Alternate sides each rep. Hold: lower to ~90° sticking point, hold 5s, use post/wall to return — then do the other side. Switching sides gives ~10–15s passive rest per leg. Negative: same alternating pattern, 6s controlled descent, step forward to return — do not squat back up.</td>
+            <td class="ex-tempo">Alternate sides each rep. Hold: lower to your ~85° sticking point (just below parallel — measured, not guessed), hold 5s, use post/wall to return — then do the other side. Switching sides gives ~10–15s passive rest per leg. Negative: same alternating pattern, 6s controlled descent, step forward to return — do not squat back up.</td>
             <td class="ex-rest">~10–15s (built in by alternating). 60s after all holds before starting negatives.</td>
             <td class="ex-notes">Done first while fully fresh — this is the priority. Do NOT try to complete full reps. Alternate L→R→L→R throughout. For holds: stop dead at the exact angle where you'd normally rush or fail, count 5 full seconds, grab a post to stand, then switch to the other side — the time on the other leg is your rest. For negatives: same alternating pattern — 6s controlled descent feeling every degree, chest stays upright and leaning into the knee, free leg stays forward and straight — step the free foot down, switch sides. The point is to accumulate time at the position you're weak in, not to skate past it.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Pistol Overcoming Isometric <a class="ex-video" href="https://www.youtube.com/results?search_query=overcoming+isometric+squat+drive+against+immovable+resistance" target="_blank">▶ Video</a></div><div class="ex-cue">Maximal upward drive against an immovable anchor at ~85°. Builds the concentric that yielding holds cannot.</div></td>
+            <td class="ex-sets">3 × 5–6s max drive<br>each side</td>
+            <td class="ex-tempo">Sink to your ~85° sticking point, then drive UP as hard as you physically can into an immovable anchor. Ramp to full effort over the first second — don't jerk into it. Alternate sides.</td>
+            <td class="ex-rest">60s between sides</td>
+            <td class="ex-notes">This is the missing half of the isometric work. The sticking-point holds above are <strong>yielding</strong> isometrics — you resist gravity and try not to sink. This is an <strong>overcoming</strong> isometric — you push against something that will not move. Overcoming work transfers considerably better to concentric strength, which is exactly what standing up out of the hole requires. <strong>Setup:</strong> loop a strap or non-stretchy band under your working foot and hold the other end at shoulder height, or wedge your shoulders under a fixed bar or worktop edge. Free leg stays forward and straight. Nothing should actually move — all the effort goes into force production at that one angle. Lower the anchor as your sticking point drops.</td>
           </tr>
           <tr>
             <td><div class="ex-name">Hip Flexor Pistol Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hip+flexor+strength+pistol+squat+free+leg+hold" target="_blank">▶ Video</a></div><div class="ex-cue">Trains holding the free leg up and forward — the position people forget is half the battle.</div></td>
@@ -1063,13 +1157,6 @@
             <td class="ex-tempo">Hold 15–20s each side. Stand tall, other leg extended forward at hip height, torso slightly forward. 20s seated rest between sides before the next set.</td>
             <td class="ex-rest">45s</td>
             <td class="ex-notes">If you can't hold the free leg at hip height for 15s your hip flexors are the limiting factor, not just your ankle. This drill directly fixes the heel-lift compensation pattern.</td>
-          </tr>
-          <tr>
-            <td><div class="ex-name">Ankle Dorsiflexion: Wall Drill or Banded Mobilisation <a class="ex-video" href="https://www.youtube.com/results?search_query=banded+ankle+mobilisation+dorsiflexion" target="_blank">▶ Video</a></div><div class="ex-cue">Use the wall drill if the restriction feels like a stretch. Use the band if it feels like a hard joint block.</div></td>
-            <td class="ex-sets">3 × 5 reps each side</td>
-            <td class="ex-tempo">Hold 10s at end range each rep. Heel flat throughout.</td>
-            <td class="ex-rest">30s</td>
-            <td class="ex-notes"><strong>Wall drill:</strong> lunge position, foot 5–8cm from wall, drive knee forward to touch wall, hold 10s, heel flat. Move foot further from wall as range improves. <strong>Banded mobilisation:</strong> anchor a resistance band to something behind you, loop it around the ankle just below the joint so it pulls the talus backward, then do the same wall drill movement. If the band gives you noticeably more range, the restriction is the talus sitting too far forward — keep using the band version. If you get no extra range with the band, the restriction is soft tissue and the standard drill is the right tool. Track foot-to-wall distance each session regardless of which version you use.</td>
           </tr>
           <tr>
             <td><div class="ex-name">Single-Leg Calf Raises <a class="ex-video" href="https://www.youtube.com/results?search_query=single+leg+calf+raise+eccentric+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Calf and Achilles strength. Directly improves ankle dorsiflexion for pistol squat.</div></td>
@@ -1087,15 +1174,15 @@
           </tr>
         </tbody>
       </table>
-      <div class="session-note">Pistol work is the priority here — done first while fully fresh. All five exercises feed directly into pistol strength and ankle range. Ring rows at the end keep the pulling muscles ticking over without competing with the morning's skill work. Fits in 40 minutes.</div>
+      <div class="session-note">Order corrected: dorsiflexion first, then the pistol work. It previously ran third — you mobilised the joint <em>after</em> loading it at end range, which contradicted Day 5's own note calling the same drill a warm-up for the leg work that follows. Ankle drills are short joint prep, not long passive stretching, so there is no downside to putting them first. Pistol work is still the priority and still done fresh. Ring rows at the end keep the pulling muscles ticking over. ~45 minutes.</div>
     </div>
 
     <!-- LUNCH C -->
     <div class="session">
       <div class="session-header">
         <div class="session-stripe" style="background:var(--lunch)"></div>
-        <span class="session-name lunch">Weekday Lunch C — Muscle-Up Specialism</span>
-        <span class="session-duration">~8 min</span>
+        <span class="session-name lunch">Weekday Lunch C — Muscle-Up: Pull + False Grip</span>
+        <span class="session-duration">~12 min</span>
       </div>
       <table class="exercises">
         <thead>
@@ -1114,6 +1201,13 @@
             <td class="ex-tempo">Explosive pull. Rings to lower chest. 1s hold. Then attempt turnover. Dismount fully, reset grip, rest ~15s before next rep — each pull is near-maximal, not continuous.</td>
             <td class="ex-rest">90s</td>
             <td class="ex-notes">Second muscle-up touch of the week. Same cues as Lunch A. Do a 20–30s false grip dead hang as warm-up before the working sets. Two sharp sets beats three tired ones.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">False Grip Dead Hang — Conditioning <a class="ex-video" href="https://www.youtube.com/results?search_query=false+grip+dead+hang+ring+wrist+conditioning" target="_blank">▶ Video</a></div><div class="ex-cue">Proper working sets, not a warm-up. Your progression card's gate is 3 × 30s — this is how you earn it.</div></td>
+            <td class="ex-sets">3 × 25–30s hold</td>
+            <td class="ex-tempo">Wrist draped fully over the ring, bone on ring, hand closed. Shoulders active — don't hang passively. Drop off before the grip actually slips.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">The plan previously tested you against "3 × 30s solid false grip" while only ever prescribing a single 20–30s warm-up hang — you were being measured against a standard you were never trained toward. This fixes that. Grip security and wrist tolerance are the two things that quietly cap false-grip pulling. Stop the set on grip slip, not on pain: sharp wrist pain means back off the depth of the drape and build up.</td>
           </tr>
         </tbody>
       </table>
@@ -1153,7 +1247,7 @@
   <div class="day-block" id="day-4">
     <div class="day-header">
       <div class="day-number">DAY 4</div>
-      <div class="day-title">Posterior Chain · Compression · Handstand</div>
+      <div class="day-title">Pull · Posterior Chain · Compression</div>
       <div class="day-tags">
         <span class="tag tag-morning">Morning</span>
         <span class="tag tag-lunch">Lunch</span>
@@ -1165,7 +1259,7 @@
       <div class="session-header">
         <div class="session-stripe" style="background:var(--morning)"></div>
         <span class="session-name morning">Morning — Fasted Strength</span>
-        <span class="session-duration">~40 min</span>
+        <span class="session-duration">~50 min</span>
       </div>
       <table class="exercises">
         <thead>
@@ -1178,6 +1272,13 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td><div class="ex-name">Weighted Pull-Ups — Second Heavy Session <a class="ex-video" href="https://www.youtube.com/results?search_query=weighted+pull+up+form+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Priority #1 driver. Heavy vertical pulling twice a week, not once.</div></td>
+            <td class="ex-sets">3 × 4–6 reps</td>
+            <td class="ex-tempo">1s down · 1s pause · 4s up · 1s hold<br><span style="font-size:11px;color:var(--muted)">(tempo: 1141)</span></td>
+            <td class="ex-rest">2–3 min</td>
+            <td class="ex-notes">Done <strong>first</strong> — this is muscle-up work and it gets the fresh slot. Placed on Day 4 because it is the least leg-loaded morning and the only one that is neither Day 2 (already heavy pulling) nor a day whose lunch is a maximal muscle-up touch of any volume. Lunch D today is negatives at 3 × 3 — low enough that a fed, four-hour gap absorbs it. Same weight and tempo as Day 2; if the 4s concentric degrades, drop the weight rather than the tempo. If this session ever starts eating into your Day 5 recovery, this is the row to cut first.</td>
+          </tr>
           <tr>
             <td><span class="superset-badge">SS A</span><div class="ex-name">Floor Back Raises <a class="ex-video" href="https://www.youtube.com/results?search_query=floor+back+raises+hyperextension+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Posterior chain. Spinal erectors. Back lever & planche prerequisite.</div></td>
             <td class="ex-sets">3–4 × 5–6 reps<br><span style="font-size:11px;color:var(--muted)">or 3–4 × 8–10s hold</span></td>
@@ -1221,8 +1322,8 @@
     <div class="session">
       <div class="session-header">
         <div class="session-stripe" style="background:var(--lunch)"></div>
-        <span class="session-name lunch">Weekday Lunch D — Muscle-Up Specialism</span>
-        <span class="session-duration">~10 min</span>
+        <span class="session-name lunch">Weekday Lunch D — Muscle-Up: Pull + Negatives</span>
+        <span class="session-duration">~15 min</span>
       </div>
       <table class="exercises">
         <thead>
@@ -1241,6 +1342,13 @@
             <td class="ex-tempo">Explosive pull. Rings to lower chest. 1s hold. Then attempt turnover. Dismount fully, reset grip, rest ~15s before next rep — each pull is near-maximal, not continuous.</td>
             <td class="ex-rest">90s</td>
             <td class="ex-notes">Third muscle-up touch of the week. Same cues as Lunch A. Do a 20–30s false grip dead hang as warm-up before the working sets. Wrists should be fresh after this morning's posterior chain session.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Ring Muscle-Up Negatives <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+muscle+up+negative+eccentric+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">The second rung your progression card names. Eccentric transition — the fastest route to owning the position.</div></td>
+            <td class="ex-sets">3 × 3 reps</td>
+            <td class="ex-tempo">Jump or step to support with rings turned out. Then lower <strong>slowly</strong> through the transition — 5s minimum — back to a false grip dead hang. Do not crash through the turnover.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Negatives let you load the exact position you can't yet pass through concentrically, at a load you can control — the same logic you're already applying to the pistol. The rep is the descent; getting to the top doesn't count, so jump up however you like. The failure mode is dropping through the transition instead of resisting it: if you can't control it, start the lower from a higher catch and shorten the range. Pairs with Lunch A's assisted reps — assisted builds the pattern, negatives build the strength to hold it.</td>
           </tr>
         </tbody>
       </table>
@@ -1292,7 +1400,7 @@
       <div class="session-header">
         <div class="session-stripe" style="background:var(--morning)"></div>
         <span class="session-name morning">Morning — Fasted Strength + Aerobic</span>
-        <span class="session-duration">~35 min</span>
+        <span class="session-duration">~55 min</span>
       </div>
       <table class="exercises">
         <thead>
@@ -1313,11 +1421,25 @@
             <td class="ex-notes">Toes 5–10cm from wall. Drive knee forward and out over little toe — heel must stay flat throughout the 10s hold. The long hold is the point: connective tissue needs sustained tension to adapt, not just brief touches. Move toes further from wall as range improves. Also serves as warm-up for the heavy leg work that follows.</td>
           </tr>
           <tr>
+            <td><div class="ex-name">Hollow Body Handstand Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+handstand+wall+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Chest to wall. Aggressive hollow body — same as Day 1. Ingrain the position.</div></td>
+            <td class="ex-sets">2 × 25–30s hold</td>
+            <td class="ex-tempo">Hold. Ribs down. Glutes squeezed. No arch. This should feel like hard core work.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">If you can hold 30s with a genuinely flat body, move hands 2cm closer to wall next session. The wall hollow hold is your quality check — if you can't maintain it here, you can't maintain it freestanding.</td>
+          </tr>
+          <tr>
             <td><div class="ex-name">Bulgarian Split Squat <a class="ex-video" href="https://www.youtube.com/results?search_query=bulgarian+split+squat+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Best single-leg leg exercise available. Directly feeds pistol squat strength.</div></td>
             <td class="ex-sets">3 × 6–8 reps each side</td>
             <td class="ex-tempo">3s descent. 1s pause at bottom. 2s return.</td>
             <td class="ex-rest">90s</td>
             <td class="ex-notes">Rear foot elevated on bench or chair. Front foot far enough forward that shin stays vertical. KB in each hand or one goblet hold. Go only as deep as your front heel stays flat. This builds the quad and glute strength your pistol squat needs.</td>
+          </tr>
+          <tr>
+            <td><div class="ex-name">Nordic Hamstring Curl — Negatives <a class="ex-video" href="https://www.youtube.com/results?search_query=nordic+hamstring+curl+negative+eccentric+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">The real loaded hamstring driver. Maximal eccentric at long muscle length — what builds hamstring strength and size the way a static hold can't. Pairs with the RDL above as your progressive hamstring work.</div></td>
+            <td class="ex-sets">3 × 3–5 reps</td>
+            <td class="ex-tempo">Lower as slowly as you can control — resist the whole way. Catch with hands near the bottom, then push back up with your arms to reset. The slow descent is the entire exercise.</td>
+            <td class="ex-rest">90s</td>
+            <td class="ex-notes">Kneel on a pad, heels anchored under something heavy (couch, loaded bar) or held down. Body dead straight from knees to head — hips stay open, do NOT bow at the waist. <strong>Start with a high catch point</strong> — only lower a small way before catching with your hands, then extend the range over weeks. Expect serious soreness the first 2 weeks — start with 3 × 3, not 5 hard reps. Progression endpoint: full Nordic (lower AND raise under hamstring power alone). Bodyweight only — fits the home setup.</td>
           </tr>
           <tr>
             <td><span class="superset-badge">SS B</span><div class="ex-name">Single-Leg KB Romanian Deadlift <a class="ex-video" href="https://www.youtube.com/results?search_query=single+leg+kettlebell+romanian+deadlift+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Posterior chain mass + single-leg stability. Direct pistol squat feeder. Home exercise.</div></td>
@@ -1334,18 +1456,11 @@
             <td class="ex-notes">Paired with the RDL as an active rest — completely different muscle groups. If lower back lifts, raise legs. Progress by lowering legs over weeks.</td>
           </tr>
           <tr>
-            <td><div class="ex-name">Hollow Body Handstand Hold <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+handstand+wall+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Chest to wall. Aggressive hollow body — same as Day 1. Ingrain the position.</div></td>
-            <td class="ex-sets">2 × 25–30s hold</td>
-            <td class="ex-tempo">Hold. Ribs down. Glutes squeezed. No arch. This should feel like hard core work.</td>
-            <td class="ex-rest">90s</td>
-            <td class="ex-notes">If you can hold 30s with a genuinely flat body, move hands 2cm closer to wall next session. The wall hollow hold is your quality check — if you can't maintain it here, you can't maintain it freestanding.</td>
-          </tr>
-          <tr>
-            <td><div class="ex-name">Nordic Hamstring Curl — Negatives <a class="ex-video" href="https://www.youtube.com/results?search_query=nordic+hamstring+curl+negative+eccentric+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">The real loaded hamstring driver. Maximal eccentric at long muscle length — what builds hamstring strength and size the way a static hold can't. Pairs with the RDL above as your progressive hamstring work.</div></td>
-            <td class="ex-sets">3 × 3–5 reps</td>
-            <td class="ex-tempo">Lower as slowly as you can control — resist the whole way. Catch with hands near the bottom, then push back up with your arms to reset. The slow descent is the entire exercise.</td>
-            <td class="ex-rest">90s</td>
-            <td class="ex-notes">Kneel on a pad, heels anchored under something heavy (couch, loaded bar) or held down. Body dead straight from knees to head — hips stay open, do NOT bow at the waist. <strong>Start with a high catch point</strong> — only lower a small way before catching with your hands, then extend the range over weeks. Expect serious soreness the first 2 weeks — start with 3 × 3, not 5 hard reps. Progression endpoint: full Nordic (lower AND raise under hamstring power alone). Bodyweight only — fits the home setup.</td>
+            <td><div class="ex-name">Arch Body Hold (Prone) <a class="ex-video" href="https://www.youtube.com/results?search_query=arch+body+hold+gymnastics+superman+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">The posterior counterpart to the hollow. Also active end-range shoulder flexion — arms overhead and lifted.</div></td>
+            <td class="ex-sets">3 × 20–30s hold</td>
+            <td class="ex-tempo">Hold. Face down, arms straight overhead and lifted, legs lifted, glutes squeezed. Only the hips touch the floor.</td>
+            <td class="ex-rest">60s</td>
+            <td class="ex-notes">Documenting what you already do, so the plan reflects reality — it previously recorded hollow work only, which reads as half the picture. Keep the arms actively pressing up and back by the ears: that is what makes this shoulder-flexion strength work rather than just a lower-back exercise. Don't crank the neck — eyes down.</td>
           </tr>
           <tr>
             <td><span class="finisher-badge">Finisher</span><div class="ex-name">Bodyweight Aerobic Circuit <a class="ex-video" href="https://www.youtube.com/results?search_query=spiderman+push+up+tutorial+form" target="_blank">▶ Video</a></div><div class="ex-cue">Cardiovascular health. Active recovery stimulus.</div></td>
@@ -1356,6 +1471,7 @@
           </tr>
         </tbody>
       </table>
+      <div class="session-note">Order changed twice. <strong>Handstand moved to second</strong> — it is a skill, and it previously sat fifth behind Bulgarians and RDLs, which is the one place skill work should never be. <strong>Nordics moved ahead of the single-leg RDL</strong> — you were pre-fatiguing the hamstrings with the RDL and then doing the single highest-injury-risk eccentric in the programme, fasted, at the end of a long session. Bulgarians still come before Nordics because they are quad and glute dominant, so the main lift keeps the fresh slot. Honest duration is ~55 min, not 35 — the old estimate never accounted for the prescribed tempos and rests.</div>
     </div>
 
     <!-- OPTIONAL LUNCH -->
@@ -1413,11 +1529,11 @@
         </thead>
         <tbody>
           <tr>
-            <td><div class="ex-name">Weighted Pancake Pulses <a class="ex-video" href="https://www.youtube.com/results?search_query=pancake+stretch+weighted+flexibility+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Repeat Day 1 evening protocol.</div></td>
+            <td><div class="ex-name">Weighted Pike Good Mornings <a class="ex-video" href="https://www.youtube.com/results?search_query=pike+good+morning+hamstring+flexibility+tutorial" target="_blank">▶ Video</a></div><div class="ex-cue">Second hamstring session of the week. Straight free leg is a pistol requirement, not a nice-to-have.</div></td>
             <td class="ex-sets">3–5 sets<br>× 8–12 pulses<br>+ 10–20s hold</td>
-            <td class="ex-tempo">Same as Day 1. End-range pulses then hold.</td>
+            <td class="ex-tempo">5s controlled descent. 8–12 pulses at end-range. 5s return. Weight on chest, spine long.</td>
             <td class="ex-rest">60s</td>
-            <td class="ex-notes">Twice-weekly pancake work will compound meaningfully over months.</td>
+            <td class="ex-notes"><strong>This slot was a third pancake session; it is now your second pike session.</strong> Pancake serves straddle planche and press-to-handstand — neither is a priority right now. Hamstring length serves the pistol directly: it is one of the four items on your own Limiter Assessment table, because a bent free leg shifts your counterbalance backward and makes the descent materially harder. You were running adductors 3×/week and hamstrings 1×/week, which is the wrong way round given your goals. Now it's 2 and 2 — enough to hold the pancake range you've built while actually progressing the one that matters. Pulses are small: 2–3cm. Feel it in the hamstrings, not the lower back.</td>
           </tr>
         </tbody>
       </table>
@@ -1518,7 +1634,7 @@
       <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
         <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Tuck Planche Hold</div>
-        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Days 1 · 4 · 6/7</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Day 2 lunch · Day 6/7</div>
       </div>
       <table class="prog-table" style="width:100%;border-collapse:collapse;">
         <thead><tr style="background:var(--off-black);">
@@ -1556,7 +1672,7 @@
       <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
         <div style="width:3px;height:20px;background:var(--lunch);border-radius:2px;flex-shrink:0;"></div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Ring False Grip Muscle-Up Progression</div>
-        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Day 2 lunch · daily micro-drill</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Lunches A · C · D (Days 1 · 3 · 4)</div>
       </div>
       <table class="prog-table" style="width:100%;border-collapse:collapse;">
         <thead><tr style="background:var(--off-black);">
@@ -1750,12 +1866,12 @@
       </table>
     </div>
 
-    <!-- FINGERTIP LUNGE ISO -->
+    <!-- PISTOL SQUAT SPECIALISM -->
     <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
       <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
         <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Pistol Squat Specialism</div>
-        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Days 3, 5 + Fingertip Lunge Days 5 · 6/7</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Days 1 · 3</div>
       </div>
       <table class="prog-table" style="width:100%;border-collapse:collapse;">
         <thead><tr style="background:var(--off-black);">
@@ -1826,50 +1942,12 @@
       </table>
     </div>
 
-    <!-- WEIGHTED GLUTE BRIDGE / HIP THRUST -->
-    <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
-      <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
-        <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Weighted Glute Bridge / Hip Thrust</div>
-        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Day 5</div>
-      </div>
-      <table class="prog-table" style="width:100%;border-collapse:collapse;">
-        <thead><tr style="background:var(--off-black);">
-          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:25%;">Stage</th>
-          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);width:35%;">What changes</th>
-          <th style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);">Advance when...</th>
-        </tr></thead>
-        <tbody>
-          <tr style="background:rgba(184,106,0,0.04);">
-            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--morning);">★ Weighted Glute Bridge</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">You are here</div></td>
-            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Flat on floor, KB across hip crease. Drive hips to full extension. 2s up, 2s hold, 3s lower. Body straight at top — shoulders to knees.</td>
-            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 12 controlled reps with a moderate KB. Hard squeeze at the top, no bouncing at the bottom.</td>
-          </tr>
-          <tr>
-            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Heavier Weighted Glute Bridge</div></td>
-            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Increase KB weight when 12 reps feels fully controlled. Keep the 2s hold and 3s lowering tempo.</td>
-            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 12 at new heavier KB with same controlled tempo. Progress load progressively over weeks.</td>
-          </tr>
-          <tr>
-            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);"><div style="font-size:15px;font-weight:500;color:var(--white);">Barbell Hip Thrust (if available)</div></td>
-            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">Shoulders elevated on a bench, barbell across hips. Greater range of motion and loading potential than floor bridge.</td>
-            <td style="padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.07);font-size:15px;color:var(--text);">3 × 10 at bodyweight + meaningful load. Hips fully extended at top with neutral spine.</td>
-          </tr>
-          <tr>
-            <td style="padding:14px 16px;"><div style="font-size:15px;font-weight:500;color:var(--white);">Single-Leg Hip Thrust</div><div style="font-size:13px;color:var(--muted);margin-top:3px;">Advanced progression</div></td>
-            <td style="padding:14px 16px;font-size:15px;color:var(--text);">One leg elevated or extended. Doubles the per-leg demand. Directly feeds single-leg strength for pistol squat.</td>
-            <td style="padding:14px 16px;font-size:15px;color:var(--text);">3 × 10 each side with full extension and no hip rotation. Load progressively.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
     <!-- SINGLE-LEG CALF RAISES -->
     <div style="border:1px solid var(--border);margin-bottom:16px;overflow:hidden;">
       <div style="background:var(--off-black);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
         <div style="width:3px;height:20px;background:var(--morning);border-radius:2px;flex-shrink:0;"></div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.05em;color:var(--white);">Single-Leg Calf Raises</div>
-        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Day 5</div>
+        <div style="margin-left:auto;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);">Days 2 · 3</div>
       </div>
       <table class="prog-table" style="width:100%;border-collapse:collapse;">
         <thead><tr style="background:var(--off-black);">
@@ -1990,17 +2068,39 @@
 
   <!-- FOOTER NOTE -->
   <div style="margin-top:48px; padding:24px; border:1px solid var(--border); background:var(--off-black);">
-    <div style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Goals this plan builds toward</div>
+    <div style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Priority goals — actively progressed</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:22px;">
+      <div style="font-size:15px;color:var(--white);font-weight:500;">→ False Grip Ring Muscle-Up</div>
+      <div style="font-size:15px;color:var(--white);font-weight:500;">→ Pistol Squat</div>
+    </div>
+    <div style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Secondary — maintained, not progressed</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
       <div style="font-size:15px;color:var(--text);">→ Tuck → Full Planche</div>
-      <div style="font-size:15px;color:var(--text);">→ Muscle-Up</div>
       <div style="font-size:15px;color:var(--text);">→ Press to Handstand</div>
-      <div style="font-size:15px;color:var(--text);">→ Pistol Squat</div>
       <div style="font-size:15px;color:var(--text);">→ One-Arm Pull-Up</div>
       <div style="font-size:15px;color:var(--text);">→ Freestanding Handstand</div>
+      <div style="font-size:15px;color:var(--text);">→ Front Lever / Dragon Flag</div>
+      <div style="font-size:15px;color:var(--text);">→ Mobility: pancake, pike, ankle</div>
     </div>
   </div>
 
 </div>
+
+<script>
+/* Anchor links (#day-1 …) must land below the sticky nav stack. Measure it
+   rather than hardcoding, so it stays correct across breakpoints and font loads. */
+(function () {
+  var stack = document.querySelector('.site-nav-stack');
+  if (!stack) return;
+  function sync() {
+    document.documentElement.style.setProperty(
+      '--nav-h', Math.ceil(stack.getBoundingClientRect().height) + 'px');
+  }
+  sync();
+  addEventListener('resize', sync);
+  addEventListener('load', sync);
+  if (window.ResizeObserver) new ResizeObserver(sync).observe(stack);
+})();
+</script>
 </body>
 </html>
