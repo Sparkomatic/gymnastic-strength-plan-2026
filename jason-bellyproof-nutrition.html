@@ -178,11 +178,14 @@
   /* PRINCIPLE BOXES */
   .principles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
     margin-bottom: 32px;
+  }
+  @media (max-width: 900px) {
+    .principles { grid-template-columns: 1fr 1fr; }
   }
   .principle { background: var(--off-black); padding: 20px; }
   .principle-label {
@@ -286,6 +289,22 @@
   .meal-body ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
   .meal-body li { font-size: 16px; color: var(--text); padding-left: 16px; position: relative; }
   .meal-body li::before { content: '→'; position: absolute; left: 0; color: var(--muted); font-size: 13px; top: 2px; }
+
+  /* VEG SWAP */
+  .veg-swap { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .veg-swap-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .veg-swap-title {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .veg-swap-name { font-family: var(--font-display); font-size: 17px; letter-spacing: 0.03em; color: var(--white); }
+  .veg-swap-macros { margin-left: auto; font-family: var(--font-mono); font-size: 13px; color: var(--green); white-space: nowrap; }
+  .veg-swap ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .veg-swap li { font-size: 15px; color: var(--text); padding-left: 16px; position: relative; }
+  .veg-swap li::before { content: '↳'; position: absolute; left: 0; color: var(--green); font-size: 13px; top: 2px; }
 
   /* DAY FOOT (top-up + total) */
   .day-foot {
@@ -483,6 +502,19 @@
             <li>Big side salad, 1 tbsp olive oil dressing</li>
             <li>Steamed green beans</li>
           </ul>
+          <div class="veg-swap">
+            <div class="veg-swap-header">
+              <span class="veg-swap-title">Veg swap</span>
+              <span class="veg-swap-name">Baked Seitan with Lemon &amp; Potatoes</span>
+              <span class="veg-swap-macros">36P · 48C · 18F</span>
+            </div>
+            <ul>
+              <li>120g seitan (or extra-firm tofu), baked with lemon &amp; herbs</li>
+              <li>200g new potatoes, brushed with a little oil before roasting</li>
+              <li>Big side salad, 1 tbsp olive oil dressing</li>
+              <li>Steamed green beans</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="day-foot">
@@ -562,6 +594,19 @@
             <li>½ avocado</li>
             <li>Cucumber &amp; cherry tomatoes</li>
           </ul>
+          <div class="veg-swap">
+            <div class="veg-swap-header">
+              <span class="veg-swap-title">Veg swap</span>
+              <span class="veg-swap-name">Smoked Tofu &amp; Yogurt Plate</span>
+              <span class="veg-swap-macros">28P · 17C · 18F</span>
+            </div>
+            <ul>
+              <li>100g smoked tofu (or firm tofu marinated in a little liquid smoke/paprika)</li>
+              <li>100g 0% Greek yogurt with dill &amp; capers</li>
+              <li>⅓ avocado</li>
+              <li>Cucumber &amp; cherry tomatoes</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="meal-card">
@@ -579,6 +624,21 @@
             <li>2 tsp sesame oil</li>
             <li>Chilli–lime–soy sauce</li>
           </ul>
+          <div class="veg-swap">
+            <div class="veg-swap-header">
+              <span class="veg-swap-title">Veg swap</span>
+              <span class="veg-swap-name">Seitan &amp; Edamame Noodle Bowl</span>
+              <span class="veg-swap-macros">38P · 42C · 16F</span>
+            </div>
+            <ul>
+              <li>90g seitan, sliced</li>
+              <li>100g shelled edamame</li>
+              <li>80g rice noodles (cooked)</li>
+              <li>Stir-fried veg</li>
+              <li>2 tsp sesame oil</li>
+              <li>Chilli–lime–soy sauce</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="day-foot">
@@ -656,6 +716,19 @@
             <li>Red onion, tomato &amp; parsley</li>
             <li>1 tbsp olive oil + lemon</li>
           </ul>
+          <div class="veg-swap">
+            <div class="veg-swap-header">
+              <span class="veg-swap-title">Veg swap</span>
+              <span class="veg-swap-name">Seitan &amp; White Bean Salad</span>
+              <span class="veg-swap-macros">34P · 28C · 16F</span>
+            </div>
+            <ul>
+              <li>95g seitan, flaked, marinated with capers, lemon &amp; a pinch of nori flakes (briny "tuna" flavour)</li>
+              <li>120g cannellini beans</li>
+              <li>Red onion, tomato &amp; parsley</li>
+              <li>1 tbsp olive oil + lemon</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="meal-card">
@@ -672,6 +745,20 @@
             <li>Salsa &amp; 15g crumbled feta</li>
             <li>Small side of 50g rice (cooked)</li>
           </ul>
+          <div class="veg-swap">
+            <div class="veg-swap-header">
+              <span class="veg-swap-title">Veg swap</span>
+              <span class="veg-swap-name">Seitan &amp; Slaw Lettuce Cups</span>
+              <span class="veg-swap-macros">36P · 26C · 9F</span>
+            </div>
+            <ul>
+              <li>120g seitan, pan-fried with lime &amp; chilli, torn into flakes</li>
+              <li>Little gem lettuce cups</li>
+              <li>Cabbage slaw with lime-yogurt dressing</li>
+              <li>Salsa &amp; 15g crumbled feta</li>
+              <li>Small side of 70g rice (cooked)</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="day-foot">
@@ -728,6 +815,8 @@
 
   <div class="page-footer">
     <strong>Reminder:</strong> macros are approximate targets, not exact prescriptions — brands and portion sizes vary. These days are <strong>grain-free apart from rice</strong> and use no milk (yogurt &amp; cheese kept); carbs are held to <strong>≤80g/day</strong>. Meal 1 lands in the post-workout window; get the protein in first. On any day that reads low on fat, use the top-up tip. Keep hydration up across the eating window.
+    <br><br>
+    <strong>Veg swap:</strong> every meal that uses fish or shellfish (Days 2, 4 &amp; 6) has a fully vegetarian alternative underneath it, built to land on the same protein/carb/fat numbers — swap in whichever meal you prefer, no need to touch the rest of the day. Most swaps use <strong>seitan</strong> as the lean, high-protein stand-in for fish; if you're avoiding gluten, sub in an equal weight of pressed extra-firm tofu or tempeh instead — expect fat to run a little higher and adjust the oil in the recipe down slightly to compensate.
   </div>
 
 </div>
