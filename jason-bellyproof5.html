@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Strength Plan">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Jason · Bellyproof 5 · Stages 2 &amp; 3 · 2026</title>
+
+<style>
+  /* FONT STACK — fully offline, no external requests */
+  :root {
+    --font-display: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+  }
+  :root {
+    --black: #ffffff;
+    --off-black: #f7f7f5;
+    --dark: #f0eeeb;
+    --mid: #e5e2dd;
+    --border: #d0ccc6;
+    --muted: #5a5652;
+    --text: #3a3632;
+    --white: #1a1714;
+    --morning: #b86a00;
+    --lunch: #1a6fd4;
+    --evening: #6b3fd4;
+    --accent: #cc2020;
+    --green: #1a8a4a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(204,32,32,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-label {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+    margin-bottom: 24px;
+  }
+  h1 span { color: var(--accent); }
+  .header-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+  .meta-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: var(--muted);
+  }
+  .meta-pill .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 0;
+    padding: 0 40px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 24px 16px 0;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-right: 24px;
+  }
+  .legend-bar { width: 3px; height: 20px; border-radius: 2px; }
+
+  /* MAIN LAYOUT */
+  .plan-container { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+
+  /* INTRO / METHOD EXPLAINER */
+  .bp-intro { border: 1px solid var(--border); margin-bottom: 48px; }
+  .bp-intro-head {
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .bp-intro-body { padding: 20px; font-size: 16px; line-height: 1.75; color: var(--text); }
+  .bp-intro-body p + p { margin-top: 12px; }
+  .bp-intro-body strong { color: var(--white); font-weight: 500; }
+  .bp-intro-body .small { font-size: 14px; color: var(--muted); font-style: italic; }
+  .bp-intro-body .intensity-note {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 16px 0 4px;
+  }
+  .intensity-cell { background: var(--off-black); padding: 14px 16px; }
+  .intensity-cell .lbl { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .intensity-cell.hard .lbl { color: var(--accent); }
+  .intensity-cell.steady .lbl { color: var(--green); }
+  .intensity-cell .txt { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  /* DAY BLOCKS */
+  .day-block { margin-bottom: 48px; border: 1px solid var(--border); overflow: hidden; scroll-margin-top: 150px; }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+  }
+  .day-number {
+    font-family: var(--font-display);
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    padding: 16px 20px;
+    border-right: 1px solid var(--border);
+    min-width: 90px;
+  }
+  .day-title {
+    font-family: var(--font-display);
+    font-size: 27px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    padding: 14px 20px;
+    flex: 1;
+  }
+  .day-tags { display: flex; gap: 8px; padding: 0 20px; }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .tag-time { background: rgba(184,106,0,0.1); color: var(--morning); border: 1px solid rgba(184,106,0,0.25); }
+
+  /* SET / SESSION BLOCKS */
+  .session { border-bottom: 1px solid var(--border); }
+  .session:last-child { border-bottom: none; }
+  .session-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--dark);
+    border-bottom: 1px solid var(--border);
+  }
+  .session-stripe { width: 3px; height: 18px; border-radius: 2px; flex-shrink: 0; }
+  .session-name { font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--morning); }
+  .session-name.warmup { color: var(--lunch); }
+  .session-name.hard { color: var(--accent); }
+  .session-name.green { color: var(--green); }
+  .session-name.finish { color: var(--lunch); }
+  .int-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+  }
+  .int-hard { background: rgba(204,32,32,0.1); color: var(--accent); border: 1px solid rgba(204,32,32,0.25); }
+  .int-green { background: rgba(26,138,74,0.1); color: var(--green); border: 1px solid rgba(26,138,74,0.25); }
+  .session-tag { margin-left: auto; font-family: var(--font-mono); font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* MOVE TABLE */
+  .bp-table { width: 100%; border-collapse: collapse; }
+  .bp-table thead tr { background: var(--off-black); }
+  .bp-table th {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .bp-table td {
+    padding: 14px 16px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    vertical-align: top;
+  }
+  .bp-table tr:last-child td { border-bottom: none; }
+  .bp-table tbody tr:hover td { background: rgba(0,0,0,0.02); }
+
+  .choose-row td {
+    background: var(--off-black);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lunch);
+    padding: 8px 16px;
+    border-top: 1px solid var(--border);
+  }
+  .choose-row:hover td { background: var(--off-black); }
+
+  .ex-name { color: var(--white); font-weight: 500; font-size: 18px; }
+  .ex-cue { font-size: 15px; color: var(--muted); margin-top: 3px; font-style: italic; }
+  .ex-video {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--lunch);
+    text-decoration: none;
+    border: 1px solid rgba(26,111,212,0.3);
+    background: rgba(26,111,212,0.07);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-right: 4px;
+  }
+  .ex-video:hover { background: rgba(26,111,212,0.18); border-color: var(--lunch); }
+  .ex-time { font-family: var(--font-mono); font-size: 16px; color: var(--white); white-space: nowrap; }
+  .ex-notes { font-size: 15px; color: var(--muted); max-width: 340px; }
+
+  /* BADGES */
+  .bp-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .b-premium { background: rgba(107,63,212,0.1); color: var(--evening); border: 1px solid rgba(107,63,212,0.25); }
+  .b-explode { background: rgba(204,32,32,0.1); color: var(--accent); border: 1px solid rgba(204,32,32,0.25); }
+  .b-choose { background: rgba(26,111,212,0.1); color: var(--lunch); border: 1px solid rgba(26,111,212,0.25); }
+
+  /* SESSION NOTE */
+  .session-note {
+    padding: 14px 20px;
+    background: rgba(0,0,0,0.02);
+    border-top: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--muted);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .session-note::before { content: '→'; color: var(--morning); flex-shrink: 0; margin-top: 1px; }
+  .session-note strong { color: var(--white); font-weight: 500; }
+  .session-note.heat::before { content: '🔥'; }
+  .session-note.rest::before { content: '⏸'; }
+  .session-note.progress::before { content: '✓'; color: var(--green); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    header { padding: 28px 16px 24px; }
+    .legend { padding: 0 16px; flex-wrap: wrap; gap: 4px; }
+    .legend-item { font-size: 12px; padding: 10px 12px 10px 0; margin-right: 8px; }
+    .plan-container { padding: 16px 12px 60px; }
+    .day-tags { display: none; }
+    h1 { font-size: 42px; }
+    .header-meta { gap: 12px; }
+    .meta-pill { font-size: 14px; }
+    .bp-intro-body .intensity-note { grid-template-columns: 1fr; }
+    .day-number { font-size: 13px; min-width: 64px; padding: 12px 14px; }
+    .day-title { font-size: 19px; padding: 12px 14px; }
+    .session-name { font-size: 13px; letter-spacing: 0.06em; }
+    .session-tag { display: none; }
+
+    .bp-table thead { display: none; }
+    .bp-table tr { display: block; padding: 12px 14px 10px; border-bottom: 1px solid var(--border); }
+    .bp-table tr:last-child { border-bottom: none; }
+    .bp-table td { display: block; padding: 0; border: none; font-size: 15px; }
+    .bp-table td:nth-child(1) { margin-bottom: 8px; }
+    .bp-table td:nth-child(2) {
+      display: inline-block;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .bp-table td:nth-child(3) {
+      display: block;
+      font-size: 14px;
+      color: var(--muted);
+      padding-top: 6px;
+      border-top: 1px dashed var(--border);
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+    .ex-name { font-size: 16px; }
+    .ex-notes { max-width: 100%; }
+    .ex-time { font-size: 14px; white-space: normal; }
+    .choose-row td { display: block; padding: 10px 14px; }
+    .session-note { font-size: 14px; padding: 12px 14px; }
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: 34px; }
+    .day-title { font-size: 16px; }
+  }
+
+  /* SITE NAV */
+  .site-nav-top {
+    display: flex;
+    align-items: stretch;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-home {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 0;
+    margin-right: 20px;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .nav-home:hover { color: var(--text); }
+  .nav-person {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s;
+  }
+  .nav-person:hover { color: var(--text); }
+  .nav-jason.active { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-emma.active { color: var(--evening); border-bottom-color: var(--evening); }
+  .site-nav-sub {
+    display: flex;
+    flex-wrap: nowrap;
+    background: var(--off-black);
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .site-nav-sub::-webkit-scrollbar { display: none; }
+  .nav-sub-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px 10px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .nav-sub-link:hover { color: var(--text); }
+  .nav-sub-link.active-jason { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-sub-link.active-emma { color: var(--evening); border-bottom-color: var(--evening); }
+  @media (max-width: 600px) {
+    .site-nav-top { padding: 0 16px; }
+    .nav-person { padding: 10px 14px; font-size: 17px; }
+    .site-nav-sub { padding: 0 16px; }
+    .nav-sub-link { padding: 10px 14px 8px; font-size: 12px; }
+    .nav-home { padding: 0 12px 0 0; margin-right: 12px; }
+  }
+  /* DAY NAV */
+  html { scroll-behavior: auto; }
+  .site-nav-top { position: sticky; top: 0; z-index: 103; }
+  .site-nav-sub { position: sticky; top: 48px; z-index: 102; }
+  .site-nav-days {
+    display: flex;
+    align-items: stretch;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    position: sticky;
+    top: 88px;
+    z-index: 101;
+    flex-wrap: wrap;
+  }
+  .nav-day-pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 10px 16px 8px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-day-pill:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  @media (max-width: 600px) {
+    .site-nav-days { padding: 0 16px; }
+    .nav-day-pill { padding: 8px 10px 6px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav-top">
+  <a href="index.html" class="nav-home">Home</a>
+  <a href="jason-workout.html" class="nav-person nav-jason active">Jason</a>
+  <a href="emma-workout.html" class="nav-person nav-emma">Emma</a>
+</nav>
+<nav class="site-nav-sub">
+  <a href="jason-workout.html" class="nav-sub-link">Workout Plan</a>
+  <a href="jason-bellyproof5.html" class="nav-sub-link active-jason">Bellyproof 5 Workout</a>
+  <a href="jason-ai-fatburn.html" class="nav-sub-link">AI Fat Burn Workout</a>
+  <a href="jason-nutrition.html" class="nav-sub-link">Nutrition</a>
+  <a href="jason-bellyproof-nutrition.html" class="nav-sub-link">Bellyproof Nutrition</a>
+  <a href="jason-supplements.html" class="nav-sub-link">Buying Supplements</a>
+</nav>
+<nav class="site-nav-days">
+  <a href="#wo-1" class="nav-day-pill">Workout 1</a>
+  <a href="#wo-2" class="nav-day-pill">Workout 2</a>
+  <a href="#wo-3" class="nav-day-pill">Workout 3</a>
+  <a href="#wo-4" class="nav-day-pill">Workout 4</a>
+</nav>
+
+<header>
+  <div class="header-label">BellyProof V5.0 · Stages 2 &amp; 3</div>
+  <h1>BELLYPROOF<br><span>FIVE</span></h1>
+  <div class="header-meta">
+    <div class="meta-pill"><span class="dot" style="background:var(--accent)"></span> 4 workouts · 10 sets each</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--green)"></span> 5 sessions a week, rolling</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--lunch)"></span> 45–65 min per session</div>
+  </div>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-bar" style="background:var(--accent)"></div><span style="color:var(--accent)">Hard set</span> — black background</div>
+  <div class="legend-item"><div class="legend-bar" style="background:var(--green)"></div><span style="color:var(--green)">Steady set</span> — green background</div>
+  <div class="legend-item"><div class="legend-bar" style="background:var(--lunch)"></div><span style="color:var(--lunch)">Finisher</span> — set 10</div>
+</div>
+
+<div class="plan-container">
+
+  <!-- INTRO -->
+  <div class="bp-intro">
+    <div class="bp-intro-head">How the week runs</div>
+    <div class="bp-intro-body">
+      <p>Four workouts, run as a <strong>rolling cycle across five sessions a week</strong> — so the workouts don't line up with the same weekdays each week:</p>
+      <div class="intensity-note">
+        <div class="intensity-cell hard">
+          <div class="lbl">Week 1</div>
+          <div class="txt">Workout 1 → 2 → 3 → 4 → 1</div>
+        </div>
+        <div class="intensity-cell steady">
+          <div class="lbl">Week 2</div>
+          <div class="txt">Workout 2 → 3 → 4 → 1 → 2</div>
+        </div>
+      </div>
+      <p>Each workout is <strong>10 numbered sets</strong>. Do the moves within a set back-to-back, then take the stated recovery before the next set.</p>
+      <div class="intensity-note">
+        <div class="intensity-cell hard">
+          <div class="lbl">Hard sets</div>
+          <div class="txt">Shortness of breath, feeling slightly buzzed, heat waves on skin. Chase that feeling.</div>
+        </div>
+        <div class="intensity-cell steady">
+          <div class="lbl">Steady sets</div>
+          <div class="txt">Medium intensity yet more sweat and harder to concentrate.</div>
+        </div>
+      </div>
+      <p class="small">Exercise names and rep counts transcribed from your BellyProof V5.0 Stages 2 &amp; 3 printout. Technique instructions are deliberately left out — refer to the program itself for those.</p>
+    </div>
+  </div>
+
+  <!-- ========== WORKOUT 1 ========== -->
+  <div class="day-block" id="wo-1">
+    <div class="day-header">
+      <div class="day-number">WO 1</div>
+      <div class="day-title">Workout 1</div>
+      <div class="day-tags"><span class="tag tag-time">45–60 min</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name warmup">Warm-Up</span>
+      </div>
+      <div class="session-note"><span>Hanging (front swings &amp; side swings), Scapular Circles</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Sets 1–3</span>
+        <span class="int-badge int-hard">Hard · ×3</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Jump in place + deep breath through the mouth</span></td><td class="ex-time">A few</td></tr>
+          <tr><td><span class="ex-name">Free Falls</span></td><td class="ex-time">2–3 reps</td></tr>
+          <tr><td><span class="ex-name">Bulgarian Split Squats</span></td><td class="ex-time">6 reps per leg</td></tr>
+          <tr><td><span class="ex-name">Surprised Kitty</span></td><td class="ex-time">3 reps</td></tr>
+          <tr><td><span class="bp-badge b-premium">Premium only</span><span class="ex-name">Abs-Hold</span></td><td class="ex-time">15 seconds</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> — 20–30 seconds super fast walk, deep breathing from supported squat (or on back), 20–30 seconds extra rest if needed.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 4</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr class="choose-row"><td colspan="2"><span class="bp-badge b-choose">Choose one</span></td></tr>
+          <tr><td><span class="ex-name">Flying Quasimodo</span></td><td class="ex-time">5 reps of 5 seconds at the top</td></tr>
+          <tr><td><span class="ex-name">Creepy Reach</span></td><td class="ex-time">4 reps per side</td></tr>
+          <tr class="choose-row"><td colspan="2">Then</td></tr>
+          <tr><td><span class="ex-name">Wrist Extension</span></td><td class="ex-time">3 reps passive – 3 sec<br>1 rep active – 10 sec</td></tr>
+          <tr><td><span class="ex-name">Reverse Frog</span></td><td class="ex-time">10 reps</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Set 5</span>
+        <span class="int-badge int-hard">Hard</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Jump in place + deep breath through the mouth</span></td><td class="ex-time">A few</td></tr>
+          <tr><td><span class="ex-name">Free Falls</span></td><td class="ex-time">2–3 reps</td></tr>
+          <tr><td><span class="ex-name">Bulgarian Split Squats</span></td><td class="ex-time">6 reps per leg</td></tr>
+          <tr><td><span class="ex-name">Surprised Kitty</span></td><td class="ex-time">3 reps</td></tr>
+          <tr><td><span class="ex-name">Full sPECS</span></td><td class="ex-time">3 reps of 10 seconds</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note heat"><span><strong>Mid-Workout Heat Protocol</strong> (Rub-a-Blubber)</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 6</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="bp-badge b-premium">Premium only</span><span class="ex-name">Abs-Mechanical</span></td><td class="ex-time">5 reps</td></tr>
+          <tr><td><span class="ex-name">Dragon Walks</span></td><td class="ex-time">10 reps per leg</td></tr>
+          <tr><td><span class="ex-name">Papera</span></td><td class="ex-time">25 reps + squeeze</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Take a minute to recover if needed.</span></div>
+      <div class="session-note progress"><span>60% done — 6 out of 10 sets.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 7</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Plank Plate Switch</span></td><td class="ex-time">1 minute</td></tr>
+          <tr><td><span class="bp-badge b-premium">Premium only</span><span class="ex-name">Abs-Mechanical</span></td><td class="ex-time">5 reps</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Take a minute to recover if needed.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Set 8</span>
+        <span class="int-badge int-hard">Hard</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Jump in place + deep breath through the mouth</span></td><td class="ex-time">A few</td></tr>
+          <tr><td><span class="ex-name">Free Falls</span></td><td class="ex-time">2–3 reps</td></tr>
+          <tr><td><span class="ex-name">Bulgarian Split Squats</span></td><td class="ex-time">6 reps per leg</td></tr>
+          <tr><td><span class="ex-name">Surprised Kitty</span></td><td class="ex-time">3 reps</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> — 20–30 seconds super fast walk.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 9</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Offset Bulgarian Halos</span></td><td class="ex-time">6 reps per leg<br>(3 left, 3 right)</td></tr>
+          <tr><td><span class="bp-badge b-premium">Premium only</span><span class="ex-name">Horizontal Tucks</span></td><td class="ex-time">20–25 reps</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Take a minute to recover if needed.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name finish">Set 10 — Finisher</span>
+        <span class="session-tag">Your choice</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr class="choose-row"><td colspan="2"><span class="bp-badge b-choose">Choose one</span></td></tr>
+          <tr><td><span class="ex-name">Steady aerobic — running / swimming / cycling / stairs-climbing</span></td><td class="ex-time">15–20 minutes</td></tr>
+          <tr><td><span class="ex-name">Turkish Get-Ups</span></td><td class="ex-time">15 per side</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========== WORKOUT 2 ========== -->
+  <div class="day-block" id="wo-2">
+    <div class="day-header">
+      <div class="day-number">WO 2</div>
+      <div class="day-title">Workout 2</div>
+      <div class="day-tags"><span class="tag tag-time">50–65 min</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name warmup">Warm-Up</span>
+      </div>
+      <div class="session-note"><span>Hanging (front swings &amp; side swings), Wall Side Plank (30–40 seconds per side), Ankle Rolls / Loaded Pistol (10 reps)</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Sets 1–4</span>
+        <span class="int-badge int-hard">Hard · ×4</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Jump in place + deep breath through the mouth</span></td><td class="ex-time">A few</td></tr>
+          <tr><td><span class="bp-badge b-explode">Explode</span><span class="ex-name">Box / High Jumps</span></td><td class="ex-time">As many as possible</td></tr>
+          <tr><td><span class="ex-name">Double / Goblet Squat</span></td><td class="ex-time">4 reps</td></tr>
+          <tr><td><span class="ex-name">Negative Pull-Ups</span></td><td class="ex-time">3 reps (slow — just the way down)</td></tr>
+          <tr><td><span class="ex-name">Squat Boost</span></td><td class="ex-time">3 reps passive – 4 sec<br>1 rep active – 5 sec</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> — 20–30 seconds super fast walk, then take another 10 seconds to rest.</span></div>
+      <div class="session-note progress"><span>40% done — 4 out of 10 sets. Make sure you're drinking water.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 5</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Brettzel / Half-Brettzel</span></td><td class="ex-time">30 seconds per side</td></tr>
+          <tr><td><span class="ex-name">Ankle Rolls / Loaded Pistol</span></td><td class="ex-time">10 reps</td></tr>
+          <tr class="choose-row"><td colspan="2"><span class="bp-badge b-premium">Premium only</span> Choose one of the following</td></tr>
+          <tr><td><span class="bp-badge b-choose">Easy</span><span class="ex-name">Slide Plank</span></td><td class="ex-time">6 reps per side</td></tr>
+          <tr><td><span class="bp-badge b-choose">Medium</span><span class="ex-name">V-Raises</span></td><td class="ex-time">4 reps per side</td></tr>
+          <tr><td><span class="bp-badge b-choose">Hardest</span><span class="ex-name">Gravity Rebel — Human Flag Training</span></td><td class="ex-time">3 reps per side</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Set 6</span>
+        <span class="int-badge int-hard">Hard</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Jump in place + deep breath through the mouth</span></td><td class="ex-time">A few</td></tr>
+          <tr><td><span class="bp-badge b-explode">Explode</span><span class="ex-name">Box / High Jumps</span></td><td class="ex-time">As many as possible</td></tr>
+          <tr><td><span class="ex-name">Double / Goblet Squat</span></td><td class="ex-time">4 reps</td></tr>
+          <tr><td><span class="ex-name">Negative Pull-Ups</span></td><td class="ex-time">3 reps (slow — just the way down)</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note heat"><span><strong>Mid-Workout Heat Protocol</strong> (Rub-a-Blubber)</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 7</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Offset Lunges</span></td><td class="ex-time">30 steps<br>(15 per leg, change hands halfway)</td></tr>
+          <tr><td><span class="ex-name">Humpty Dumpty Halos</span></td><td class="ex-time">6 reps each leg<br>(3 clockwise, 3 counterclockwise)</td></tr>
+          <tr><td><span class="ex-name">Pelvic Freezer</span></td><td class="ex-time">5 reps</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Take a minute to recover if needed.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 8</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Full sPECS</span></td><td class="ex-time">3 reps of 10 seconds</td></tr>
+          <tr><td><span class="ex-name">Plank Plate Switch</span></td><td class="ex-time">1 minute</td></tr>
+          <tr class="choose-row"><td colspan="2"><span class="bp-badge b-premium">Premium only</span> Choose one of the following</td></tr>
+          <tr><td><span class="bp-badge b-choose">Easy</span><span class="ex-name">Slide Plank</span></td><td class="ex-time">6 reps per side</td></tr>
+          <tr><td><span class="bp-badge b-choose">Medium</span><span class="ex-name">V-Raises</span></td><td class="ex-time">4 reps per side</td></tr>
+          <tr><td><span class="bp-badge b-choose">Hardest</span><span class="ex-name">Gravity Rebel — Human Flag Training</span></td><td class="ex-time">3 reps per side</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Set 9</span>
+        <span class="int-badge int-hard">Hard</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Jump in place + deep breath through the mouth</span></td><td class="ex-time">A few</td></tr>
+          <tr><td><span class="bp-badge b-explode">Explode</span><span class="ex-name">Box / High Jumps</span></td><td class="ex-time">As many as possible</td></tr>
+          <tr><td><span class="ex-name">Double / Goblet Squat</span></td><td class="ex-time">4 reps</td></tr>
+          <tr><td><span class="ex-name">Negative Pull-Ups</span></td><td class="ex-time">3 reps (slow — just the way down)</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> — 20–30 seconds super fast walk.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name finish">Set 10 — Finisher</span>
+        <span class="session-tag">Your choice</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr class="choose-row"><td colspan="2"><span class="bp-badge b-choose">Choose one</span></td></tr>
+          <tr><td><span class="ex-name">Steady aerobic — running / swimming / cycling / stairs-climbing</span></td><td class="ex-time">15–20 minutes</td></tr>
+          <tr><td><span class="ex-name">Turkish Get-Ups</span></td><td class="ex-time">15 per side</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========== WORKOUT 3 ========== -->
+  <div class="day-block" id="wo-3">
+    <div class="day-header">
+      <div class="day-number">WO 3</div>
+      <div class="day-title">Workout 3</div>
+      <div class="day-tags"><span class="tag tag-time">45–60 min</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name warmup">Warm-Up</span>
+      </div>
+      <div class="session-note"><span>Hanging (front swings &amp; side swings), Single Leg Bridge Hold (2 reps of 10 seconds per side)</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Sets 1–4</span>
+        <span class="int-badge int-hard">Hard · ×4</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Grasshopper</span></td><td class="ex-time">2–3 reps per side</td></tr>
+          <tr><td><span class="ex-name">Knee-Hug Thrusts</span></td><td class="ex-time">6 reps per side</td></tr>
+          <tr><td><span class="ex-name">Renegade Rows</span></td><td class="ex-time">3–4 reps per side</td></tr>
+          <tr><td><span class="ex-name">Flamingos</span></td><td class="ex-time">1 rep</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> — 20–30 seconds super fast walk, deep breathing from supported squat (or on back), 20–30 seconds extra rest if needed.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 5</span>
+        <span class="int-badge int-green">Steady</span>
+        <span class="session-tag">The torture set</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">90-90 Pulses</span></td><td class="ex-time">2 minutes per side</td></tr>
+          <tr><td><span class="ex-name">Crampets</span></td><td class="ex-time">Total of 20 seconds per side</td></tr>
+          <tr><td><span class="bp-badge b-premium">Premium only</span><span class="ex-name">Abs-Mechanical</span></td><td class="ex-time">5 reps</td></tr>
+          <tr><td><span class="ex-name">Turkish Get-Ups</span></td><td class="ex-time">2 per side</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note progress"><span>50% done — 5 out of 10 sets. The torture set is behind you.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Set 6</span>
+        <span class="int-badge int-hard">Hard</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Grasshopper</span></td><td class="ex-time">2–3 reps per side</td></tr>
+          <tr><td><span class="ex-name">Knee-Hug Thrusts</span></td><td class="ex-time">6 reps per side</td></tr>
+          <tr><td><span class="ex-name">Flamingos</span></td><td class="ex-time">1 rep</td></tr>
+          <tr><td><span class="ex-name">Neck Offset</span></td><td class="ex-time">40 seconds</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note heat"><span><strong>Mid-Workout Heat Protocol</strong> (Rub-a-Blubber)</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 7</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="bp-badge b-premium">Premium only</span><span class="ex-name">Abs-Mechanical</span></td><td class="ex-time">5 reps</td></tr>
+          <tr><td><span class="ex-name">Full sPECS</span></td><td class="ex-time">3 reps of 10 seconds</td></tr>
+          <tr><td><span class="ex-name">Surprised Kitty</span></td><td class="ex-time">6 slow reps</td></tr>
+          <tr><td><span class="bp-badge b-premium">Premium only</span><span class="ex-name">Abs-Hold</span></td><td class="ex-time">30 seconds</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Take a minute to recover if needed.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Set 8</span>
+        <span class="int-badge int-hard">Hard</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Grasshopper</span></td><td class="ex-time">2–3 reps per side</td></tr>
+          <tr><td><span class="ex-name">Knee-Hug Thrusts</span></td><td class="ex-time">6 reps per side</td></tr>
+          <tr><td><span class="ex-name">Flamingos</span></td><td class="ex-time">1 rep</td></tr>
+          <tr><td><span class="ex-name">Marionette</span></td><td class="ex-time">40 seconds</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> — 20–30 seconds super fast walk.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 9</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Offset Step Ups</span></td><td class="ex-time">20 per leg without weight<br>or 12 per leg with weight</td></tr>
+          <tr><td><span class="bp-badge b-premium">Premium only</span><span class="ex-name">Horizontal Tucks</span></td><td class="ex-time">20–25 reps</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Take a minute to recover if needed.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name finish">Set 10 — Finisher</span>
+        <span class="session-tag">Your choice</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr class="choose-row"><td colspan="2"><span class="bp-badge b-choose">Choose one</span></td></tr>
+          <tr><td><span class="ex-name">Steady aerobic — running / swimming / cycling / stairs-climbing</span></td><td class="ex-time">15–20 minutes</td></tr>
+          <tr><td><span class="ex-name">Turkish Get-Ups</span></td><td class="ex-time">15 per side</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========== WORKOUT 4 ========== -->
+  <div class="day-block" id="wo-4">
+    <div class="day-header">
+      <div class="day-number">WO 4</div>
+      <div class="day-title">Workout 4</div>
+      <div class="day-tags"><span class="tag tag-time">50–65 min</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name warmup">Warm-Up</span>
+      </div>
+      <div class="session-note"><span>Hanging (front swings &amp; side swings), VerteBrace 1.0 (4 reps)</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Sets 1–4</span>
+        <span class="int-badge int-hard">Hard · ×4</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Jump in place + deep breath through the mouth</span></td><td class="ex-time">A few</td></tr>
+          <tr><td><span class="bp-badge b-explode">Explode</span><span class="ex-name">8 sec Zombie</span></td><td class="ex-time">2–3 reps of 8 seconds<br>(maximum speed)</td></tr>
+          <tr><td><span class="ex-name">VerteBrace 2.0</span></td><td class="ex-time">3 reps</td></tr>
+          <tr><td><span class="ex-name">Human Gyro</span></td><td class="ex-time">Neck: 3 slow reps per side<br>Leg out: 3 sec leg circles per side</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> — 20–30 seconds super fast walk, deep breathing from supported squat (or on back), 20–30 seconds extra rest if needed.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 5</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Neo Abs-Roll</span></td><td class="ex-time">6 reps back and forth</td></tr>
+          <tr><td><span class="ex-name">Spiderman Push-Ups</span></td><td class="ex-time">6 reps per side</td></tr>
+          <tr class="choose-row"><td colspan="2"><span class="bp-badge b-premium">Premium only</span> Choose one of the following</td></tr>
+          <tr><td><span class="bp-badge b-choose">Easy</span><span class="ex-name">Slide Plank</span></td><td class="ex-time">6 reps per side</td></tr>
+          <tr><td><span class="bp-badge b-choose">Medium</span><span class="ex-name">V-Raises</span></td><td class="ex-time">4 reps per side</td></tr>
+          <tr><td><span class="bp-badge b-choose">Hardest</span><span class="ex-name">Gravity Rebel — Human Flag Training</span></td><td class="ex-time">3 reps per side</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note progress"><span>Halfway through — 5 out of 10 sets. Make sure you're drinking water.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Set 6</span>
+        <span class="int-badge int-hard">Hard</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Jump in place + deep breath through the mouth</span></td><td class="ex-time">A few</td></tr>
+          <tr><td><span class="bp-badge b-explode">Explode</span><span class="ex-name">8 sec Zombie</span></td><td class="ex-time">2–3 reps of 8 seconds<br>(maximum speed)</td></tr>
+          <tr><td><span class="ex-name">Humpty Dumpty Pulses</span></td><td class="ex-time">5 reps per leg</td></tr>
+          <tr><td><span class="ex-name">Human Gyro</span></td><td class="ex-time">Neck: 3 slow reps per side<br>Leg out: 3 sec leg circles per side</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> — 20–30 seconds super fast walk, deep breathing from supported squat (or on back), 20–30 seconds extra rest if needed.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 7</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Humpty Dumpty World Cup</span></td><td class="ex-time">8 reps per leg</td></tr>
+          <tr><td><span class="ex-name">Neo Abs-Roll</span></td><td class="ex-time">6 reps back and forth</td></tr>
+          <tr><td><span class="bp-badge b-premium">Premium only</span><span class="ex-name">Abs-Hold</span></td><td class="ex-time">30 seconds</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Take a minute to recover if needed.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Set 8</span>
+        <span class="int-badge int-hard">Hard</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Jump in place + deep breath through the mouth</span></td><td class="ex-time">A few</td></tr>
+          <tr><td><span class="bp-badge b-explode">Explode</span><span class="ex-name">8 sec Zombie</span></td><td class="ex-time">2–3 reps of 8 seconds<br>(maximum speed)</td></tr>
+          <tr><td><span class="ex-name">Humpty Dumpty Press</span></td><td class="ex-time">5 reps per leg<br>(change hands)</td></tr>
+          <tr><td><span class="ex-name">Human Gyro</span></td><td class="ex-time">Neck: 3 slow reps per side<br>Leg out: 3 sec leg circles per side</td></tr>
+        </tbody>
+      </table>
+      <div class="session-note heat"><span><strong>Mid-Workout Heat Protocol</strong> (Rub-a-Blubber)</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Set 9</span>
+        <span class="int-badge int-green">Steady</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ex-name">Full sPECS</span></td><td class="ex-time">3 reps of 10 seconds</td></tr>
+          <tr><td><span class="ex-name">Tectonic Slide</span><div class="ex-cue">Alternative: Plank Plate Switch</div></td><td class="ex-time">10 times<br>(or 1 minute)</td></tr>
+          <tr class="choose-row"><td colspan="2"><span class="bp-badge b-premium">Premium only</span> Choose one of the following</td></tr>
+          <tr><td><span class="bp-badge b-choose">Easy</span><span class="ex-name">Slide Plank</span></td><td class="ex-time">6 reps per side</td></tr>
+          <tr><td><span class="bp-badge b-choose">Medium</span><span class="ex-name">V-Raises</span></td><td class="ex-time">4 reps per side</td></tr>
+          <tr><td><span class="bp-badge b-choose">Hardest</span><span class="ex-name">Gravity Rebel — Human Flag Training</span></td><td class="ex-time">3 reps per side</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name finish">Set 10 — Finisher</span>
+        <span class="session-tag">Your choice</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:60%">Move</th><th>Reps / Time</th></tr></thead>
+        <tbody>
+          <tr class="choose-row"><td colspan="2"><span class="bp-badge b-choose">Choose one</span></td></tr>
+          <tr><td><span class="ex-name">Steady aerobic — running / swimming / cycling / stairs-climbing</span></td><td class="ex-time">15–20 minutes</td></tr>
+          <tr><td><span class="ex-name">Turkish Get-Ups</span></td><td class="ex-time">15 per side</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

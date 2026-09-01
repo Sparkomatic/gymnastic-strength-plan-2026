@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Strength Plan">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Jason · AI Fat Burn Workout · 2026</title>
+
+<style>
+  /* FONT STACK — fully offline, no external requests */
+  :root {
+    --font-display: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Consolas', 'Courier New', monospace;
+  }
+  :root {
+    --black: #ffffff;
+    --off-black: #f7f7f5;
+    --dark: #f0eeeb;
+    --mid: #e5e2dd;
+    --border: #d0ccc6;
+    --muted: #5a5652;
+    --text: #3a3632;
+    --white: #1a1714;
+    --morning: #b86a00;
+    --lunch: #1a6fd4;
+    --evening: #6b3fd4;
+    --accent: #cc2020;
+    --green: #1a8a4a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(204,32,32,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-label {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+    margin-bottom: 24px;
+  }
+  h1 span { color: var(--accent); }
+  .header-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+  .meta-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: var(--muted);
+  }
+  .meta-pill .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 0;
+    padding: 0 40px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 24px 16px 0;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-right: 24px;
+  }
+  .legend-bar { width: 3px; height: 20px; border-radius: 2px; }
+
+  /* MAIN LAYOUT */
+  .plan-container { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+
+  /* INTRO / METHOD EXPLAINER */
+  .bp-intro { border: 1px solid var(--border); margin-bottom: 48px; }
+  .bp-intro-head {
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .bp-intro-body { padding: 20px; font-size: 16px; line-height: 1.75; color: var(--text); }
+  .bp-intro-body p + p { margin-top: 12px; }
+  .bp-intro-body strong { color: var(--white); font-weight: 500; }
+  .bp-intro-body .small { font-size: 14px; color: var(--muted); font-style: italic; }
+  .bp-intro-body .intensity-note {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 16px 0 4px;
+  }
+  .intensity-cell { background: var(--off-black); padding: 14px 16px; }
+  .intensity-cell .lbl { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .intensity-cell.hard .lbl { color: var(--accent); }
+  .intensity-cell.steady .lbl { color: var(--green); }
+  .intensity-cell .txt { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  /* DAY BLOCKS */
+  .day-block { margin-bottom: 48px; border: 1px solid var(--border); overflow: hidden; scroll-margin-top: 150px; }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+  }
+  .day-number {
+    font-family: var(--font-display);
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    padding: 16px 20px;
+    border-right: 1px solid var(--border);
+    min-width: 90px;
+  }
+  .day-title {
+    font-family: var(--font-display);
+    font-size: 27px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    padding: 14px 20px;
+    flex: 1;
+  }
+  .day-tags { display: flex; gap: 8px; padding: 0 20px; }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .tag-time { background: rgba(184,106,0,0.1); color: var(--morning); border: 1px solid rgba(184,106,0,0.25); }
+
+  /* SET / SESSION BLOCKS */
+  .session { border-bottom: 1px solid var(--border); }
+  .session:last-child { border-bottom: none; }
+  .session-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--dark);
+    border-bottom: 1px solid var(--border);
+  }
+  .session-stripe { width: 3px; height: 18px; border-radius: 2px; flex-shrink: 0; }
+  .session-name { font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--morning); }
+  .session-name.warmup { color: var(--lunch); }
+  .session-name.hard { color: var(--accent); }
+  .session-name.green { color: var(--green); }
+  .session-name.finish { color: var(--lunch); }
+  .int-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+  }
+  .int-hard { background: rgba(204,32,32,0.1); color: var(--accent); border: 1px solid rgba(204,32,32,0.25); }
+  .int-green { background: rgba(26,138,74,0.1); color: var(--green); border: 1px solid rgba(26,138,74,0.25); }
+  .session-tag { margin-left: auto; font-family: var(--font-mono); font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* MOVE TABLE */
+  .bp-table { width: 100%; border-collapse: collapse; }
+  .bp-table thead tr { background: var(--off-black); }
+  .bp-table th {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .bp-table td {
+    padding: 14px 16px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    vertical-align: top;
+  }
+  .bp-table tr:last-child td { border-bottom: none; }
+  .bp-table tbody tr:hover td { background: rgba(0,0,0,0.02); }
+
+  .choose-row td {
+    background: var(--off-black);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lunch);
+    padding: 8px 16px;
+    border-top: 1px solid var(--border);
+  }
+  .choose-row:hover td { background: var(--off-black); }
+
+  .ex-name { color: var(--white); font-weight: 500; font-size: 18px; }
+  .ex-cue { font-size: 15px; color: var(--muted); margin-top: 3px; font-style: italic; }
+  .ex-video {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--lunch);
+    text-decoration: none;
+    border: 1px solid rgba(26,111,212,0.3);
+    background: rgba(26,111,212,0.07);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-right: 4px;
+  }
+  .ex-video:hover { background: rgba(26,111,212,0.18); border-color: var(--lunch); }
+  .ex-time { font-family: var(--font-mono); font-size: 16px; color: var(--white); white-space: nowrap; }
+  .ex-notes { font-size: 15px; color: var(--muted); max-width: 340px; }
+
+  /* NO-RINGS ALTERNATIVE */
+  .ex-alt {
+    margin-top: 8px;
+    padding: 8px 10px;
+    background: rgba(26,111,212,0.05);
+    border-left: 2px solid rgba(26,111,212,0.35);
+    border-radius: 0 3px 3px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .ex-alt .alt-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--lunch);
+    margin-right: 8px;
+  }
+  .ex-alt .alt-name { color: var(--white); font-weight: 500; font-size: 15px; }
+  .ex-alt .ex-video { margin-top: 0; vertical-align: baseline; }
+  .ex-alt .alt-cue { display: block; margin-top: 3px; font-style: italic; }
+
+  /* BADGES */
+  .bp-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .b-premium { background: rgba(107,63,212,0.1); color: var(--evening); border: 1px solid rgba(107,63,212,0.25); }
+  .b-explode { background: rgba(204,32,32,0.1); color: var(--accent); border: 1px solid rgba(204,32,32,0.25); }
+  .b-choose { background: rgba(26,111,212,0.1); color: var(--lunch); border: 1px solid rgba(26,111,212,0.25); }
+  .b-rotate { background: rgba(184,106,0,0.12); color: var(--morning); border: 1px solid rgba(184,106,0,0.3); }
+
+  /* SESSION NOTE */
+  .session-note {
+    padding: 14px 20px;
+    background: rgba(0,0,0,0.02);
+    border-top: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--muted);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .session-note::before { content: '→'; color: var(--morning); flex-shrink: 0; margin-top: 1px; }
+  .session-note strong { color: var(--white); font-weight: 500; }
+  .session-note.heat::before { content: '🔥'; }
+  .session-note.rest::before { content: '⏸'; }
+  .session-note.progress::before { content: '✓'; color: var(--green); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    header { padding: 28px 16px 24px; }
+    .legend { padding: 0 16px; flex-wrap: wrap; gap: 4px; }
+    .legend-item { font-size: 12px; padding: 10px 12px 10px 0; margin-right: 8px; }
+    .plan-container { padding: 16px 12px 60px; }
+    .day-tags { display: none; }
+    h1 { font-size: 42px; }
+    .header-meta { gap: 12px; }
+    .meta-pill { font-size: 14px; }
+    .bp-intro-body .intensity-note { grid-template-columns: 1fr; }
+    .day-number { font-size: 13px; min-width: 64px; padding: 12px 14px; }
+    .day-title { font-size: 19px; padding: 12px 14px; }
+    .session-name { font-size: 13px; letter-spacing: 0.06em; }
+    .session-tag { display: none; }
+
+    .bp-table thead { display: none; }
+    .bp-table tr { display: block; padding: 12px 14px 10px; border-bottom: 1px solid var(--border); }
+    .bp-table tr:last-child { border-bottom: none; }
+    .bp-table td { display: block; padding: 0; border: none; font-size: 15px; }
+    .bp-table td:nth-child(1) { margin-bottom: 8px; }
+    .bp-table td:nth-child(2) {
+      display: inline-block;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .bp-table td:nth-child(3) {
+      display: block;
+      font-size: 14px;
+      color: var(--muted);
+      padding-top: 6px;
+      border-top: 1px dashed var(--border);
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+    .ex-name { font-size: 16px; }
+    .ex-notes { max-width: 100%; }
+    .ex-time { font-size: 14px; white-space: normal; }
+    .choose-row td { display: block; padding: 10px 14px; }
+    .session-note { font-size: 14px; padding: 12px 14px; }
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: 34px; }
+    .day-title { font-size: 16px; }
+  }
+
+  /* SITE NAV */
+  .site-nav-top {
+    display: flex;
+    align-items: stretch;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+  .nav-home {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 0;
+    margin-right: 20px;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .nav-home:hover { color: var(--text); }
+  .nav-person {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s;
+  }
+  .nav-person:hover { color: var(--text); }
+  .nav-jason.active { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-emma.active { color: var(--evening); border-bottom-color: var(--evening); }
+  .site-nav-sub {
+    display: flex;
+    flex-wrap: nowrap;
+    background: var(--off-black);
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .site-nav-sub::-webkit-scrollbar { display: none; }
+  .nav-sub-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 12px 20px 10px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .nav-sub-link:hover { color: var(--text); }
+  .nav-sub-link.active-jason { color: var(--morning); border-bottom-color: var(--morning); }
+  .nav-sub-link.active-emma { color: var(--evening); border-bottom-color: var(--evening); }
+  @media (max-width: 600px) {
+    .site-nav-top { padding: 0 16px; }
+    .nav-person { padding: 10px 14px; font-size: 17px; }
+    .site-nav-sub { padding: 0 16px; }
+    .nav-sub-link { padding: 10px 14px 8px; font-size: 12px; }
+    .nav-home { padding: 0 12px 0 0; margin-right: 12px; }
+  }
+  /* DAY NAV */
+  html { scroll-behavior: auto; }
+  .site-nav-top { position: sticky; top: 0; z-index: 103; }
+  .site-nav-sub { position: sticky; top: 48px; z-index: 102; }
+  .site-nav-days {
+    display: flex;
+    align-items: stretch;
+    background: var(--off-black);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    position: sticky;
+    top: 88px;
+    z-index: 101;
+    flex-wrap: wrap;
+  }
+  .nav-day-pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 10px 16px 8px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-day-pill:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  @media (max-width: 600px) {
+    .site-nav-days { padding: 0 16px; }
+    .nav-day-pill { padding: 8px 10px 6px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav-top">
+  <a href="index.html" class="nav-home">Home</a>
+  <a href="jason-workout.html" class="nav-person nav-jason active">Jason</a>
+  <a href="emma-workout.html" class="nav-person nav-emma">Emma</a>
+</nav>
+<nav class="site-nav-sub">
+  <a href="jason-workout.html" class="nav-sub-link">Workout Plan</a>
+  <a href="jason-bellyproof5.html" class="nav-sub-link">Bellyproof 5 Workout</a>
+  <a href="jason-ai-fatburn.html" class="nav-sub-link active-jason">AI Fat Burn Workout</a>
+  <a href="jason-nutrition.html" class="nav-sub-link">Nutrition</a>
+  <a href="jason-bellyproof-nutrition.html" class="nav-sub-link">Bellyproof Nutrition</a>
+  <a href="jason-supplements.html" class="nav-sub-link">Buying Supplements</a>
+</nav>
+<nav class="site-nav-days">
+  <a href="#core" class="nav-day-pill" title="The ten moves that never change">Core Ten</a>
+  <a href="#changes" class="nav-day-pill" title="The two moves that rotate">What Changes</a>
+  <a href="#wo-1" class="nav-day-pill" title="Squat Jumps + Gorilla Row">Workout 1</a>
+  <a href="#wo-2" class="nav-day-pill" title="Mountain Climbers + Clean &amp; Press">Workout 2</a>
+  <a href="#wo-3" class="nav-day-pill" title="Step-Back Burpee + Turkish Get-Up">Workout 3</a>
+  <a href="#wo-4" class="nav-day-pill" title="Skater Hops + Floor Press">Workout 4</a>
+</nav>
+
+<header>
+  <div class="header-label">Fasted Fat Loss · Muscle-Sparing · One Kettlebell</div>
+  <h1>AI FAT<br><span>BURN</span></h1>
+  <div class="header-meta">
+    <div class="meta-pill"><span class="dot" style="background:var(--green)"></span> 10 core moves, learnt once</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--morning)"></span> Only 2 change per workout</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--lunch)"></span> ~46 min · every move has a video</div>
+  </div>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-bar" style="background:var(--accent)"></div><span style="color:var(--accent)">Fat Break</span> — release the fat</div>
+  <div class="legend-item"><div class="legend-bar" style="background:var(--green)"></div><span style="color:var(--green)">Fat Burn</span> — keep the muscle</div>
+  <div class="legend-item"><div class="legend-bar" style="background:var(--evening)"></div><span style="color:var(--evening)">Armour</span> — stay uninjured</div>
+  <div class="legend-item"><div class="legend-bar" style="background:var(--lunch)"></div><span style="color:var(--lunch)">Oxidise</span> — burn what you released</div>
+</div>
+
+<div class="plan-container">
+
+  <!-- INTRO -->
+  <div class="bp-intro">
+    <div class="bp-intro-head">Ten moves. Two swaps. Four sessions.</div>
+    <div class="bp-intro-body">
+      <p><strong>Every session in this programme is the same session.</strong> The same warm-up, the same six blocks, the same ten moves in the same order. Only <strong>two moves change</strong> from workout to workout — one explosive, one strength. That's the whole design.</p>
+      <p>It means you can hand this to anyone. There is no vocabulary to learn, no page to keep reading mid-workout, and by week two you'll be running it from memory. Which matters more than it sounds: the time you spend reading a page is time you're not working, and confident technique is what lets you actually push hard.</p>
+
+      <div class="intensity-note">
+        <div class="intensity-cell hard">
+          <div class="lbl">1 · Fat Break — release it</div>
+          <div class="txt">Short, hard, whole-body bursts. Hard efforts flood the system with adrenaline and noradrenaline, and those hormones switch on the enzymes that break stored fat down and push it into the bloodstream. You can't burn fat you haven't released — so this comes early, and again later.</div>
+        </div>
+        <div class="intensity-cell steady">
+          <div class="lbl">2 · Fat Burn — keep the muscle</div>
+          <div class="txt">Controlled resistance work at moderate effort. In a deficit the body drops whatever it isn't using. Loading the muscle through full range, five times a week, is the signal that says <em>keep this</em>. It decides whether you finish lean or just smaller.</div>
+        </div>
+      </div>
+      <div class="intensity-note">
+        <div class="intensity-cell" style="border-left:3px solid var(--evening)">
+          <div class="lbl" style="color:var(--evening)">3 · Armour — stay in the game</div>
+          <div class="txt">Four mobility positions, identical every session, slotted where you'd otherwise stand around recovering. Costs no time, adds no fatigue. Repeating the same four positions is precisely what changes your range — mobility rewards consistency, not variety.</div>
+        </div>
+        <div class="intensity-cell" style="border-left:3px solid var(--lunch)">
+          <div class="lbl" style="color:var(--lunch)">4 · Oxidise — burn it off</div>
+          <div class="txt">Steady, conversational work at the <em>end</em>, not the start. Fatty acids are already circulating by now, and moderate intensity is where the body burns the highest proportion of fat for fuel. Doing this first would waste the whole effect.</div>
+        </div>
+      </div>
+
+      <p><strong>The order is the point.</strong> Hard bursts release the fat, the steady finisher burns it, the strength work between protects the muscle, the mobility keeps you healthy enough to repeat it. Train <strong>fasted</strong> — insulin is low first thing, and low insulin is when fat releases most freely.</p>
+
+      <p><strong>Equipment:</strong> one kettlebell, a sturdy table (or a bar at hip height) and the floor. That's it. No rings needed anywhere — if you have them, the row swap is noted. Impact is kept moderate throughout: capped jump volume, soft landings, no repeated hard impacts.</p>
+
+      <div class="intensity-note">
+        <div class="intensity-cell hard">
+          <div class="lbl">Week 1</div>
+          <div class="txt">Workout 1 → 2 → 3 → 4 → 1</div>
+        </div>
+        <div class="intensity-cell steady">
+          <div class="lbl">Week 2</div>
+          <div class="txt">Workout 2 → 3 → 4 → 1 → 2</div>
+        </div>
+      </div>
+      <p>Run them as a <strong>rolling cycle across five sessions a week</strong>. Because the sessions are near-identical, it genuinely doesn't matter if you lose track — pick up wherever.</p>
+
+      <p><strong>How to progress:</strong> keep the structure fixed and change one thing at a time. Weeks 1–2, learn the moves and hold the numbers. Then, in this order — add reps to the Fat Burn block, then add load, then cut the recovery between Fat Break rounds. Don't cut recovery first: the hard blocks only work if they're genuinely hard, and they can't be if you never recover.</p>
+
+      <p><strong>Short on time?</strong> Drop Block 3 to a single round. That's your 40-minute version and it costs you least. <strong>Want the bigger burn?</strong> Take the Oxidise block from 8 minutes to 16–18 — the session runs ~55 minutes and matches BellyProof's total output.</p>
+
+      <div class="intensity-note">
+        <div class="intensity-cell" style="border-left:3px solid var(--morning)">
+          <div class="lbl" style="color:var(--morning)">What this version gains</div>
+          <div class="txt">Near-zero learning burden. Technique improves fast through repetition, and good technique means you can safely push harder and load heavier — which tends to <em>raise</em> real-world intensity, not lower it. Progress is trackable because the numbers are directly comparable week to week.</div>
+        </div>
+        <div class="intensity-cell" style="border-left:3px solid var(--accent)">
+          <div class="lbl" style="color:var(--accent)">What it gives up</div>
+          <div class="txt">Less exercise variety means the same tissues take load more often — the two rotating slots and the fixed mobility block exist specifically to offset that, but it's the real cost. There's no vertical pulling here, and less breadth of trunk and shoulder work than a longer, more varied programme.</div>
+        </div>
+      </div>
+
+      <p class="small">An independent workout built on the same underlying principles as BellyProof — not the BellyProof programme. General fitness guidance, not medical advice. Heavy single-leg and maximal pulling work are deliberately left out so these sessions don't eat into pistol squat and ring muscle-up training.</p>
+    </div>
+  </div>
+
+  <!-- ========== CORE TEN ========== -->
+  <div class="day-block" id="core">
+    <div class="day-header">
+      <div class="day-number">CORE</div>
+      <div class="day-title">The Core Ten</div>
+      <div class="day-tags"><span class="tag tag-time">Never change</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Learn these ten and you know the whole programme</span>
+        <span class="session-tag">Every session, every week</span>
+      </div>
+      <div class="session-note"><span>These are the only moves you actually have to learn. They appear in all four workouts in the same order, at the same reps. After two weeks you will not need to read the page.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Swing (two-hand)</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hip snap, not a squat. Arms only guide the bell.</div></td>
+            <td class="ex-time">20 reps</td>
+            <td class="ex-notes">The engine of the whole programme. If one move survived, this is it.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Push-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Body in one line, elbows ~45&deg;.</div></td>
+            <td class="ex-time">10&ndash;12 reps</td>
+            <td class="ex-notes">Hands on a chair or worktop to scale it &mdash; the higher the hands, the lighter it is.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">KB Thruster</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+thruster+goblet+squat+press+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Goblet squat straight into an overhead press. One movement.</div></td>
+            <td class="ex-time">12 reps</td>
+            <td class="ex-notes">Your squat and your overhead press in a single move.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">KB Romanian Deadlift</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+romanian+deadlift+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Flat back, push the hips back, feel the hamstrings.</div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Slow 3-second lower.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Walk the feet in to make it easier, out to make it harder. No equipment needed.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Reverse Lunge</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back, torso upright, back knee tracks down.</div></td>
+            <td class="ex-time">10 per leg</td>
+            <td class="ex-notes">Bodyweight only &mdash; kept clear of your pistol work.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Hollow Hold</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+hold+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Lower back pressed flat into the floor.</div></td>
+            <td class="ex-time">30 sec</td>
+            <td class="ex-notes">Raise the legs if the back lifts.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Dead Bug</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=dead+bug+exercise+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Opposite arm and leg. Lower back stays glued down.</div></td>
+            <td class="ex-time">10 per side</td>
+            <td class="ex-notes">Slow beats many.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Suitcase Carry</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=suitcase+carry+kettlebell+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">One bell, walk tall, do not lean away from it.</div></td>
+            <td class="ex-time">30 sec per side</td>
+            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Steady Finisher</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=brisk+walking+workout+beginner" target="_blank">&#9654; Video</a><div class="ex-cue">Walk, jog, shadow box or easy swings &mdash; your pick, every time.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes">The tenth move is just moving.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========== WHAT CHANGES ========== -->
+  <div class="day-block" id="changes">
+    <div class="day-header">
+      <div class="day-number">SWAP</div>
+      <div class="day-title">What Changes</div>
+      <div class="day-tags"><span class="tag tag-time">2 moves per session</span></div>
+    </div>
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--morning)"></div>
+        <span class="session-name">Eight rotating moves, two per workout</span>
+        <span class="session-tag">The only difference between the four sessions</span>
+      </div>
+      <div class="session-note"><span>Two slots rotate: one <strong>explosive</strong> move in the Fat Break blocks, one <strong>strength</strong> move in Fat Burn. They exist to stop the same tissues taking the same load five days a week, and to cover what the core ten cannot &mdash; overhead pressing, rotation and shoulder stability.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:26%">Workout</th><th>Explosive slot</th><th>Strength slot</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">Jump &amp; Row</span><div class="ex-cue">WO 1</div></td>
+            <td><span class="ex-name" style="font-size:16px">Squat Jumps</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=squat+jump+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">6 reps</div></td>
+            <td><span class="ex-name" style="font-size:16px">KB Gorilla Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+gorilla+row+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">8 per side</div></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Climb &amp; Press</span><div class="ex-cue">WO 2</div></td>
+            <td><span class="ex-name" style="font-size:16px">Mountain Climbers</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=mountain+climbers+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">30 fast</div></td>
+            <td><span class="ex-name" style="font-size:16px">KB Clean &amp; Press</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+clean+and+press+tutorial+form" target="_blank">&#9654; Video</a><div class="ex-cue">6 per side</div></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Burpee &amp; Get-Up</span><div class="ex-cue">WO 3</div></td>
+            <td><span class="ex-name" style="font-size:16px">Step-Back Burpee</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=step+back+burpee+low+impact+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">8 reps</div></td>
+            <td><span class="ex-name" style="font-size:16px">Turkish Get-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=turkish+get+up+kettlebell+tutorial+step+by+step" target="_blank">&#9654; Video</a><div class="ex-cue">2 per side</div></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Skate &amp; Floor Press</span><div class="ex-cue">WO 4</div></td>
+            <td><span class="ex-name" style="font-size:16px">Skater Hops</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=skater+hops+lateral+bound+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">20 total</div></td>
+            <td><span class="ex-name" style="font-size:16px">KB Floor Press</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+floor+press+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">10 per side</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========== Jump & Row ========== -->
+  <div class="day-block" id="wo-1">
+    <div class="day-header">
+      <div class="day-number">WO 1</div>
+      <div class="day-title">Jump &amp; Row</div>
+      <div class="day-tags"><span class="tag tag-time">~46 min</span></div>
+    </div>
+    <div class="session-note progress" style="border-top:none"><span>Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Squat Jumps</strong> and <strong>KB Gorilla Row</strong>.</span></div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name warmup">Prime</span>
+        <span class="session-tag">4 min · same every session</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Halos</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+halo+exercise+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Bell around the head, elbows tight.</div></td>
+            <td class="ex-time">5 each way</td>
+            <td class="ex-notes">Shoulders.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Bodyweight Good Morning</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=bodyweight+good+morning+hip+hinge+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hands on head, push the hips back, flat back.</div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Grooves the hinge.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Bodyweight Squats</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=bodyweight+squat+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Full depth, heels down.</div></td>
+            <td class="ex-time">15 reps</td>
+            <td class="ex-notes">Knees and hips.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Ankle Rocks</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ankle+mobility+rocking+drill+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Drive the knee forward, heel stays flat.</div></td>
+            <td class="ex-time">10 per side</td>
+            <td class="ex-notes">Ankles.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Block 1 · Fat Break</span>
+        <span class="int-badge int-hard">Hard · &times;3</span>
+        <span class="session-tag">10 min · 3 rounds</span>
+      </div>
+      <div class="session-note"><span>Straight through, no rest inside the round. This is the mobilising work &mdash; you should be genuinely breathless by the last move.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Swing (two-hand)</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hip snap, not a squat. Arms only guide the bell.</div></td>
+            <td class="ex-time">20 reps</td>
+            <td class="ex-notes">The engine of the whole programme. If one move survived, this is it.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Push-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Body in one line, elbows ~45&deg;.</div></td>
+            <td class="ex-time">10&ndash;12 reps</td>
+            <td class="ex-notes">Hands on a chair or worktop to scale it &mdash; the higher the hands, the lighter it is.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Squat Jumps</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=squat+jump+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Land soft, absorb through the hips.</div></td>
+            <td class="ex-time">6 reps</td>
+            <td class="ex-notes">Capped deliberately &mdash; quality landings only.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> &mdash; 60 sec. Fast walk, then slow nasal breathing.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Block 2 · Fat Burn</span>
+        <span class="int-badge int-green">Steady · &times;3</span>
+        <span class="session-tag">11 min · 3 rounds</span>
+      </div>
+      <div class="session-note"><span>Moderate and controlled &mdash; more sweat, harder to concentrate, but never breathless. This is the block that protects your muscle.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Romanian Deadlift</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+romanian+deadlift+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Flat back, push the hips back, feel the hamstrings.</div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Slow 3-second lower.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Walk the feet in to make it easier, out to make it harder. No equipment needed.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Reverse Lunge</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back, torso upright, back knee tracks down.</div></td>
+            <td class="ex-time">10 per leg</td>
+            <td class="ex-notes">Bodyweight only &mdash; kept clear of your pistol work.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">KB Gorilla Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+gorilla+row+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hinged over, row one bell, hips square.</div></td>
+            <td class="ex-time">8 per side</td>
+            <td class="ex-notes">Extra pulling volume this session.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Rest 45 sec between rounds.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Block 3 · Fat Break</span>
+        <span class="int-badge int-hard">Hard · &times;2</span>
+        <span class="session-tag">5 min · 2 rounds</span>
+      </div>
+      <div class="session-note"><span>Second hormonal hit, now on a tired system. Shorter and sharper.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Thruster</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+thruster+goblet+squat+press+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Goblet squat straight into an overhead press. One movement.</div></td>
+            <td class="ex-time">12 reps</td>
+            <td class="ex-notes">Your squat and your overhead press in a single move.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Squat Jumps</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=squat+jump+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Land soft, absorb through the hips.</div></td>
+            <td class="ex-time">6 reps</td>
+            <td class="ex-notes">Capped deliberately &mdash; quality landings only.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> &mdash; 60 sec fast walk.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Block 4 · Trunk &amp; Carry</span>
+        <span class="int-badge int-green">&times;2</span>
+        <span class="session-tag">4 min · 2 rounds</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">Hollow Hold</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+hold+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Lower back pressed flat into the floor.</div></td>
+            <td class="ex-time">30 sec</td>
+            <td class="ex-notes">Raise the legs if the back lifts.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Dead Bug</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=dead+bug+exercise+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Opposite arm and leg. Lower back stays glued down.</div></td>
+            <td class="ex-time">10 per side</td>
+            <td class="ex-notes">Slow beats many.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Suitcase Carry</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=suitcase+carry+kettlebell+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">One bell, walk tall, do not lean away from it.</div></td>
+            <td class="ex-time">30 sec per side</td>
+            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Straight through, 30 sec between rounds.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--evening)"></div>
+        <span class="session-name" style="color:var(--evening)">Block 5 · Armour</span>
+        <span class="session-tag">4 min · same every session</span>
+      </div>
+      <div class="session-note"><span>Mobility placed where you would otherwise stand around recovering. Same four positions every session &mdash; that repetition is exactly what changes your range.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">Deep Squat Hold</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=deep+squat+hold+mobility+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Sit in the bottom and breathe.</div></td>
+            <td class="ex-time">60 sec</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Half-Kneeling Hip Flexor Stretch</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=half+kneeling+hip+flexor+stretch+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Squeeze the glute of the back leg, tuck the pelvis.</div></td>
+            <td class="ex-time">45 sec per side</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Open Book</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=open+book+thoracic+rotation+stretch+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Follow the hand with your eyes, exhale into the rotation.</div></td>
+            <td class="ex-time">8 per side</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Kneeling Wrist Prep</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kneeling+wrist+stretch+mobility+routine+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Stretch, never a pinch.</div></td>
+            <td class="ex-time">30 sec</td>
+            <td class="ex-notes"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name finish">Block 6 · Oxidise</span>
+        <span class="session-tag">8 min · steady state</span>
+      </div>
+      <div class="session-note"><span>Fatty acids are circulating now. This block burns them. Conversational pace &mdash; you should be able to speak a short sentence.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr class="choose-row"><td colspan="3"><span class="bp-badge b-choose">Choose one</span></td></tr>
+          <tr>
+            <td><span class="ex-name">Brisk Walk or Easy Jog</span><div class="ex-cue">Outdoors if you can. Conversational pace.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes">Nose-breathe if possible.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Shadow Boxing</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=shadow+boxing+beginner+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Light, rhythmic, keep moving.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Easy KB Swing Intervals</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">10 swings, 30 sec walk, repeat.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes">Easy effort &mdash; not another hard block.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note "><span><strong>Want the bigger burn?</strong> Take this block to 16&ndash;18 minutes. Session becomes ~55 min and matches BellyProof's total output.</span></div>
+    </div>
+  </div>
+
+  <!-- ========== Climb & Press ========== -->
+  <div class="day-block" id="wo-2">
+    <div class="day-header">
+      <div class="day-number">WO 2</div>
+      <div class="day-title">Climb &amp; Press</div>
+      <div class="day-tags"><span class="tag tag-time">~46 min</span></div>
+    </div>
+    <div class="session-note progress" style="border-top:none"><span>Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Mountain Climbers</strong> and <strong>KB Clean &amp; Press</strong>.</span></div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name warmup">Prime</span>
+        <span class="session-tag">4 min · same every session</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Halos</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+halo+exercise+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Bell around the head, elbows tight.</div></td>
+            <td class="ex-time">5 each way</td>
+            <td class="ex-notes">Shoulders.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Bodyweight Good Morning</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=bodyweight+good+morning+hip+hinge+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hands on head, push the hips back, flat back.</div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Grooves the hinge.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Bodyweight Squats</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=bodyweight+squat+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Full depth, heels down.</div></td>
+            <td class="ex-time">15 reps</td>
+            <td class="ex-notes">Knees and hips.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Ankle Rocks</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ankle+mobility+rocking+drill+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Drive the knee forward, heel stays flat.</div></td>
+            <td class="ex-time">10 per side</td>
+            <td class="ex-notes">Ankles.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Block 1 · Fat Break</span>
+        <span class="int-badge int-hard">Hard · &times;3</span>
+        <span class="session-tag">10 min · 3 rounds</span>
+      </div>
+      <div class="session-note"><span>Straight through, no rest inside the round. This is the mobilising work &mdash; you should be genuinely breathless by the last move.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Swing (two-hand)</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hip snap, not a squat. Arms only guide the bell.</div></td>
+            <td class="ex-time">20 reps</td>
+            <td class="ex-notes">The engine of the whole programme. If one move survived, this is it.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Push-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Body in one line, elbows ~45&deg;.</div></td>
+            <td class="ex-time">10&ndash;12 reps</td>
+            <td class="ex-notes">Hands on a chair or worktop to scale it &mdash; the higher the hands, the lighter it is.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Mountain Climbers</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=mountain+climbers+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hips low, drive the knees fast.</div></td>
+            <td class="ex-time">30 fast</td>
+            <td class="ex-notes"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> &mdash; 60 sec. Fast walk, then slow nasal breathing.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Block 2 · Fat Burn</span>
+        <span class="int-badge int-green">Steady · &times;3</span>
+        <span class="session-tag">11 min · 3 rounds</span>
+      </div>
+      <div class="session-note"><span>Moderate and controlled &mdash; more sweat, harder to concentrate, but never breathless. This is the block that protects your muscle.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Romanian Deadlift</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+romanian+deadlift+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Flat back, push the hips back, feel the hamstrings.</div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Slow 3-second lower.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Walk the feet in to make it easier, out to make it harder. No equipment needed.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Reverse Lunge</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back, torso upright, back knee tracks down.</div></td>
+            <td class="ex-time">10 per leg</td>
+            <td class="ex-notes">Bodyweight only &mdash; kept clear of your pistol work.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">KB Clean &amp; Press</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+clean+and+press+tutorial+form" target="_blank">&#9654; Video</a><div class="ex-cue">Clean to the shoulder, pause, then press. No leg drive.</div></td>
+            <td class="ex-time">6 per side</td>
+            <td class="ex-notes">Your overhead strength session.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Rest 45 sec between rounds.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Block 3 · Fat Break</span>
+        <span class="int-badge int-hard">Hard · &times;2</span>
+        <span class="session-tag">5 min · 2 rounds</span>
+      </div>
+      <div class="session-note"><span>Second hormonal hit, now on a tired system. Shorter and sharper.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Thruster</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+thruster+goblet+squat+press+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Goblet squat straight into an overhead press. One movement.</div></td>
+            <td class="ex-time">12 reps</td>
+            <td class="ex-notes">Your squat and your overhead press in a single move.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Mountain Climbers</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=mountain+climbers+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hips low, drive the knees fast.</div></td>
+            <td class="ex-time">30 fast</td>
+            <td class="ex-notes"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> &mdash; 60 sec fast walk.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Block 4 · Trunk &amp; Carry</span>
+        <span class="int-badge int-green">&times;2</span>
+        <span class="session-tag">4 min · 2 rounds</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">Hollow Hold</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+hold+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Lower back pressed flat into the floor.</div></td>
+            <td class="ex-time">30 sec</td>
+            <td class="ex-notes">Raise the legs if the back lifts.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Dead Bug</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=dead+bug+exercise+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Opposite arm and leg. Lower back stays glued down.</div></td>
+            <td class="ex-time">10 per side</td>
+            <td class="ex-notes">Slow beats many.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Suitcase Carry</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=suitcase+carry+kettlebell+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">One bell, walk tall, do not lean away from it.</div></td>
+            <td class="ex-time">30 sec per side</td>
+            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Straight through, 30 sec between rounds.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--evening)"></div>
+        <span class="session-name" style="color:var(--evening)">Block 5 · Armour</span>
+        <span class="session-tag">4 min · same every session</span>
+      </div>
+      <div class="session-note"><span>Mobility placed where you would otherwise stand around recovering. Same four positions every session &mdash; that repetition is exactly what changes your range.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">Deep Squat Hold</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=deep+squat+hold+mobility+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Sit in the bottom and breathe.</div></td>
+            <td class="ex-time">60 sec</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Half-Kneeling Hip Flexor Stretch</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=half+kneeling+hip+flexor+stretch+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Squeeze the glute of the back leg, tuck the pelvis.</div></td>
+            <td class="ex-time">45 sec per side</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Open Book</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=open+book+thoracic+rotation+stretch+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Follow the hand with your eyes, exhale into the rotation.</div></td>
+            <td class="ex-time">8 per side</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Kneeling Wrist Prep</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kneeling+wrist+stretch+mobility+routine+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Stretch, never a pinch.</div></td>
+            <td class="ex-time">30 sec</td>
+            <td class="ex-notes"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name finish">Block 6 · Oxidise</span>
+        <span class="session-tag">8 min · steady state</span>
+      </div>
+      <div class="session-note"><span>Fatty acids are circulating now. This block burns them. Conversational pace &mdash; you should be able to speak a short sentence.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr class="choose-row"><td colspan="3"><span class="bp-badge b-choose">Choose one</span></td></tr>
+          <tr>
+            <td><span class="ex-name">Brisk Walk or Easy Jog</span><div class="ex-cue">Outdoors if you can. Conversational pace.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes">Nose-breathe if possible.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Shadow Boxing</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=shadow+boxing+beginner+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Light, rhythmic, keep moving.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Easy KB Swing Intervals</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">10 swings, 30 sec walk, repeat.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes">Easy effort &mdash; not another hard block.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note "><span><strong>Want the bigger burn?</strong> Take this block to 16&ndash;18 minutes. Session becomes ~55 min and matches BellyProof's total output.</span></div>
+    </div>
+  </div>
+
+  <!-- ========== Burpee & Get-Up ========== -->
+  <div class="day-block" id="wo-3">
+    <div class="day-header">
+      <div class="day-number">WO 3</div>
+      <div class="day-title">Burpee &amp; Get-Up</div>
+      <div class="day-tags"><span class="tag tag-time">~46 min</span></div>
+    </div>
+    <div class="session-note progress" style="border-top:none"><span>Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Step-Back Burpee</strong> and <strong>Turkish Get-Up</strong>.</span></div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name warmup">Prime</span>
+        <span class="session-tag">4 min · same every session</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Halos</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+halo+exercise+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Bell around the head, elbows tight.</div></td>
+            <td class="ex-time">5 each way</td>
+            <td class="ex-notes">Shoulders.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Bodyweight Good Morning</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=bodyweight+good+morning+hip+hinge+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hands on head, push the hips back, flat back.</div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Grooves the hinge.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Bodyweight Squats</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=bodyweight+squat+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Full depth, heels down.</div></td>
+            <td class="ex-time">15 reps</td>
+            <td class="ex-notes">Knees and hips.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Ankle Rocks</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ankle+mobility+rocking+drill+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Drive the knee forward, heel stays flat.</div></td>
+            <td class="ex-time">10 per side</td>
+            <td class="ex-notes">Ankles.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Block 1 · Fat Break</span>
+        <span class="int-badge int-hard">Hard · &times;3</span>
+        <span class="session-tag">10 min · 3 rounds</span>
+      </div>
+      <div class="session-note"><span>Straight through, no rest inside the round. This is the mobilising work &mdash; you should be genuinely breathless by the last move.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Swing (two-hand)</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hip snap, not a squat. Arms only guide the bell.</div></td>
+            <td class="ex-time">20 reps</td>
+            <td class="ex-notes">The engine of the whole programme. If one move survived, this is it.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Push-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Body in one line, elbows ~45&deg;.</div></td>
+            <td class="ex-time">10&ndash;12 reps</td>
+            <td class="ex-notes">Hands on a chair or worktop to scale it &mdash; the higher the hands, the lighter it is.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Step-Back Burpee</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=step+back+burpee+low+impact+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back and up rather than jumping. Hop at the top optional.</div></td>
+            <td class="ex-time">8 reps</td>
+            <td class="ex-notes">Low-impact version by design.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> &mdash; 60 sec. Fast walk, then slow nasal breathing.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Block 2 · Fat Burn</span>
+        <span class="int-badge int-green">Steady · &times;3</span>
+        <span class="session-tag">11 min · 3 rounds</span>
+      </div>
+      <div class="session-note"><span>Moderate and controlled &mdash; more sweat, harder to concentrate, but never breathless. This is the block that protects your muscle.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Romanian Deadlift</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+romanian+deadlift+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Flat back, push the hips back, feel the hamstrings.</div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Slow 3-second lower.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Walk the feet in to make it easier, out to make it harder. No equipment needed.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Reverse Lunge</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back, torso upright, back knee tracks down.</div></td>
+            <td class="ex-time">10 per leg</td>
+            <td class="ex-notes">Bodyweight only &mdash; kept clear of your pistol work.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Turkish Get-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=turkish+get+up+kettlebell+tutorial+step+by+step" target="_blank">&#9654; Video</a><div class="ex-cue">Never rush it. Eyes on the bell until standing.</div></td>
+            <td class="ex-time">2 per side</td>
+            <td class="ex-notes">Shoulder stability and rotation &mdash; nothing else covers this.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Rest 45 sec between rounds.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Block 3 · Fat Break</span>
+        <span class="int-badge int-hard">Hard · &times;2</span>
+        <span class="session-tag">5 min · 2 rounds</span>
+      </div>
+      <div class="session-note"><span>Second hormonal hit, now on a tired system. Shorter and sharper.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Thruster</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+thruster+goblet+squat+press+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Goblet squat straight into an overhead press. One movement.</div></td>
+            <td class="ex-time">12 reps</td>
+            <td class="ex-notes">Your squat and your overhead press in a single move.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Step-Back Burpee</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=step+back+burpee+low+impact+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back and up rather than jumping. Hop at the top optional.</div></td>
+            <td class="ex-time">8 reps</td>
+            <td class="ex-notes">Low-impact version by design.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> &mdash; 60 sec fast walk.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Block 4 · Trunk &amp; Carry</span>
+        <span class="int-badge int-green">&times;2</span>
+        <span class="session-tag">4 min · 2 rounds</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">Hollow Hold</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+hold+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Lower back pressed flat into the floor.</div></td>
+            <td class="ex-time">30 sec</td>
+            <td class="ex-notes">Raise the legs if the back lifts.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Dead Bug</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=dead+bug+exercise+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Opposite arm and leg. Lower back stays glued down.</div></td>
+            <td class="ex-time">10 per side</td>
+            <td class="ex-notes">Slow beats many.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Suitcase Carry</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=suitcase+carry+kettlebell+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">One bell, walk tall, do not lean away from it.</div></td>
+            <td class="ex-time">30 sec per side</td>
+            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Straight through, 30 sec between rounds.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--evening)"></div>
+        <span class="session-name" style="color:var(--evening)">Block 5 · Armour</span>
+        <span class="session-tag">4 min · same every session</span>
+      </div>
+      <div class="session-note"><span>Mobility placed where you would otherwise stand around recovering. Same four positions every session &mdash; that repetition is exactly what changes your range.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">Deep Squat Hold</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=deep+squat+hold+mobility+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Sit in the bottom and breathe.</div></td>
+            <td class="ex-time">60 sec</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Half-Kneeling Hip Flexor Stretch</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=half+kneeling+hip+flexor+stretch+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Squeeze the glute of the back leg, tuck the pelvis.</div></td>
+            <td class="ex-time">45 sec per side</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Open Book</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=open+book+thoracic+rotation+stretch+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Follow the hand with your eyes, exhale into the rotation.</div></td>
+            <td class="ex-time">8 per side</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Kneeling Wrist Prep</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kneeling+wrist+stretch+mobility+routine+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Stretch, never a pinch.</div></td>
+            <td class="ex-time">30 sec</td>
+            <td class="ex-notes"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name finish">Block 6 · Oxidise</span>
+        <span class="session-tag">8 min · steady state</span>
+      </div>
+      <div class="session-note"><span>Fatty acids are circulating now. This block burns them. Conversational pace &mdash; you should be able to speak a short sentence.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr class="choose-row"><td colspan="3"><span class="bp-badge b-choose">Choose one</span></td></tr>
+          <tr>
+            <td><span class="ex-name">Brisk Walk or Easy Jog</span><div class="ex-cue">Outdoors if you can. Conversational pace.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes">Nose-breathe if possible.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Shadow Boxing</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=shadow+boxing+beginner+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Light, rhythmic, keep moving.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Easy KB Swing Intervals</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">10 swings, 30 sec walk, repeat.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes">Easy effort &mdash; not another hard block.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note "><span><strong>Want the bigger burn?</strong> Take this block to 16&ndash;18 minutes. Session becomes ~55 min and matches BellyProof's total output.</span></div>
+    </div>
+  </div>
+
+  <!-- ========== Skate & Floor Press ========== -->
+  <div class="day-block" id="wo-4">
+    <div class="day-header">
+      <div class="day-number">WO 4</div>
+      <div class="day-title">Skate &amp; Floor Press</div>
+      <div class="day-tags"><span class="tag tag-time">~46 min</span></div>
+    </div>
+    <div class="session-note progress" style="border-top:none"><span>Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Skater Hops</strong> and <strong>KB Floor Press</strong>.</span></div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name warmup">Prime</span>
+        <span class="session-tag">4 min · same every session</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Halos</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+halo+exercise+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Bell around the head, elbows tight.</div></td>
+            <td class="ex-time">5 each way</td>
+            <td class="ex-notes">Shoulders.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Bodyweight Good Morning</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=bodyweight+good+morning+hip+hinge+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hands on head, push the hips back, flat back.</div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Grooves the hinge.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Bodyweight Squats</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=bodyweight+squat+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Full depth, heels down.</div></td>
+            <td class="ex-time">15 reps</td>
+            <td class="ex-notes">Knees and hips.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Ankle Rocks</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ankle+mobility+rocking+drill+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Drive the knee forward, heel stays flat.</div></td>
+            <td class="ex-time">10 per side</td>
+            <td class="ex-notes">Ankles.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Block 1 · Fat Break</span>
+        <span class="int-badge int-hard">Hard · &times;3</span>
+        <span class="session-tag">10 min · 3 rounds</span>
+      </div>
+      <div class="session-note"><span>Straight through, no rest inside the round. This is the mobilising work &mdash; you should be genuinely breathless by the last move.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Swing (two-hand)</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hip snap, not a squat. Arms only guide the bell.</div></td>
+            <td class="ex-time">20 reps</td>
+            <td class="ex-notes">The engine of the whole programme. If one move survived, this is it.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Push-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Body in one line, elbows ~45&deg;.</div></td>
+            <td class="ex-time">10&ndash;12 reps</td>
+            <td class="ex-notes">Hands on a chair or worktop to scale it &mdash; the higher the hands, the lighter it is.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Skater Hops</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=skater+hops+lateral+bound+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Low and lateral, soft landings.</div></td>
+            <td class="ex-time">20 total</td>
+            <td class="ex-notes">Lateral power, minimal impact.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> &mdash; 60 sec. Fast walk, then slow nasal breathing.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Block 2 · Fat Burn</span>
+        <span class="int-badge int-green">Steady · &times;3</span>
+        <span class="session-tag">11 min · 3 rounds</span>
+      </div>
+      <div class="session-note"><span>Moderate and controlled &mdash; more sweat, harder to concentrate, but never breathless. This is the block that protects your muscle.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Romanian Deadlift</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+romanian+deadlift+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Flat back, push the hips back, feel the hamstrings.</div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Slow 3-second lower.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div></td>
+            <td class="ex-time">10 reps</td>
+            <td class="ex-notes">Walk the feet in to make it easier, out to make it harder. No equipment needed.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Reverse Lunge</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back, torso upright, back knee tracks down.</div></td>
+            <td class="ex-time">10 per leg</td>
+            <td class="ex-notes">Bodyweight only &mdash; kept clear of your pistol work.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">KB Floor Press</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+floor+press+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Back flat on the floor, elbow stops at the ground.</div></td>
+            <td class="ex-time">10 per side</td>
+            <td class="ex-notes">Horizontal pressing under load.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Rest 45 sec between rounds.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--accent)"></div>
+        <span class="session-name hard">Block 3 · Fat Break</span>
+        <span class="int-badge int-hard">Hard · &times;2</span>
+        <span class="session-tag">5 min · 2 rounds</span>
+      </div>
+      <div class="session-note"><span>Second hormonal hit, now on a tired system. Shorter and sharper.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">KB Thruster</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+thruster+goblet+squat+press+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Goblet squat straight into an overhead press. One movement.</div></td>
+            <td class="ex-time">12 reps</td>
+            <td class="ex-notes">Your squat and your overhead press in a single move.</td>
+          </tr>
+          <tr>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Skater Hops</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=skater+hops+lateral+bound+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Low and lateral, soft landings.</div></td>
+            <td class="ex-time">20 total</td>
+            <td class="ex-notes">Lateral power, minimal impact.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span><strong>Recovery</strong> &mdash; 60 sec fast walk.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--green)"></div>
+        <span class="session-name green">Block 4 · Trunk &amp; Carry</span>
+        <span class="int-badge int-green">&times;2</span>
+        <span class="session-tag">4 min · 2 rounds</span>
+      </div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">Hollow Hold</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=hollow+body+hold+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Lower back pressed flat into the floor.</div></td>
+            <td class="ex-time">30 sec</td>
+            <td class="ex-notes">Raise the legs if the back lifts.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Dead Bug</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=dead+bug+exercise+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Opposite arm and leg. Lower back stays glued down.</div></td>
+            <td class="ex-time">10 per side</td>
+            <td class="ex-notes">Slow beats many.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Suitcase Carry</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=suitcase+carry+kettlebell+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">One bell, walk tall, do not lean away from it.</div></td>
+            <td class="ex-time">30 sec per side</td>
+            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note rest"><span>Straight through, 30 sec between rounds.</span></div>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--evening)"></div>
+        <span class="session-name" style="color:var(--evening)">Block 5 · Armour</span>
+        <span class="session-tag">4 min · same every session</span>
+      </div>
+      <div class="session-note"><span>Mobility placed where you would otherwise stand around recovering. Same four positions every session &mdash; that repetition is exactly what changes your range.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ex-name">Deep Squat Hold</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=deep+squat+hold+mobility+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Sit in the bottom and breathe.</div></td>
+            <td class="ex-time">60 sec</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Half-Kneeling Hip Flexor Stretch</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=half+kneeling+hip+flexor+stretch+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Squeeze the glute of the back leg, tuck the pelvis.</div></td>
+            <td class="ex-time">45 sec per side</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Open Book</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=open+book+thoracic+rotation+stretch+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Follow the hand with your eyes, exhale into the rotation.</div></td>
+            <td class="ex-time">8 per side</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Kneeling Wrist Prep</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kneeling+wrist+stretch+mobility+routine+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Stretch, never a pinch.</div></td>
+            <td class="ex-time">30 sec</td>
+            <td class="ex-notes"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="session">
+      <div class="session-header">
+        <div class="session-stripe" style="background:var(--lunch)"></div>
+        <span class="session-name finish">Block 6 · Oxidise</span>
+        <span class="session-tag">8 min · steady state</span>
+      </div>
+      <div class="session-note"><span>Fatty acids are circulating now. This block burns them. Conversational pace &mdash; you should be able to speak a short sentence.</span></div>
+      <table class="bp-table">
+        <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr class="choose-row"><td colspan="3"><span class="bp-badge b-choose">Choose one</span></td></tr>
+          <tr>
+            <td><span class="ex-name">Brisk Walk or Easy Jog</span><div class="ex-cue">Outdoors if you can. Conversational pace.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes">Nose-breathe if possible.</td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Shadow Boxing</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=shadow+boxing+beginner+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Light, rhythmic, keep moving.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes"></td>
+          </tr>
+          <tr>
+            <td><span class="ex-name">Easy KB Swing Intervals</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+swing+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">10 swings, 30 sec walk, repeat.</div></td>
+            <td class="ex-time">8 min</td>
+            <td class="ex-notes">Easy effort &mdash; not another hard block.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="session-note "><span><strong>Want the bigger burn?</strong> Take this block to 16&ndash;18 minutes. Session becomes ~55 min and matches BellyProof's total output.</span></div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
