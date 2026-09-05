@@ -176,6 +176,8 @@
     border-radius: 2px;
   }
   .tag-time { background: rgba(184,106,0,0.1); color: var(--morning); border: 1px solid rgba(184,106,0,0.25); }
+  .tag-home { background: rgba(26,138,74,0.1); color: var(--green); border: 1px solid rgba(26,138,74,0.28); }
+  .tag-gym { background: rgba(107,63,212,0.1); color: var(--evening); border: 1px solid rgba(107,63,212,0.28); }
 
   /* SET / SESSION BLOCKS */
   .session { border-bottom: 1px solid var(--border); }
@@ -285,6 +287,10 @@
   .ex-alt .alt-name { color: var(--white); font-weight: 500; font-size: 15px; }
   .ex-alt .ex-video { margin-top: 0; vertical-align: baseline; }
   .ex-alt .alt-cue { display: block; margin-top: 3px; font-style: italic; }
+  .ex-alt.alt-gym { background: rgba(107,63,212,0.05); border-left-color: rgba(107,63,212,0.4); }
+  .ex-alt.alt-gym .alt-label { color: var(--evening); }
+  .ex-alt.alt-home { background: rgba(26,138,74,0.05); border-left-color: rgba(26,138,74,0.4); }
+  .ex-alt.alt-home .alt-label { color: var(--green); }
 
   /* BADGES */
   .bp-badge {
@@ -302,6 +308,8 @@
   .b-explode { background: rgba(204,32,32,0.1); color: var(--accent); border: 1px solid rgba(204,32,32,0.25); }
   .b-choose { background: rgba(26,111,212,0.1); color: var(--lunch); border: 1px solid rgba(26,111,212,0.25); }
   .b-rotate { background: rgba(184,106,0,0.12); color: var(--morning); border: 1px solid rgba(184,106,0,0.3); }
+  .b-home { background: rgba(26,138,74,0.1); color: var(--green); border: 1px solid rgba(26,138,74,0.3); }
+  .b-gym { background: rgba(107,63,212,0.1); color: var(--evening); border: 1px solid rgba(107,63,212,0.3); }
 
   /* SESSION NOTE */
   .session-note {
@@ -494,19 +502,20 @@
 <nav class="site-nav-days">
   <a href="#core" class="nav-day-pill" title="The ten moves that never change">Core Ten</a>
   <a href="#changes" class="nav-day-pill" title="The two moves that rotate">What Changes</a>
-  <a href="#wo-1" class="nav-day-pill" title="Squat Jumps + Gorilla Row">Workout 1</a>
-  <a href="#wo-2" class="nav-day-pill" title="Mountain Climbers + Clean &amp; Press">Workout 2</a>
-  <a href="#wo-3" class="nav-day-pill" title="Step-Back Burpee + Turkish Get-Up">Workout 3</a>
-  <a href="#wo-4" class="nav-day-pill" title="Skater Hops + Floor Press">Workout 4</a>
+  <a href="#wo-1" class="nav-day-pill" title="Lounge · Explosive Step-Up + Gorilla Row">WO 1 · Lounge</a>
+  <a href="#wo-2" class="nav-day-pill" title="Lounge · Mountain Climbers + Clean &amp; Press">WO 2 · Lounge</a>
+  <a href="#wo-3" class="nav-day-pill" title="Gym · Step-Back Burpee + Turkish Get-Up">WO 3 · Gym</a>
+  <a href="#wo-4" class="nav-day-pill" title="Gym · Skater Hops + Floor Press">WO 4 · Gym</a>
 </nav>
 
 <header>
-  <div class="header-label">Fasted Fat Loss · Muscle-Sparing · One Kettlebell</div>
+  <div class="header-label">Fasted Fat Loss · Muscle-Sparing · 2 Lounge + 2 Gym</div>
   <h1>AI FAT<br><span>BURN</span></h1>
   <div class="header-meta">
     <div class="meta-pill"><span class="dot" style="background:var(--green)"></span> 10 core moves, learnt once</div>
     <div class="meta-pill"><span class="dot" style="background:var(--morning)"></span> Only 2 change per workout</div>
     <div class="meta-pill"><span class="dot" style="background:var(--lunch)"></span> ~46 min · every move has a video</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--evening)"></span> 2 lounge sessions, 2 gym sessions</div>
   </div>
 </header>
 
@@ -521,7 +530,7 @@
 
   <!-- INTRO -->
   <div class="bp-intro">
-    <div class="bp-intro-head">Ten moves. Two swaps. Four sessions.</div>
+    <div class="bp-intro-head">Ten moves. Two swaps. Two rooms.</div>
     <div class="bp-intro-body">
       <p><strong>Every session in this programme is the same session.</strong> The same warm-up, the same six blocks, the same ten moves in the same order. Only <strong>two moves change</strong> from workout to workout — one explosive, one strength. That's the whole design.</p>
       <p>It means you can hand this to anyone. There is no vocabulary to learn, no page to keep reading mid-workout, and by week two you'll be running it from memory. Which matters more than it sounds: the time you spend reading a page is time you're not working, and confident technique is what lets you actually push hard.</p>
@@ -549,19 +558,32 @@
 
       <p><strong>The order is the point.</strong> Hard bursts release the fat, the steady finisher burns it, the strength work between protects the muscle, the mobility keeps you healthy enough to repeat it. Train <strong>fasted</strong> — insulin is low first thing, and low insulin is when fat releases most freely.</p>
 
-      <p><strong>Equipment:</strong> one kettlebell, a sturdy table (or a bar at hip height) and the floor. That's it. No rings needed anywhere — if you have them, the row swap is noted. Impact is kept moderate throughout: capped jump volume, soft landings, no repeated hard impacts.</p>
-
       <div class="intensity-note">
-        <div class="intensity-cell hard">
-          <div class="lbl">Week 1</div>
-          <div class="txt">Workout 1 → 2 → 3 → 4 → 1</div>
+        <div class="intensity-cell" style="border-left:3px solid var(--green)">
+          <div class="lbl" style="color:var(--green)">Workouts 1 &amp; 2 &mdash; lounge, 5am</div>
+          <div class="txt">Built to run in a room in a sleeping house. No jumping, no landings, no bell hitting the floorboards. The explosive work is a step-up onto the stack and floor-based climbers &mdash; both genuinely hard, neither audible. Pulling is the inverted row under a table.</div>
         </div>
-        <div class="intensity-cell steady">
-          <div class="lbl">Week 2</div>
-          <div class="txt">Workout 2 → 3 → 4 → 1 → 2</div>
+        <div class="intensity-cell" style="border-left:3px solid var(--evening)">
+          <div class="lbl" style="color:var(--evening)">Workouts 3 &amp; 4 &mdash; gym</div>
+          <div class="txt">Same six blocks, same ten moves, two things the lounge cannot give you: real jumping (burpees, skater hops) on a floor that can take it, and a <strong>pull-up bar</strong> &mdash; the vertical pull replaces the table row in Block 2. That one change closes the only real gap in the programme.</div>
         </div>
       </div>
-      <p>Run them as a <strong>rolling cycle across five sessions a week</strong>. Because the sessions are near-identical, it genuinely doesn't matter if you lose track — pick up wherever.</p>
+      <p><strong>The split costs you nothing.</strong> The lounge sessions are not a watered-down version: a hard explosive step-up and a heavy swing move the same hormones a squat jump does, and they are kinder to the knees you are asking to do pistol squats. The gym sessions are strictly better than the original, because they add the vertical pulling it was missing. Either room, it is the same session &mdash; you still only learn it once.</p>
+
+      <p><strong>Equipment, lounge:</strong> one kettlebell, the floor, a sturdy table (or anything with a hip-height edge) and your adjustable stack. Nothing else. The stack does three jobs — it is the platform for the explosive step-up, the height adjuster that scales your push-ups, and the way you load the inverted row harder by putting your feet up on it. No rings needed anywhere; if you have them, the row swap is noted.</p>
+      <p><strong>Equipment, gym:</strong> all of the above plus a pull-up bar, which is the only thing the gym is genuinely needed for. Impact is kept moderate throughout: capped jump volume, soft landings, no repeated hard impacts — and no landings at all in the lounge sessions.</p>
+
+      <div class="intensity-note">
+        <div class="intensity-cell" style="border-left:3px solid var(--green)">
+          <div class="lbl" style="color:var(--green)">Three lounge sessions</div>
+          <div class="txt">Just alternate the pair: WO 1 → WO 2 → WO 1, then start the next week on WO 2.</div>
+        </div>
+        <div class="intensity-cell" style="border-left:3px solid var(--evening)">
+          <div class="lbl" style="color:var(--evening)">Two gym sessions</div>
+          <div class="txt">WO 3 and WO 4, on whichever two days you have access. Order does not matter.</div>
+        </div>
+      </div>
+      <p><strong>Fit the workout to the room, not to a fixed cycle.</strong> Five sessions a week: the two days you can get to a gym are WO 3 and WO 4, the other three are the lounge pair alternating. A typical week runs <strong>1 · 3 · 2 · 4 · 1</strong>. Because the sessions are near-identical it genuinely doesn't matter if you lose track — the only rule worth keeping is <em>don't run the same workout two days running</em>. If a gym day falls through, do a lounge session and take the pull-ups next time.</p>
 
       <p><strong>How to progress:</strong> keep the structure fixed and change one thing at a time. Weeks 1–2, learn the moves and hold the numbers. Then, in this order — add reps to the Fat Burn block, then add load, then cut the recovery between Fat Break rounds. Don't cut recovery first: the hard blocks only work if they're genuinely hard, and they can't be if you never recover.</p>
 
@@ -574,11 +596,11 @@
         </div>
         <div class="intensity-cell" style="border-left:3px solid var(--accent)">
           <div class="lbl" style="color:var(--accent)">What it gives up</div>
-          <div class="txt">Less exercise variety means the same tissues take load more often — the two rotating slots and the fixed mobility block exist specifically to offset that, but it's the real cost. There's no vertical pulling here, and less breadth of trunk and shoulder work than a longer, more varied programme.</div>
+          <div class="txt">Less exercise variety means the same tissues take load more often — the two rotating slots and the fixed mobility block exist specifically to offset that, but it's the real cost. Vertical pulling only happens on the two gym days, so a week where you never reach a gym gives you none. There is also less breadth of trunk and shoulder work than a longer, more varied programme.</div>
         </div>
       </div>
 
-      <p class="small">An independent workout built on the same underlying principles as BellyProof — not the BellyProof programme. General fitness guidance, not medical advice. Heavy single-leg and maximal pulling work are deliberately left out so these sessions don't eat into pistol squat and ring muscle-up training.</p>
+      <p class="small">An independent workout built on the same underlying principles as BellyProof — not the BellyProof programme. General fitness guidance, not medical advice. Heavy single-leg work and maximal pulling are deliberately left out so these sessions don't eat into pistol squat and ring muscle-up training &mdash; the gym-day pull-ups are capped at 5&ndash;6 comfortable reps for exactly that reason. If your main plan has a heavy pull that day, do the table row here instead.</p>
     </div>
   </div>
 
@@ -596,7 +618,7 @@
         <span class="session-name green">Learn these ten and you know the whole programme</span>
         <span class="session-tag">Every session, every week</span>
       </div>
-      <div class="session-note"><span>These are the only moves you actually have to learn. They appear in all four workouts in the same order, at the same reps. After two weeks you will not need to read the page.</span></div>
+      <div class="session-note"><span>These are the only moves you actually have to learn. They appear in all four workouts in the same order, at the same reps. After two weeks you will not need to read the page. <strong>One slot changes with the room:</strong> the pull is an inverted row at home and a pull-up at the gym &mdash; same job, and the gym version is the better one.</span></div>
       <table class="bp-table">
         <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
         <tbody>
@@ -608,7 +630,7 @@
           <tr>
             <td><span class="ex-name">Push-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Body in one line, elbows ~45&deg;.</div></td>
             <td class="ex-time">10&ndash;12 reps</td>
-            <td class="ex-notes">Hands on a chair or worktop to scale it &mdash; the higher the hands, the lighter it is.</td>
+            <td class="ex-notes">Hands on the adjustable stack to scale it &mdash; the higher the hands, the lighter it is. Drop it a notch as you get stronger.</td>
           </tr>
           <tr>
             <td><span class="ex-name">KB Thruster</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+thruster+goblet+squat+press+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Goblet squat straight into an overhead press. One movement.</div></td>
@@ -621,9 +643,9 @@
             <td class="ex-notes">Slow 3-second lower.</td>
           </tr>
           <tr>
-            <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div></td>
+            <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div><div class="ex-alt alt-gym"><span class="alt-label">Gym day</span><span class="alt-name">Pull-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=pull+up+proper+form+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">On the two gym days this slot goes vertical instead &mdash; 5&ndash;6 reps, always stopping two short of failure. Same slot, better version. It is the one gap this programme otherwise has.</span></div></td>
             <td class="ex-time">10 reps</td>
-            <td class="ex-notes">Walk the feet in to make it easier, out to make it harder. No equipment needed.</td>
+            <td class="ex-notes">Feet in to make it easier, feet up on the stack to make it harder. The one slot that differs between lounge and gym.</td>
           </tr>
           <tr>
             <td><span class="ex-name">Reverse Lunge</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back, torso upright, back knee tracks down.</div></td>
@@ -643,7 +665,7 @@
           <tr>
             <td><span class="ex-name">Suitcase Carry</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=suitcase+carry+kettlebell+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">One bell, walk tall, do not lean away from it.</div></td>
             <td class="ex-time">30 sec per side</td>
-            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it.</td>
+            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it. No room to walk? March on the spot &mdash; the bell still has to be resisted.</td>
           </tr>
           <tr>
             <td><span class="ex-name">Steady Finisher</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=brisk+walking+workout+beginner" target="_blank">&#9654; Video</a><div class="ex-cue">Walk, jog, shadow box or easy swings &mdash; your pick, every time.</div></td>
@@ -668,27 +690,27 @@
         <span class="session-name">Eight rotating moves, two per workout</span>
         <span class="session-tag">The only difference between the four sessions</span>
       </div>
-      <div class="session-note"><span>Two slots rotate: one <strong>explosive</strong> move in the Fat Break blocks, one <strong>strength</strong> move in Fat Burn. They exist to stop the same tissues taking the same load five days a week, and to cover what the core ten cannot &mdash; overhead pressing, rotation and shoulder stability.</span></div>
+      <div class="session-note"><span>Two slots rotate: one <strong>explosive</strong> move in the Fat Break blocks, one <strong>strength</strong> move in Fat Burn. They exist to stop the same tissues taking the same load five days a week, and to cover what the core ten cannot &mdash; overhead pressing, rotation and shoulder stability. The <span class="bp-badge b-home" style="margin:0 2px">Lounge</span> pair are silent and landing-free; the <span class="bp-badge b-gym" style="margin:0 2px">Gym</span> pair use the floor and the bar.</span></div>
       <table class="bp-table">
         <thead><tr><th style="width:26%">Workout</th><th>Explosive slot</th><th>Strength slot</th></tr></thead>
         <tbody>
           <tr>
-            <td><span class="ex-name">Jump &amp; Row</span><div class="ex-cue">WO 1</div></td>
-            <td><span class="ex-name" style="font-size:16px">Squat Jumps</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=squat+jump+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">6 reps</div></td>
+            <td><span class="ex-name">Step-Up &amp; Row</span><div class="ex-cue">WO 1</div><span class="bp-badge b-home" style="margin-top:6px">Lounge</span></td>
+            <td><span class="ex-name" style="font-size:16px">Explosive Step-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=explosive+step+up+box+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">6 per leg &middot; onto the stack</div></td>
             <td><span class="ex-name" style="font-size:16px">KB Gorilla Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+gorilla+row+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">8 per side</div></td>
           </tr>
           <tr>
-            <td><span class="ex-name">Climb &amp; Press</span><div class="ex-cue">WO 2</div></td>
+            <td><span class="ex-name">Climb &amp; Press</span><div class="ex-cue">WO 2</div><span class="bp-badge b-home" style="margin-top:6px">Lounge</span></td>
             <td><span class="ex-name" style="font-size:16px">Mountain Climbers</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=mountain+climbers+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">30 fast</div></td>
             <td><span class="ex-name" style="font-size:16px">KB Clean &amp; Press</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+clean+and+press+tutorial+form" target="_blank">&#9654; Video</a><div class="ex-cue">6 per side</div></td>
           </tr>
           <tr>
-            <td><span class="ex-name">Burpee &amp; Get-Up</span><div class="ex-cue">WO 3</div></td>
+            <td><span class="ex-name">Burpee &amp; Get-Up</span><div class="ex-cue">WO 3</div><span class="bp-badge b-gym" style="margin-top:6px">Gym</span></td>
             <td><span class="ex-name" style="font-size:16px">Step-Back Burpee</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=step+back+burpee+low+impact+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">8 reps</div></td>
             <td><span class="ex-name" style="font-size:16px">Turkish Get-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=turkish+get+up+kettlebell+tutorial+step+by+step" target="_blank">&#9654; Video</a><div class="ex-cue">2 per side</div></td>
           </tr>
           <tr>
-            <td><span class="ex-name">Skate &amp; Floor Press</span><div class="ex-cue">WO 4</div></td>
+            <td><span class="ex-name">Skate &amp; Floor Press</span><div class="ex-cue">WO 4</div><span class="bp-badge b-gym" style="margin-top:6px">Gym</span></td>
             <td><span class="ex-name" style="font-size:16px">Skater Hops</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=skater+hops+lateral+bound+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">20 total</div></td>
             <td><span class="ex-name" style="font-size:16px">KB Floor Press</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=kettlebell+floor+press+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">10 per side</div></td>
           </tr>
@@ -701,10 +723,10 @@
   <div class="day-block" id="wo-1">
     <div class="day-header">
       <div class="day-number">WO 1</div>
-      <div class="day-title">Jump &amp; Row</div>
-      <div class="day-tags"><span class="tag tag-time">~46 min</span></div>
+      <div class="day-title">Step-Up &amp; Row</div>
+      <div class="day-tags"><span class="tag tag-home">Lounge · 5am</span><span class="tag tag-time">~46 min</span></div>
     </div>
-    <div class="session-note progress" style="border-top:none"><span>Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Squat Jumps</strong> and <strong>KB Gorilla Row</strong>.</span></div>
+    <div class="session-note progress" style="border-top:none"><span><strong>Lounge session.</strong> One kettlebell, the floor and the adjustable stack. Nothing loud, nothing that lands hard — the whole session runs at 5am without waking the house. Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Explosive Step-Up</strong> and <strong>KB Gorilla Row</strong>.</span></div>
 
     <div class="session">
       <div class="session-header">
@@ -758,12 +780,12 @@
           <tr>
             <td><span class="ex-name">Push-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Body in one line, elbows ~45&deg;.</div></td>
             <td class="ex-time">10&ndash;12 reps</td>
-            <td class="ex-notes">Hands on a chair or worktop to scale it &mdash; the higher the hands, the lighter it is.</td>
+            <td class="ex-notes">Hands on the adjustable stack to scale it &mdash; the higher the hands, the lighter it is. Drop it a notch as you get stronger.</td>
           </tr>
           <tr>
-            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Squat Jumps</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=squat+jump+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Land soft, absorb through the hips.</div></td>
-            <td class="ex-time">6 reps</td>
-            <td class="ex-notes">Capped deliberately &mdash; quality landings only.</td>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Explosive Step-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=explosive+step+up+box+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Drive hard off the top foot, step back down under control. All of the power, none of the landing.</div><div class="ex-alt alt-gym"><span class="alt-label">On a gym floor</span><span class="alt-name">Squat Jumps</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=squat+jump+technique+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">6 reps, land soft. Same job, but not at 5am above someone else’s ceiling.</span></div></td>
+            <td class="ex-time">6 per leg</td>
+            <td class="ex-notes">Stack at roughly knee height. Silent, and no landing impact on the joints your pistol work needs.</td>
           </tr>
         </tbody>
       </table>
@@ -789,7 +811,7 @@
           <tr>
             <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div></td>
             <td class="ex-time">10 reps</td>
-            <td class="ex-notes">Walk the feet in to make it easier, out to make it harder. No equipment needed.</td>
+            <td class="ex-notes">Feet in to make it easier, feet up on the stack to make it harder &mdash; that is your progression at home.</td>
           </tr>
           <tr>
             <td><span class="ex-name">Reverse Lunge</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back, torso upright, back knee tracks down.</div></td>
@@ -823,9 +845,9 @@
             <td class="ex-notes">Your squat and your overhead press in a single move.</td>
           </tr>
           <tr>
-            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Squat Jumps</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=squat+jump+technique+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Land soft, absorb through the hips.</div></td>
-            <td class="ex-time">6 reps</td>
-            <td class="ex-notes">Capped deliberately &mdash; quality landings only.</td>
+            <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Explosive Step-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=explosive+step+up+box+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Drive hard off the top foot, step back down under control. All of the power, none of the landing.</div><div class="ex-alt alt-gym"><span class="alt-label">On a gym floor</span><span class="alt-name">Squat Jumps</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=squat+jump+technique+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">6 reps, land soft. Same job, but not at 5am above someone else’s ceiling.</span></div></td>
+            <td class="ex-time">6 per leg</td>
+            <td class="ex-notes">Stack at roughly knee height. Silent, and no landing impact on the joints your pistol work needs.</td>
           </tr>
         </tbody>
       </table>
@@ -855,7 +877,7 @@
           <tr>
             <td><span class="ex-name">Suitcase Carry</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=suitcase+carry+kettlebell+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">One bell, walk tall, do not lean away from it.</div></td>
             <td class="ex-time">30 sec per side</td>
-            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it.</td>
+            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it. No room to walk? March on the spot &mdash; the bell still has to be resisted.</td>
           </tr>
         </tbody>
       </table>
@@ -902,7 +924,7 @@
         <span class="session-name finish">Block 6 · Oxidise</span>
         <span class="session-tag">8 min · steady state</span>
       </div>
-      <div class="session-note"><span>Fatty acids are circulating now. This block burns them. Conversational pace &mdash; you should be able to speak a short sentence.</span></div>
+      <div class="session-note"><span>Fatty acids are circulating now. This block burns them. Conversational pace &mdash; you should be able to speak a short sentence. <strong>At 5am:</strong> shadow boxing and easy swing intervals are both silent, and stepping onto the stack for 8 minutes works too. Save the walk for lighter mornings.</span></div>
       <table class="bp-table">
         <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
         <tbody>
@@ -933,9 +955,9 @@
     <div class="day-header">
       <div class="day-number">WO 2</div>
       <div class="day-title">Climb &amp; Press</div>
-      <div class="day-tags"><span class="tag tag-time">~46 min</span></div>
+      <div class="day-tags"><span class="tag tag-home">Lounge · 5am</span><span class="tag tag-time">~46 min</span></div>
     </div>
-    <div class="session-note progress" style="border-top:none"><span>Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Mountain Climbers</strong> and <strong>KB Clean &amp; Press</strong>.</span></div>
+    <div class="session-note progress" style="border-top:none"><span><strong>Lounge session.</strong> One kettlebell, the floor and the adjustable stack. Climbers are floor-based and the clean is racked, not dropped — keep the bell off the floorboards and this is a quiet session. Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Mountain Climbers</strong> and <strong>KB Clean &amp; Press</strong>.</span></div>
 
     <div class="session">
       <div class="session-header">
@@ -989,7 +1011,7 @@
           <tr>
             <td><span class="ex-name">Push-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Body in one line, elbows ~45&deg;.</div></td>
             <td class="ex-time">10&ndash;12 reps</td>
-            <td class="ex-notes">Hands on a chair or worktop to scale it &mdash; the higher the hands, the lighter it is.</td>
+            <td class="ex-notes">Hands on the adjustable stack to scale it &mdash; the higher the hands, the lighter it is. Drop it a notch as you get stronger.</td>
           </tr>
           <tr>
             <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Mountain Climbers</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=mountain+climbers+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Hips low, drive the knees fast.</div></td>
@@ -1020,7 +1042,7 @@
           <tr>
             <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div></td>
             <td class="ex-time">10 reps</td>
-            <td class="ex-notes">Walk the feet in to make it easier, out to make it harder. No equipment needed.</td>
+            <td class="ex-notes">Feet in to make it easier, feet up on the stack to make it harder &mdash; that is your progression at home.</td>
           </tr>
           <tr>
             <td><span class="ex-name">Reverse Lunge</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back, torso upright, back knee tracks down.</div></td>
@@ -1086,7 +1108,7 @@
           <tr>
             <td><span class="ex-name">Suitcase Carry</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=suitcase+carry+kettlebell+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">One bell, walk tall, do not lean away from it.</div></td>
             <td class="ex-time">30 sec per side</td>
-            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it.</td>
+            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it. No room to walk? March on the spot &mdash; the bell still has to be resisted.</td>
           </tr>
         </tbody>
       </table>
@@ -1133,7 +1155,7 @@
         <span class="session-name finish">Block 6 · Oxidise</span>
         <span class="session-tag">8 min · steady state</span>
       </div>
-      <div class="session-note"><span>Fatty acids are circulating now. This block burns them. Conversational pace &mdash; you should be able to speak a short sentence.</span></div>
+      <div class="session-note"><span>Fatty acids are circulating now. This block burns them. Conversational pace &mdash; you should be able to speak a short sentence. <strong>At 5am:</strong> shadow boxing and easy swing intervals are both silent, and stepping onto the stack for 8 minutes works too. Save the walk for lighter mornings.</span></div>
       <table class="bp-table">
         <thead><tr><th style="width:44%">Move</th><th>Reps / Time</th><th>Notes</th></tr></thead>
         <tbody>
@@ -1164,9 +1186,9 @@
     <div class="day-header">
       <div class="day-number">WO 3</div>
       <div class="day-title">Burpee &amp; Get-Up</div>
-      <div class="day-tags"><span class="tag tag-time">~46 min</span></div>
+      <div class="day-tags"><span class="tag tag-gym">Gym</span><span class="tag tag-time">~46 min</span></div>
     </div>
-    <div class="session-note progress" style="border-top:none"><span>Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Step-Back Burpee</strong> and <strong>Turkish Get-Up</strong>.</span></div>
+    <div class="session-note progress" style="border-top:none"><span><strong>Gym session.</strong> Adds the pull-up bar: the vertical pull replaces the table row in Block 2. Noise and landings do not matter here, so the explosive slot is a full burpee. Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Step-Back Burpee</strong> and <strong>Turkish Get-Up</strong>.</span></div>
 
     <div class="session">
       <div class="session-header">
@@ -1220,7 +1242,7 @@
           <tr>
             <td><span class="ex-name">Push-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Body in one line, elbows ~45&deg;.</div></td>
             <td class="ex-time">10&ndash;12 reps</td>
-            <td class="ex-notes">Hands on a chair or worktop to scale it &mdash; the higher the hands, the lighter it is.</td>
+            <td class="ex-notes">Hands on the adjustable stack to scale it &mdash; the higher the hands, the lighter it is. Drop it a notch as you get stronger.</td>
           </tr>
           <tr>
             <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Step-Back Burpee</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=step+back+burpee+low+impact+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back and up rather than jumping. Hop at the top optional.</div></td>
@@ -1249,9 +1271,9 @@
             <td class="ex-notes">Slow 3-second lower.</td>
           </tr>
           <tr>
-            <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div></td>
-            <td class="ex-time">10 reps</td>
-            <td class="ex-notes">Walk the feet in to make it easier, out to make it harder. No equipment needed.</td>
+            <td><span class="bp-badge b-gym">Gym</span><span class="ex-name">Pull-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=pull+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Full hang to chin over the bar, shoulders pulled down first. Stop two reps short of failure &mdash; always.</div><div class="ex-alt alt-home"><span class="alt-label">No bar</span><span class="alt-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Fall back to the table row if the bar is busy or the arms are cooked.</span></div></td>
+            <td class="ex-time">5&ndash;6 reps</td>
+            <td class="ex-notes">Capped on purpose. Band-assisted or lat pulldown if 5 clean reps are not there yet. If your main plan has a heavy pull day, do the table row here instead.</td>
           </tr>
           <tr>
             <td><span class="ex-name">Reverse Lunge</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back, torso upright, back knee tracks down.</div></td>
@@ -1317,7 +1339,7 @@
           <tr>
             <td><span class="ex-name">Suitcase Carry</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=suitcase+carry+kettlebell+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">One bell, walk tall, do not lean away from it.</div></td>
             <td class="ex-time">30 sec per side</td>
-            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it.</td>
+            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it. No room to walk? March on the spot &mdash; the bell still has to be resisted.</td>
           </tr>
         </tbody>
       </table>
@@ -1395,9 +1417,9 @@
     <div class="day-header">
       <div class="day-number">WO 4</div>
       <div class="day-title">Skate &amp; Floor Press</div>
-      <div class="day-tags"><span class="tag tag-time">~46 min</span></div>
+      <div class="day-tags"><span class="tag tag-gym">Gym</span><span class="tag tag-time">~46 min</span></div>
     </div>
-    <div class="session-note progress" style="border-top:none"><span>Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Skater Hops</strong> and <strong>KB Floor Press</strong>.</span></div>
+    <div class="session-note progress" style="border-top:none"><span><strong>Gym session.</strong> Pull-up bar again in Block 2, and the lateral jumping that a lounge floor cannot take. Identical to every other session except the two moves marked <span class="bp-badge b-rotate" style="margin:0 2px">Changes</span> &mdash; <strong>Skater Hops</strong> and <strong>KB Floor Press</strong>.</span></div>
 
     <div class="session">
       <div class="session-header">
@@ -1451,7 +1473,7 @@
           <tr>
             <td><span class="ex-name">Push-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=push+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Body in one line, elbows ~45&deg;.</div></td>
             <td class="ex-time">10&ndash;12 reps</td>
-            <td class="ex-notes">Hands on a chair or worktop to scale it &mdash; the higher the hands, the lighter it is.</td>
+            <td class="ex-notes">Hands on the adjustable stack to scale it &mdash; the higher the hands, the lighter it is. Drop it a notch as you get stronger.</td>
           </tr>
           <tr>
             <td><span class="bp-badge b-rotate">Changes</span><span class="ex-name">Skater Hops</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=skater+hops+lateral+bound+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Low and lateral, soft landings.</div></td>
@@ -1480,9 +1502,9 @@
             <td class="ex-notes">Slow 3-second lower.</td>
           </tr>
           <tr>
-            <td><span class="ex-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Under a sturdy table or a bar at hip height. Grip the edge, body straight, chest to the edge.</div><div class="ex-alt"><span class="alt-label">If you have rings</span><span class="alt-name">Ring Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=ring+row+inverted+row+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Identical movement, rings instead of a table edge.</span></div></td>
-            <td class="ex-time">10 reps</td>
-            <td class="ex-notes">Walk the feet in to make it easier, out to make it harder. No equipment needed.</td>
+            <td><span class="bp-badge b-gym">Gym</span><span class="ex-name">Pull-Up</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=pull+up+proper+form+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Full hang to chin over the bar, shoulders pulled down first. Stop two reps short of failure &mdash; always.</div><div class="ex-alt alt-home"><span class="alt-label">No bar</span><span class="alt-name">Inverted Row</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=inverted+row+under+table+bodyweight+tutorial" target="_blank">&#9654; Video</a><span class="alt-cue">Fall back to the table row if the bar is busy or the arms are cooked.</span></div></td>
+            <td class="ex-time">5&ndash;6 reps</td>
+            <td class="ex-notes">Capped on purpose. Band-assisted or lat pulldown if 5 clean reps are not there yet. If your main plan has a heavy pull day, do the table row here instead.</td>
           </tr>
           <tr>
             <td><span class="ex-name">Reverse Lunge</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">Step back, torso upright, back knee tracks down.</div></td>
@@ -1548,7 +1570,7 @@
           <tr>
             <td><span class="ex-name">Suitcase Carry</span> <a class="ex-video" href="https://www.youtube.com/results?search_query=suitcase+carry+kettlebell+tutorial" target="_blank">&#9654; Video</a><div class="ex-cue">One bell, walk tall, do not lean away from it.</div></td>
             <td class="ex-time">30 sec per side</td>
-            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it.</td>
+            <td class="ex-notes">Grip, trunk and posture in one. Do not skip it. No room to walk? March on the spot &mdash; the bell still has to be resisted.</td>
           </tr>
         </tbody>
       </table>
